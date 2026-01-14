@@ -93,7 +93,7 @@ export function AddTaskDialog({ onAddTask }: AddTaskDialogProps) {
                   <SelectContent>
                     <SelectItem value="todo">To Do</SelectItem>
                     <SelectItem value="in-progress">In Progress</SelectItem>
-                    <SelectItem value="done">Done</SelectItem>
+                    <SelectItem value="completed">Completed</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

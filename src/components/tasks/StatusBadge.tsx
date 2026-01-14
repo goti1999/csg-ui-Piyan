@@ -14,8 +14,8 @@ const statusConfig: Record<TaskStatus, { label: string; className: string }> = {
     label: 'In Progress',
     className: 'bg-warning/10 text-warning',
   },
-  'done': {
-    label: 'Done',
+  'completed': {
+    label: 'Completed',
     className: 'bg-success/10 text-success',
   },
 };
