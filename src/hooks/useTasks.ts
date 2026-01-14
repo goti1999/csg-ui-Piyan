@@ -1,108 +1,212 @@
-import { useState, useCallback } from 'react';
-import { Task, TaskStatus, TaskPriority } from '@/types/task';
+import { useState, useCallback, useEffect } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
+import { toast } from 'sonner';
 
-const generateId = () => Math.random().toString(36).substr(2, 9);
+export type TaskStatus = 'todo' | 'in-progress' | 'completed';
+export type TaskPriority = 'low' | 'medium' | 'high';
 
-const initialTasks: Task[] = [
-  {
-    id: generateId(),
-    title: 'Complete project proposal',
-    description: 'Write and submit the Q1 project proposal',
-    status: 'in-progress',
-    priority: 'high',
-    dueDate: '2026-01-15',
-    completed: false,
-    createdAt: '2026-01-10',
-  },
-  {
-    id: generateId(),
-    title: 'Review team feedback',
-    description: 'Go through all feedback from the team meeting',
-    status: 'todo',
-    priority: 'medium',
-    dueDate: '2026-01-16',
-    completed: false,
-    createdAt: '2026-01-11',
-  },
-  {
-    id: generateId(),
-    title: 'Update documentation',
-    description: 'Update the API documentation with new endpoints',
-    status: 'done',
-    priority: 'low',
-    dueDate: '2026-01-12',
-    completed: true,
-    createdAt: '2026-01-08',
-  },
-  {
-    id: generateId(),
-    title: 'Schedule client meeting',
-    description: 'Set up a meeting with the client for next week',
-    status: 'todo',
-    priority: 'high',
-    dueDate: '2026-01-17',
-    completed: false,
-    createdAt: '2026-01-12',
-  },
-  {
-    id: generateId(),
-    title: 'Code review',
-    description: 'Review pull requests from the development team',
-    status: 'in-progress',
-    priority: 'medium',
-    dueDate: '2026-01-14',
-    completed: false,
-    createdAt: '2026-01-13',
-  },
-];
+export interface Task {
+  id: string;
+  title: string;
+  description: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  dueDate: string;
+  completed: boolean;
+  createdAt: string;
+}
 
 export type SortField = 'title' | 'status' | 'priority' | 'dueDate' | 'createdAt';
 export type SortDirection = 'asc' | 'desc';
 
 export function useTasks() {
-  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const { user } = useAuth();
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
   const [sortField, setSortField] = useState<SortField>('createdAt');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
   const [filterStatus, setFilterStatus] = useState<TaskStatus | 'all'>('all');
   const [filterPriority, setFilterPriority] = useState<TaskPriority | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const addTask = useCallback((task: Omit<Task, 'id' | 'createdAt'>) => {
-    const newTask: Task = {
-      ...task,
-      id: generateId(),
-      createdAt: new Date().toISOString().split('T')[0],
-    };
-    setTasks((prev) => [...prev, newTask]);
-  }, []);
+  // Fetch tasks from database
+  const fetchTasks = useCallback(async () => {
+    if (!user) {
+      setTasks([]);
+      setLoading(false);
+      return;
+    }
 
-  const updateTask = useCallback((id: string, updates: Partial<Task>) => {
-    setTasks((prev) =>
-      prev.map((task) => (task.id === id ? { ...task, ...updates } : task))
-    );
-  }, []);
+    try {
+      const { data, error } = await supabase
+        .from('tasks')
+        .select('*')
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
 
-  const deleteTask = useCallback((id: string) => {
-    setTasks((prev) => prev.filter((task) => task.id !== id));
-  }, []);
+      if (error) throw error;
 
-  const deleteSelectedTasks = useCallback((ids: string[]) => {
-    setTasks((prev) => prev.filter((task) => !ids.includes(task.id)));
-  }, []);
+      const mappedTasks: Task[] = (data || []).map((task) => ({
+        id: task.id,
+        title: task.title,
+        description: task.description || '',
+        status: task.status as TaskStatus,
+        priority: task.priority as TaskPriority,
+        dueDate: task.due_date || '',
+        completed: task.completed,
+        createdAt: task.created_at.split('T')[0],
+      }));
 
-  const toggleComplete = useCallback((id: string) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === id
-          ? {
-              ...task,
-              completed: !task.completed,
-              status: !task.completed ? 'done' : 'todo',
-            }
-          : task
-      )
-    );
-  }, []);
+      setTasks(mappedTasks);
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+      toast.error('Failed to load tasks');
+    } finally {
+      setLoading(false);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
+
+  const addTask = useCallback(async (task: Omit<Task, 'id' | 'createdAt'>) => {
+    if (!user) return;
+
+    try {
+      const { data, error } = await supabase
+        .from('tasks')
+        .insert({
+          user_id: user.id,
+          title: task.title,
+          description: task.description || null,
+          status: task.status,
+          priority: task.priority,
+          due_date: task.dueDate || null,
+          completed: task.completed,
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      const newTask: Task = {
+        id: data.id,
+        title: data.title,
+        description: data.description || '',
+        status: data.status as TaskStatus,
+        priority: data.priority as TaskPriority,
+        dueDate: data.due_date || '',
+        completed: data.completed,
+        createdAt: data.created_at.split('T')[0],
+      };
+
+      setTasks((prev) => [newTask, ...prev]);
+      toast.success('Task added successfully');
+    } catch (error) {
+      console.error('Error adding task:', error);
+      toast.error('Failed to add task');
+    }
+  }, [user]);
+
+  const updateTask = useCallback(async (id: string, updates: Partial<Task>) => {
+    if (!user) return;
+
+    try {
+      const dbUpdates: Record<string, unknown> = {};
+      if (updates.title !== undefined) dbUpdates.title = updates.title;
+      if (updates.description !== undefined) dbUpdates.description = updates.description;
+      if (updates.status !== undefined) dbUpdates.status = updates.status;
+      if (updates.priority !== undefined) dbUpdates.priority = updates.priority;
+      if (updates.dueDate !== undefined) dbUpdates.due_date = updates.dueDate || null;
+      if (updates.completed !== undefined) dbUpdates.completed = updates.completed;
+
+      const { error } = await supabase
+        .from('tasks')
+        .update(dbUpdates)
+        .eq('id', id)
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      setTasks((prev) =>
+        prev.map((task) => (task.id === id ? { ...task, ...updates } : task))
+      );
+    } catch (error) {
+      console.error('Error updating task:', error);
+      toast.error('Failed to update task');
+    }
+  }, [user]);
+
+  const deleteTask = useCallback(async (id: string) => {
+    if (!user) return;
+
+    try {
+      const { error } = await supabase
+        .from('tasks')
+        .delete()
+        .eq('id', id)
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      setTasks((prev) => prev.filter((task) => task.id !== id));
+      toast.success('Task deleted');
+    } catch (error) {
+      console.error('Error deleting task:', error);
+      toast.error('Failed to delete task');
+    }
+  }, [user]);
+
+  const deleteSelectedTasks = useCallback(async (ids: string[]) => {
+    if (!user || ids.length === 0) return;
+
+    try {
+      const { error } = await supabase
+        .from('tasks')
+        .delete()
+        .in('id', ids)
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      setTasks((prev) => prev.filter((task) => !ids.includes(task.id)));
+      toast.success(`${ids.length} task(s) deleted`);
+    } catch (error) {
+      console.error('Error deleting tasks:', error);
+      toast.error('Failed to delete tasks');
+    }
+  }, [user]);
+
+  const toggleComplete = useCallback(async (id: string) => {
+    const task = tasks.find((t) => t.id === id);
+    if (!task || !user) return;
+
+    const newCompleted = !task.completed;
+    const newStatus = newCompleted ? 'completed' : 'todo';
+
+    try {
+      const { error } = await supabase
+        .from('tasks')
+        .update({ completed: newCompleted, status: newStatus })
+        .eq('id', id)
+        .eq('user_id', user.id);
+
+      if (error) throw error;
+
+      setTasks((prev) =>
+        prev.map((t) =>
+          t.id === id
+            ? { ...t, completed: newCompleted, status: newStatus as TaskStatus }
+            : t
+        )
+      );
+    } catch (error) {
+      console.error('Error toggling task:', error);
+      toast.error('Failed to update task');
+    }
+  }, [tasks, user]);
 
   const handleSort = useCallback((field: SortField) => {
     setSortField(field);
@@ -154,6 +258,7 @@ export function useTasks() {
   return {
     tasks: filteredAndSortedTasks,
     allTasks: tasks,
+    loading,
     addTask,
     updateTask,
     deleteTask,
@@ -169,5 +274,6 @@ export function useTasks() {
     searchQuery,
     setSearchQuery,
     exportToCSV,
+    refetch: fetchTasks,
   };
 }
