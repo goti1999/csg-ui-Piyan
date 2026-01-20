@@ -1,70 +1,91 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, Session } from '@supabase/supabase-js';
-import { supabase } from '@/integrations/supabase/client';
+
+interface AuthUser {
+  id: string;
+  username: string;
+  role: 'admin' | 'user' | 'viewer';
+}
+
+interface ValidatedUser {
+  id: string;
+  username: string;
+  role: 'admin' | 'user' | 'viewer';
+}
 
 interface AuthContextType {
-  user: User | null;
-  session: Session | null;
+  user: AuthUser | null;
+  session: { user: AuthUser } | null;
   loading: boolean;
-  signUp: (email: string, password: string) => Promise<{ error: Error | null }>;
-  signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
+  signIn: (username: string, password: string, validateUser: (u: string, p: string) => ValidatedUser | null, updateLastLogin: (id: string) => void) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const STORAGE_KEY = 'csg_admin_session';
+
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [session, setSession] = useState<{ user: AuthUser } | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setLoading(false);
+    // Check for existing session in localStorage
+    const storedSession = localStorage.getItem(STORAGE_KEY);
+    if (storedSession) {
+      try {
+        const parsedSession = JSON.parse(storedSession);
+        if (parsedSession.user) {
+          setUser(parsedSession.user);
+          setSession(parsedSession);
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      } catch (error) {
+        localStorage.removeItem(STORAGE_KEY);
       }
-    );
-
-    // THEN check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    return () => subscription.unsubscribe();
+    }
+    setLoading(false);
   }, []);
 
-  const signUp = async (email: string, password: string) => {
-    const redirectUrl = `${window.location.origin}/`;
+  const signIn = async (
+    username: string, 
+    password: string,
+    validateUser: (u: string, p: string) => ValidatedUser | null,
+    updateLastLogin: (id: string) => void
+  ): Promise<{ error: Error | null }> => {
+    // Validate against users in AppContext
+    const validatedUser = validateUser(username, password);
     
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: redirectUrl
-      }
-    });
-    return { error };
-  };
-
-  const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    return { error };
+    if (validatedUser) {
+      const authUser: AuthUser = {
+        id: validatedUser.id,
+        username: validatedUser.username,
+        role: validatedUser.role,
+      };
+      const newSession = { user: authUser };
+      
+      setUser(authUser);
+      setSession(newSession);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newSession));
+      
+      // Update last login time
+      updateLastLogin(validatedUser.id);
+      
+      return { error: null };
+    } else {
+      return { error: new Error('Invalid username or password, or account is not active.') };
+    }
   };
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    setUser(null);
+    setSession(null);
+    localStorage.removeItem(STORAGE_KEY);
   };
 
   return (
-    <AuthContext.Provider value={{ user, session, loading, signUp, signIn, signOut }}>
+    <AuthContext.Provider value={{ user, session, loading, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
