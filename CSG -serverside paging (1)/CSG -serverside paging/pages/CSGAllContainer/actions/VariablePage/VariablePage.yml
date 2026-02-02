@@ -1,0 +1,11 @@
+id: '17611404889410.8477956427716181'
+kind: folder
+name: VariablePage
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '17442767595900.5825776314192999'
+config:
+  preserveStateOnPageChange: false
+selected: false

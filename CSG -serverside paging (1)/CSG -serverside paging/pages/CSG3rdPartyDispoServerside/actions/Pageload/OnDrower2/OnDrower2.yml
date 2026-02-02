@@ -1,0 +1,67 @@
+id: '17610449306590.5036064798509006'
+kind: workflow
+name: OnDrower2
+nameConfigured: true
+steps:
+  - id: '17610449306600.7000193071157246'
+    type: executeAction
+    name: execute
+    params:
+      - type: action
+        value: '17610449306600.03215524826357019'
+        valueType: custom
+      - type: isActionsLibraryCall
+        value: false
+        valueType: custom
+      - type: customParams
+        value: ./execute-customParams.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17610449306600.49549356708416037'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OnDrower2.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OnDrower2.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OnDrower2.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: false
+configured: true
+defaultParams: ''
+parentId: '17611405630410.2797405529242303'
+parentPageId: '17610449306550.9585190778091468'

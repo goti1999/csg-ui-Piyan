@@ -1,0 +1,17 @@
+id: '17612246461290.9311107796455325'
+kind: store_item
+name: DispoHistoryContent
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: '[]'
+  valueType: array
+  initialValue: '[]'
+  version: 1
+selected: false
+configured: true
+config:
+  preserveStateOnPageChange: true
+parentId: '17603437805180.30971559546049277'

@@ -1,0 +1,64 @@
+id: '17612911131470.18408312273985583'
+kind: workflow
+name: OpenTree
+nameConfigured: true
+steps:
+  - id: '17612911131470.0894694670176065'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17612911131470.3616762633058026'
+    type: customAsyncCode
+    name: code2
+    params:
+      - type: asyncCode
+        value: ./code2.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17612911131470.5667466946902291'
+    type: customAsyncCode
+    name: code3
+    params:
+      - type: asyncCode
+        value: ./code3.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+parentId: '17612911131460.7784159521690406'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OpenTree.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OpenTree.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OpenTree.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+parentPageId: '17612911131400.5689290393099746'
+defaultParams: ''

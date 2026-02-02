@@ -1,0 +1,39 @@
+id: '17613009040390.2519896971312806'
+kind: workflow
+name: generateExcel
+nameConfigured: true
+steps:
+  - id: '17613009040390.9771598544564735'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.generateExcel2.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.generateExcel2.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.generateExcel2.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: true
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+parentId: '17613009040380.2589133310987489'
+parentPageId: '17613009040270.19561444091213742'

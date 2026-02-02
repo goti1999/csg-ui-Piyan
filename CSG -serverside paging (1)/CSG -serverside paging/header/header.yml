@@ -1,0 +1,46 @@
+id: '17473903329800.7784823622652446'
+name: content
+children:
+  - id: '17473903329840.4164660375367475'
+    definitionId: layoutHeader
+    parentSlotId: '17473903329800.7784823622652446'
+    styles:
+      xl:
+        backgroundColor:
+          value: primary
+          dataValue: default
+          withData: false
+    properties:
+      name: layoutHeader
+      __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+        - xl
+        - xs
+      minRow: '4'
+      stickyHeader:
+        value: true
+        dataValue: 'false'
+        withData: false
+      containerStyles:
+        withData: false
+        dataValue: |-
+          {
+            padding: 'default',
+            shadow: 'default',
+            border: 'none'
+          }
+        value:
+          padding: none
+          shadow: none
+          border: none
+        themeDefaultOverridePropertyKey: layoutContainerStyles
+    actions: {}
+    index: 0
+    slots:
+      - id: '17473903329840.9701192511062638'
+        name: content
+        children:
+          - components/image.yml
+          - components/Manubar3.yml
+          - components/modal2/modal2.yml
+          - components/modal10/modal10.yml
+          - components/modal11/modal11.yml

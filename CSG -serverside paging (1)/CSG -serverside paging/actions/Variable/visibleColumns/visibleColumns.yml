@@ -1,0 +1,17 @@
+id: '17612221892730.30840841495289395'
+kind: store_item
+name: visibleColumns
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: '["Container_No", "Carrier", "Vessel", "Status_Dispo", "ETA_DeliveryAddress"]'
+  valueType: string
+  initialValue: '["Container_No", "Carrier", "Vessel", "Status_Dispo", "ETA_DeliveryAddress"]'
+  version: 1
+config:
+  preserveStateOnPageChange: true
+selected: false
+configured: true
+parentId: '17603437805180.30971559546049277'

@@ -1,0 +1,12 @@
+id: '17613009040370.8431051953473814'
+kind: folder
+name: MultiEdit
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '17613009040270.19561444091213742'
+parentId: '17613009040350.5909581195480245'
+selected: false
+config:
+  preserveStateOnPageChange: false

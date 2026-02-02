@@ -1,0 +1,83 @@
+id: '17604244259230.5998881828997449'
+kind: workflow
+name: On_Filter_Where
+nameConfigured: true
+steps:
+  - id: '17604244259230.8872767586220756'
+    type: customAsyncCode
+    name: code4
+    params:
+      - type: asyncCode
+        value: ./code4.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17604244259230.8668485467189867'
+    type: customAsyncCode
+    name: code3
+    params:
+      - type: asyncCode
+        value: ./code3.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17604244259230.8003046448239116'
+    type: customAsyncCode
+    name: code2
+    params:
+      - type: asyncCode
+        value: ./code2.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17604244259230.6799961026358359'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.On_Filter_Where.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.On_Filter_Where.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: false
+  errorToast: Action "{{actions.On_Filter_Where.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: false
+configured: true
+defaultParams: ''
+actions:
+  success:
+    - action: '17604244259170.5029423074914308'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  error: []
+parentPageId: '17604244259020.8463581709343864'

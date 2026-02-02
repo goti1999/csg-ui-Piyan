@@ -1,0 +1,34 @@
+id: '17613024669850.328418550502503'
+kind: workflow
+name: GetTAColumn
+nameConfigured: true
+steps:
+  - id: '17613024752060.17171289911226462'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.GetTAColumn.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.GetTAColumn.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.GetTAColumn.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true
+selected: false
+configured: true

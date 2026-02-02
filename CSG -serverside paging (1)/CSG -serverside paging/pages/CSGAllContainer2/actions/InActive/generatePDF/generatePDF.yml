@@ -1,0 +1,37 @@
+id: '17612911131530.7457002854934464'
+kind: workflow
+name: generatePDF
+nameConfigured: true
+steps:
+  - id: '17612911131530.33234054539487956'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.generatePDF.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.generatePDF.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.generatePDF.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false
+selected: true
+configured: true
+parentPageId: '17612911131400.5689290393099746'
+parentId: '17612911131510.25638382077214017'

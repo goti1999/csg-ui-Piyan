@@ -1,0 +1,12 @@
+- showColumns
+- allColumns
+- visibleColumns
+- DispoHistoryContent
+- TAHistoryContent
+- Rowtransport_Dispo_ID
+- RowContainerID
+- RowMBL_ID
+- RowCustomerID
+- DynamicFilter
+- RowMBL_No
+- RowContainer_No

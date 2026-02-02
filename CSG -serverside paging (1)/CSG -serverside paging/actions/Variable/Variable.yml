@@ -1,0 +1,10 @@
+id: '17603437805180.30971559546049277'
+kind: folder
+name: Variable
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+selected: false
+config:
+  preserveStateOnPageChange: true

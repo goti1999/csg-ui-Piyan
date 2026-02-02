@@ -1,0 +1,35 @@
+id: '17604244259220.831025519643583'
+kind: workflow
+name: onRowDoubleClick
+nameConfigured: true
+steps:
+  - id: '17604244259220.0929094374495869'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: true
+parentPageId: '17604244259020.8463581709343864'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.onRowDoubleClick.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.onRowDoubleClick.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.onRowDoubleClick.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false
+parentId: '17604244259180.43048181308728295'

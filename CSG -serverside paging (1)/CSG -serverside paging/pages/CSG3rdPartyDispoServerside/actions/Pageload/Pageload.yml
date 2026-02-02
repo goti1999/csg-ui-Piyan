@@ -1,0 +1,11 @@
+id: '17611405630410.2797405529242303'
+kind: folder
+name: Pageload
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '17610449306550.9585190778091468'
+selected: false
+config:
+  preserveStateOnPageChange: false

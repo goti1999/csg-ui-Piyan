@@ -1,0 +1,117 @@
+id: '17613007846060.07603575614086222'
+kind: workflow
+name: onEditTableCustomer
+nameConfigured: true
+steps:
+  - id: '17613007846060.3382750650676912'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: string
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.transport_Dispo_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.to_Customer )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.to_Transporter )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.transport_Dispo_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.transport_Dispo_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.to_Customer )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable11.selectedRow.data.to_Transporter )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17613007846060.15918724852685973'
+    type: executeAction
+    name: execute
+    params:
+      - type: action
+        value: '17613007846000.46974684618911144'
+        valueType: custom
+      - type: isActionsLibraryCall
+        value: false
+        valueType: custom
+      - type: customParams
+        value: ./execute-customParams.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+parentPageId: '17613007845890.1494303586036353'
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.onEditTableCustomer.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.onEditTableCustomer.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.onEditTableCustomer.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+parentId: '17613007846060.9314983326043799'

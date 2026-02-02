@@ -1,0 +1,11 @@
+id: '17612911131500.1182734419539806'
+kind: folder
+name: Download
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '17612911131400.5689290393099746'
+config:
+  preserveStateOnPageChange: false
+selected: false

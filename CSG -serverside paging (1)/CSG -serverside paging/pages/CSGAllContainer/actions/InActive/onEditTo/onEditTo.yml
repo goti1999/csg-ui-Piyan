@@ -1,0 +1,215 @@
+id: '17473919845280.6774250209815713'
+kind: workflow
+name: onEditTo
+nameConfigured: true
+steps:
+  - id: '17476575893870.6854610632048841'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.transport_Dispo_ID
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.transport_Dispo_ID
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.transport_Dispo_ID
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17473989769700.8239597281789972'
+    type: UPDATE_ENTITY
+    name: update
+    params:
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: string
+      - type: resourceId
+        value: dbo.Transport_Dispo
+        valueType: string
+      - type: filter
+        value:
+          - column: to_Customer
+            operation: '='
+            value:
+              value: '{{ui.todopopup.value.to_Customer}}'
+        valueType: custom
+      - type: entity
+        value: ./update-entity.yml
+        valueType: custom
+      - type: replace
+        value: false
+        valueType: string
+      - type: bulk
+        value: false
+        valueType: string
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17473990007490.5805626102435228'
+    type: executeAction
+    name: execute
+    params:
+      - type: action
+        value: '17473945488670.2850789859506737'
+        valueType: custom
+      - type: isActionsLibraryCall
+        value: false
+        valueType: custom
+      - type: customParams
+        value: ./execute-customParams.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17476569770950.48831391217693565'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17476588719060.8247392914771058'
+    type: customAsyncCode
+    name: updatecode
+    params:
+      - type: asyncCode
+        value: ./updatecode.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17476595193950.036275240958433375'
+    type: customSQLQuery
+    name: query2
+    params:
+      - type: query
+        value: ./query2-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query2-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.todopopup.value.to_Customer )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+parentPageId: '17442767595900.5825776314192999'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.onEditTo.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.onEditTo.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.onEditTo.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: false
+configured: true
+parentId: '17582093237610.23400680595443868'
+defaultParams: ''

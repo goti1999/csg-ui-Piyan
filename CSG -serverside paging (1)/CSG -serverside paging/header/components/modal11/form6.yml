@@ -1,0 +1,1139 @@
+id: '17609569159150.8989990934311732'
+definitionId: form
+parentSlotId: '17609567416030.6411774640757323'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 132
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 80
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicFields:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  entity: '{{ui.ontable.selectedRow.data}}'
+  name: form6
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  columns: '3'
+  title: ''
+  heightMode: fixed
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: default
+      border: none
+  showSubmitBtn:
+    value: false
+    dataValue: 'true'
+    withData: false
+actions: {}
+slots:
+  - id: '17609569159150.03562127479587507'
+    name: structure
+    children:
+      - id: '17609569159660.3675059822877713'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicString413
+          prop: Diff_DeliveryAddress
+          primaryKey: false
+          inputType: email
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: difference_material_filled
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: right
+        parentSlotId: '17609569159150.03562127479587507'
+        index: 8
+        actions: {}
+        slots: []
+      - id: '17609569159660.3802054041761309'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicString415
+          prop: twitter_handle
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          decoration: underline
+          icon:
+            value: difference_material_filled
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: right
+        parentSlotId: '17609569159150.03562127479587507'
+        index: 12
+        actions: {}
+        slots: []
+      - id: '17609569159660.4235886743726919'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime
+          prop: ETA_PortOfDischarge
+          primaryKey: false
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          widthMode: fixed
+          width: 138
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_PortOfDischarge_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA PortOfDischarge
+          forceView: true
+          timezone: '+0000'
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: left
+        index: 0
+        slots: []
+      - id: '17609569159660.7268839233615134'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime24
+          prop: ATD_Pickup_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          width: 171
+          widthMode: fixed
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          timezone: '+0000'
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ATD_Pickup_PortOfDischarge_concat.replace(/\\n/g, ''\n'')}}'
+          title: ATD Pickup PortOfDischarge
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: center
+        index: 1
+        slots: []
+      - id: '17609569159660.4046865922878756'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime
+          prop: ETA_Terminal_Inland
+          primaryKey: false
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          filter: true
+          widthMode: fixed
+          width: 145
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          timezone: '+0000'
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_Terminal_Inland_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA Terminal Inland
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+        index: 3
+        slots: []
+      - id: '17609569159660.7701104912851983'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime22
+          prop: ATA_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+          filter: true
+          widthMode: fixed
+          width: 131
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          timezone: '+0000'
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ATA_Terminal_Inland_concat.replace(/\\n/g, ''\n'')}}'
+          title: ATA Terminal Inland
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: center
+        index: 4
+        slots: []
+      - id: '17609569159660.7413439166737431'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime6
+          prop: ETA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          primaryKey: false
+          widthMode: fixed
+          width: 137
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          firstDayOfWeek:
+            value: monday
+            dataValue: sunday
+            withData: false
+          alignment: center
+          timezone: '+0000'
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_DeliveryAddress_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA DeliveryAddress
+          filterVariation:
+            value: includes
+            dataValue: includes
+            withData: false
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+        index: 6
+        slots: []
+      - id: '17609569159660.4857994596849564'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime9
+          prop: ATA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          title: ATA DeliveryAddress
+          primaryKey: false
+          widthMode: fixed
+          width: 154
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: center
+        index: 7
+        slots: []
+      - id: '17609569159660.6934981528192726'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime7
+          prop: ATA_DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.ATA_DropOff_Terminal_concat.replace(/\\n/g, ''\n'')}}'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          widthMode: fixed
+          width: 126
+          alignment: center
+          viewTooltipMode: custom
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          title: ATA DropOff Terminal
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: center
+        index: 10
+        slots: []
+      - id: '17609569159660.7832865616308288'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime80
+          prop: FirstTimestamp
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.DropOff_Terminal_concat.replace(/\\n/g, ''\n'')}}'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          forceView: true
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          title: 'ETA Update Timestamp '
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          timezone: '+0000'
+        actions: {}
+        index: 9
+        slots: []
+      - id: '17609569159660.6684599096585565'
+        definitionId: atomicString
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicString409
+          prop: Diff_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: difference_material_filled
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: right
+        actions: {}
+        index: 2
+        slots: []
+      - id: '17609569159660.9783436473382462'
+        definitionId: atomicString
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicString410
+          prop: Diff_TerminalInland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: difference_material_filled
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: right
+        actions: {}
+        index: 5
+        slots: []
+      - id: '17609569159660.9051283855991016'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime81
+          prop: ETD_PortOfLoading
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          title: ETD PortOfLoading
+        actions: {}
+        index: 13
+        slots: []
+      - id: '17609592282700.12766411380892884'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            iconPlacement: left
+        properties:
+          name: atomicDateTime82
+          prop: ETA_Service_Provider
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          title: ETA Service Provider
+          labelConfig:
+            position: vertical
+            align: center
+        actions: {}
+        index: 14
+        slots: []
+      - id: '17609593088720.2222231151328361'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime83
+          prop: ATD_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          title: ATD Terminal Inland
+          labelConfig:
+            position: vertical
+            align: right
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+        actions: {}
+        index: 15
+        slots: []
+      - id: '17609593881880.5594767547301724'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime2
+          prop: ATA_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ATA_Seaport_concat.replace(/\\n/g, ''\n'')}}'
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          forceView: true
+          title: ATA Seaport
+        index: 16
+        slots: []
+      - id: '17609594797090.6630100228622547'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime155
+          prop: ATD_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          title: ATD Seaport
+          labelConfig:
+            position: vertical
+            align: center
+        actions: {}
+        index: 17
+        slots: []
+      - id: '17609595129800.45233492217587'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime156
+          prop: ETA_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          title: ETA Seaport
+          forceView: true
+        actions: {}
+        index: 19
+        slots: []
+      - id: '17609595370640.3489077607163028'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime157
+          prop: ETD_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: ETD Seaport
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          forceView: true
+          labelConfig:
+            position: vertical
+            align: center
+        actions: {}
+        index: 20
+        slots: []
+      - id: '17609596955970.46095133697308255'
+        definitionId: atomicString
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicString411
+          prop: Diff_Seaport_ATA_ATD
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: Diff Seaport ATA - ATD
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: difference_material_filled
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: right
+        actions: {}
+        index: 18
+        slots: []
+      - id: '17609596967280.10351300704497979'
+        definitionId: atomicString
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            iconPlacement: left
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+        properties:
+          name: atomicString412
+          prop: Diff_Seaport_ETA_ETD
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: Diff Seaport ETA - ETD
+          forceView: true
+          icon:
+            value: difference_material_filled
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          labelConfig:
+            position: vertical
+            align: right
+        actions: {}
+        index: 21
+        slots: []
+      - id: '17609603761930.374806628102867'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            iconPlacement: left
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+        properties:
+          name: atomicDateTime158
+          prop: CTV_ETA_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          title: CTV ETA PortOfDischarge
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+        actions: {}
+        index: 22
+        slots: []
+      - id: '17609604930870.1574308205391427'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime
+          prop: ETD_Pickup_PortOfDischarge
+          primaryKey: false
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          widthMode: fixed
+          width: 138
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_PortOfDischarge_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA PortOfDischarge
+          forceView: true
+          timezone: '+0000'
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: center
+        index: 23
+        slots: []
+      - id: '17609606188640.48913044071065603'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime159
+          prop: Terminal_Inland_Vorgabe_NTL
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.Terminal_Inland_Vorgabe_NTL_concat.replace(/\\n/g, ''\n'')}}'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          title: Terminal Inland Vorgabe NTL
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: right
+        actions: {}
+        index: 24
+        slots: []
+      - id: '17609607181970.15604361701982306'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime160
+          prop: DeliveryInfo_send_to_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          timezone: '+0000'
+          title: DeliveryInfo Send To CTV
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+        actions: {}
+        index: 25
+        slots: []
+      - id: '17609608334650.5495186133628445'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime161
+          prop: ETA_Deliveryadress_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+          labelConfig:
+            position: vertical
+            align: center
+          title: ETA Deliveryadress CTV
+        actions: {}
+        index: 26
+        slots: []
+      - id: '17609630879420.4031360205416531'
+        definitionId: atomicDateTime
+        parentSlotId: '17609569159150.03562127479587507'
+        styles:
+          xl:
+            fontSize:
+              customValue: 14
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+            iconPlacement: left
+        properties:
+          name: atomicDateTime162
+          prop: TransmissionTimestamp
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: Timestamp
+          forceView: true
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          timezone: '+0000'
+          labelConfig:
+            position: vertical
+            align: right
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+            themeDefaultOverridePropertyKey: starIcon
+        actions: {}
+        index: 11
+        slots: []

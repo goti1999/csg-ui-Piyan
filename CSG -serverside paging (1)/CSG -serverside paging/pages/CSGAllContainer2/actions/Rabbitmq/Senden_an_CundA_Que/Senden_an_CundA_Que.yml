@@ -1,0 +1,284 @@
+id: '17612911131500.9815888531389274'
+kind: workflow
+name: Senden_an_CundA_Que
+nameConfigured: true
+steps:
+  - id: '17612911131500.5359534950214832'
+    type: customAsyncCode
+    name: Jsoncode
+    params:
+      - type: asyncCode
+        value: ./Jsoncode.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+    nameConfigured: true
+  - id: '17612911131500.27731516422374225'
+    type: httpRequest
+    name: request4
+    params:
+      - type: datasourceId
+        value: send_to_customer
+        valueType: custom
+        mustSelectFirst: true
+      - type: method
+        value: PUT
+        valueType: string
+      - type: url
+        value: /api/v2/ui/send-to-customer
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: '{{ steps.Jsoncode.data }}'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value:
+          - name: '{}'
+            value: ''
+            type: text
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: object
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+  - id: '17612911131500.0839968744160845'
+    type: httpRequest
+    name: request
+    params:
+      - type: datasourceId
+        value: httpApi
+        valueType: string
+        mustSelectFirst: true
+      - type: method
+        value: POST
+        valueType: string
+      - type: url
+        value: https://lobster.dev.csg-helm.com/dw/Request/triggerC-A
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: Content-Type
+                value: text/html
+              - name: Authorization
+                value: Basic dGVzdDp0ZXN0
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value:
+          - name: '{}'
+            value: ''
+            type: text
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: formData
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17612911131500.239684871465476'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17612911131500.6777082111901791'
+    type: customAsyncCode
+    name: codepayloadArray
+    params:
+      - type: asyncCode
+        value: ./codepayloadArray.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17612911131500.495073071959085'
+    type: httpRequest
+    name: request3
+    params:
+      - type: datasourceId
+        value: httpApi
+        valueType: string
+        mustSelectFirst: true
+      - type: method
+        value: PUT
+        valueType: string
+      - type: url
+        value: https://api-dev.csg-helm.com/api/v2/ui/send-to-customer
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: accept
+                value: application/json
+              - name: Content-Type
+                value: application/json
+              - name: Authorization
+                value: Basic dWk6dDBwczNjcjN0
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: '{{ steps.Jsoncode.data }}'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value:
+          - name: '{}'
+            value: ''
+            type: text
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: object
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17612911131500.9157221585919568'
+    type: pythonCode
+    name: code3
+    params:
+      - type: code
+        value: ./code3.py
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: variables
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: true
+config:
+  shouldConfirm: true
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.Senden_an_CundA_Auftrag.data}}"?
+  showSuccessToast: true
+  successToast: Action "{{actions.Senden_an_CundA_Que.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.Senden_an_CundA_Que.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+parentId: '17612911131490.6945193183767879'
+parentPageId: '17612911131400.5689290393099746'

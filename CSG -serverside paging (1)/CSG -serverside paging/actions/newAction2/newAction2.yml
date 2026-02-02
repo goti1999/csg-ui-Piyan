@@ -1,0 +1,78 @@
+id: '17612271798660.16837305626270826'
+kind: workflow
+name: newAction2
+nameConfigured: false
+steps:
+  - id: '17612273060840.6540101213593265'
+    type: httpRequest
+    name: request
+    params:
+      - type: datasourceId
+        value: httpApi
+        valueType: string
+        mustSelectFirst: true
+      - type: method
+        value: GET
+        valueType: string
+      - type: url
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured: []
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured: []
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value: []
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: raw
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: false
+mode: manual
+modeConfigured: false
+parentId: null
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.newAction2.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.newAction2.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.newAction2.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true

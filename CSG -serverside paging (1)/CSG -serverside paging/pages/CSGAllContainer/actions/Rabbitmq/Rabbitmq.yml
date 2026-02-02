@@ -1,0 +1,11 @@
+id: '17582083219150.03521313930373049'
+kind: folder
+name: Rabbitmq
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+selected: false
+parentPageId: '17442767595900.5825776314192999'
+config:
+  preserveStateOnPageChange: false

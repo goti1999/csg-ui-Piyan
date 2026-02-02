@@ -1,0 +1,108 @@
+id: '17603530292320.12794456640658236'
+definitionId: modal
+parentSlotId: '17473903329840.9701192511062638'
+styles:
+  xl:
+    gridItem:
+      x: 23
+      y: 1
+      w: 1
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    buttonIconPlacement: none
+    modalSize:
+      widthValue: 100
+      widthUnit: '%'
+      heightValue: auto
+      heightUnit: null
+      minWidthValue: 0
+      minWidthUnit: px
+      minHeightValue: 0
+      minHeightUnit: px
+      maxWidthValue: none
+      maxWidthUnit: null
+      maxHeightValue: none
+      maxHeightUnit: null
+  xs:
+    gridItem:
+      id: '17603530292320.12794456640658236'
+      x: 20
+      y: 84
+      w: 4
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: modal2
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  buttonHidden:
+    value: false
+    dataValue: 'false'
+    withData: false
+  buttonText: ' History View '
+  closeOnEsc: false
+  buttonStatus:
+    value: primary
+    dataValue: primary
+    withData: false
+  buttonIcon:
+    value: external-link
+    dataValue: star-outline
+    withData: false
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: none
+      border: none
+  margin:
+    value: true
+    dataValue: 4px
+    withData: false
+  buttonAppearance:
+    value: ghost
+    dataValue: filled
+    withData: false
+  skipItemInFormStructure: false
+actions:
+  open:
+    - action: '17582088408180.4480452655556977'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  init: []
+  close: []
+slots:
+  - id: '17603530292320.24147450865865716'
+    name: header
+    children:
+      - heading4.yml
+      - modal6/modal6.yml
+      - select.yml
+  - id: '17603530292330.04029304752148699'
+    name: body
+    children:
+      - transportDispoHistoryTable2.yml
+  - id: '17603530292330.22603463746613817'
+    name: footer
+    children: []

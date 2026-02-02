@@ -1,0 +1,11 @@
+id: '17606883402700.2543273833491163'
+kind: folder
+name: DeliverContainerDrawer
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '17606877586880.2500625448505459'
+config:
+  preserveStateOnPageChange: false
+selected: false

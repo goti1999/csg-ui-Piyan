@@ -1,0 +1,199 @@
+id: '17472337495680.2383720764355709'
+definitionId: popupForm
+parentSlotId: '17472344514140.7482282207402783'
+styles:
+  xl:
+    gridItem:
+      x: 3
+      y: 5
+      w: 10
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    buttonIconPlacement: none
+    modalSize:
+      widthValue: 35
+      widthUnit: '%'
+      heightValue: auto
+      heightUnit: '-'
+      minWidthValue: 0
+      minWidthUnit: px
+      minHeightValue: 0
+      minHeightUnit: px
+      maxWidthValue: none
+      maxWidthUnit: null
+      maxHeightValue: none
+      maxHeightUnit: null
+  xs:
+    gridItem:
+      id: '17472337495680.2383720764355709'
+      x: 1
+      y: 0
+      w: 6
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicFields:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  entity: '{{actions.Senden_an_CTV_Auftrag.data}}'
+  name: ShowResultCTV
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: CTV Auftrag
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+  closeOnEsc: true
+  closeOnBackdrop: true
+  showSubmitBtn:
+    value: false
+    dataValue: 'true'
+    withData: false
+  showSuccessMessage: true
+  showErrorMessage: true
+  showCustomButton:
+    value: false
+    dataValue: 'false'
+    withData: false
+  customButtonText: OK
+  customButtonStatus:
+    value: success-light
+    dataValue: basic
+    withData: false
+  buttonText: CTV Auftrag Popup
+actions: {}
+slots:
+  - id: '17472337495680.2556489624937952'
+    name: structure
+    children:
+      - id: '17472337496060.11688581587066216'
+        definitionId: atomicString
+        parentSlotId: '17472337495680.2556489624937952'
+        styles:
+          xl:
+            visible: true
+            labelColor:
+              value: success-dark
+              dataValue: basic
+              withData: false
+            iconPlacement: left
+        properties:
+          name: atomicString12
+          prop: Status
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: book-open
+            dataValue: star-outline
+            withData: false
+        actions: {}
+        index: 0
+        slots: []
+      - id: '17472337496070.45792790309374076'
+        definitionId: atomicDateTime
+        parentSlotId: '17472337495680.2556489624937952'
+        styles:
+          xl:
+            visible: true
+            labelColor:
+              value: success-dark
+              dataValue: basic
+              withData: false
+            iconPlacement: left
+        properties:
+          name: atomicDateTime
+          prop: Timestamp
+          primaryKey: false
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          labelConfig:
+            position: vertical
+            align: left
+          labelWidth: 37
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: clock
+            dataValue: star-outline
+            withData: false
+          iconColor:
+            value: text-color
+            dataValue: text-color
+            withData: false
+        index: 1
+        slots: []
+      - id: '17472337496080.019848720639774053'
+        definitionId: atomicString
+        parentSlotId: '17472337495680.2556489624937952'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString
+          prop: Environment
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        index: 2
+        slots: []
+      - id: '17472342826690.3680778388207179'
+        definitionId: atomicNumber
+        parentSlotId: '17472337495680.2556489624937952'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber9
+          prop: Session-ID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        actions: {}
+        index: 3
+        slots: []

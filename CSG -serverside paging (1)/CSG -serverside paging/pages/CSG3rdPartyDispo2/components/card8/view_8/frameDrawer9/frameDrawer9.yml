@@ -1,0 +1,79 @@
+id: '17604244259120.051218277096697684'
+definitionId: frameDrawer
+parentSlotId: '17604244259120.07729267838611331'
+styles:
+  xl:
+    gridItem:
+      id: '17597564614150.6319226644717687'
+      x: 2
+      y: 34
+      w: 5
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    buttonIconPlacement: left
+    modalSize:
+      widthValue: 400
+      widthUnit: px
+      heightValue: '100'
+      heightUnit: '%'
+      minWidthValue: 0
+      minWidthUnit: px
+      minHeightValue: 0
+      minHeightUnit: px
+      maxWidthValue: none
+      maxWidthUnit: null
+      maxHeightValue: none
+      maxHeightUnit: null
+  xs:
+    gridItem:
+      id: '17597564614150.6319226644717687'
+      x: 2
+      y: 54
+      w: 5
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: frameDrawer9
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  buttonText: OnEdit Form
+  buttonStatus:
+    value: primary
+    dataValue: primary
+    withData: false
+  buttonIcon:
+    value: edit-2
+    dataValue: star-outline
+    withData: false
+    themeDefaultOverridePropertyKey: starIcon
+  drawerAlignment: right
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+actions: {}
+slots:
+  - id: '17604244259120.3795260724675499'
+    name: header
+    children:
+      - heading23.yml
+  - id: '17604244259120.6131516624073833'
+    name: body
+    children:
+      - form4.yml
+  - id: '17604244259120.6087371586060257'
+    name: footer
+    children: []

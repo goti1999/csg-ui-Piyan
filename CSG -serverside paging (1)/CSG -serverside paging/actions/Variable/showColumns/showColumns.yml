@@ -1,0 +1,493 @@
+id: '17612222027460.8036880691038056'
+kind: store_item
+name: showColumns
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: |
+    [
+      {
+        "prop": "Timestamp",
+        "type": "datetime",
+        "title": "Timestamp",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": {
+          "type": "date",
+          "placeholder": "Search Timestamp"
+        },
+        "viewSettings": {
+          "mapper": "{{row.Timestamp}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "datetime",
+          "required": true,
+          "validation": {
+            "errorMessage": "Invalid Timestamp value."
+          }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Interface",
+        "type": "string",
+        "title": "Interface",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Interface" },
+        "viewSettings": {
+          "mapper": "{{row.Interface}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "direction",
+        "type": "string",
+        "title": "direction",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search direction" },
+        "viewSettings": {
+          "mapper": "{{row.direction}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "MBL_Number",
+        "type": "string",
+        "title": "MBL_Number",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search MBL_Number" },
+        "viewSettings": {
+          "mapper": "{{row.MBL_Number}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "MBL_ID",
+        "type": "string",
+        "title": "MBL_ID",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search MBL_ID" },
+        "viewSettings": {
+          "mapper": "{{row.MBL_ID}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Container_ID",
+        "type": "string",
+        "title": "Container_ID",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Container_ID" },
+        "viewSettings": {
+          "mapper": "{{row.Container_ID}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Container_Number",
+        "type": "string",
+        "title": "Container_Number",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Container_Number" },
+        "viewSettings": {
+          "mapper": "{{row.Container_Number}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Status",
+        "type": "string",
+        "title": "Status",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Status" },
+        "viewSettings": {
+          "mapper": "{{row.Status}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "ATA_Terminal_Inland",
+        "type": "datetime",
+        "title": "ATA_Terminal_Inland",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "date", "placeholder": "Search ATA_Terminal_Inland" },
+        "viewSettings": {
+          "mapper": "{{row.ATA_Terminal_Inland}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "datetime",
+          "required": true,
+          "validation": { "errorMessage": "Invalid date value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+    {
+        "prop": "ETA_DeliveryAddress",
+        "type": "datetime",
+        "title": "ETA_DeliveryAddress",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "date", "placeholder": "Search ETA_DeliveryAddress" },
+        "viewSettings": {
+          "mapper": "{{row.ETA_DeliveryAddress}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "datetime",
+          "required": true,
+          "validation": { "errorMessage": "Invalid date value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      }
+
+    ]
+  valueType: object
+  initialValue: |
+    [
+      {
+        "prop": "Timestamp",
+        "type": "datetime",
+        "title": "Timestamp",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": {
+          "type": "date",
+          "placeholder": "Search Timestamp"
+        },
+        "viewSettings": {
+          "mapper": "{{row.Timestamp}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "datetime",
+          "required": true,
+          "validation": {
+            "errorMessage": "Invalid Timestamp value."
+          }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Interface",
+        "type": "string",
+        "title": "Interface",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Interface" },
+        "viewSettings": {
+          "mapper": "{{row.Interface}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "direction",
+        "type": "string",
+        "title": "direction",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search direction" },
+        "viewSettings": {
+          "mapper": "{{row.direction}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "MBL_Number",
+        "type": "string",
+        "title": "MBL_Number",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search MBL_Number" },
+        "viewSettings": {
+          "mapper": "{{row.MBL_Number}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "MBL_ID",
+        "type": "string",
+        "title": "MBL_ID",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search MBL_ID" },
+        "viewSettings": {
+          "mapper": "{{row.MBL_ID}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Container_ID",
+        "type": "string",
+        "title": "Container_ID",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Container_ID" },
+        "viewSettings": {
+          "mapper": "{{row.Container_ID}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Container_Number",
+        "type": "string",
+        "title": "Container_Number",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Container_Number" },
+        "viewSettings": {
+          "mapper": "{{row.Container_Number}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "Status",
+        "type": "string",
+        "title": "Status",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "text", "placeholder": "Search Status" },
+        "viewSettings": {
+          "mapper": "{{row.Status}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "text",
+          "required": true,
+          "validation": { "minLength": 0, "maxLength": 255, "errorMessage": "Invalid value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+      {
+        "prop": "ATA_Terminal_Inland",
+        "type": "datetime",
+        "title": "ATA_Terminal_Inland",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "date", "placeholder": "Search ATA_Terminal_Inland" },
+        "viewSettings": {
+          "mapper": "{{row.ATA_Terminal_Inland}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "datetime",
+          "required": true,
+          "validation": { "errorMessage": "Invalid date value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      },
+    {
+        "prop": "ETA_DeliveryAddress",
+        "type": "datetime",
+        "title": "ETA_DeliveryAddress",
+        "sortable": true,
+        "enableEdit": true,
+        "showFilter": true,
+        "filter": { "type": "date", "placeholder": "Search ETA_DeliveryAddress" },
+        "viewSettings": {
+          "mapper": "{{row.ETA_DeliveryAddress}}",
+          "color": "{{row.status === 'active' ? 'success' : 'danger'}}"
+        },
+        "editSettings": {
+          "inputType": "datetime",
+          "required": true,
+          "validation": { "errorMessage": "Invalid date value." }
+        },
+        "conditionalFormatting": [
+          { "condition": "{{row.status === 'delayed'}}", "color": "warning" },
+          { "condition": "{{row.status === 'error'}}", "color": "danger" }
+        ],
+        "triggers": { "onClick": "{{console.log('Row clicked:', row)}}" }
+      }
+
+    ]
+  version: 1
+selected: false
+configured: true
+config:
+  preserveStateOnPageChange: true
+parentId: '17603437805180.30971559546049277'

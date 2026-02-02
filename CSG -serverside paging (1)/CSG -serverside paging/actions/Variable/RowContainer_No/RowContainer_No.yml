@@ -1,0 +1,17 @@
+id: '17604517983280.6353589408570437'
+kind: store_item
+name: RowContainer_No
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentId: '17603437805180.30971559546049277'
+storeItem:
+  value: '0'
+  valueType: string
+  initialValue: '0'
+  version: 1
+selected: true
+configured: true
+config:
+  preserveStateOnPageChange: true

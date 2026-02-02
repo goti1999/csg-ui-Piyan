@@ -1,0 +1,47 @@
+id: '17473901972370.5850391081218065'
+definitionId: image
+parentSlotId: '17473903329840.9701192511062638'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 4
+      h: 11
+    flex:
+      size:
+        widthValue: 100
+        widthUnit: px
+        heightValue: 120
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    src:
+      url: >-
+        https://csg-europe.com/wp-content/uploads/2022/10/CSG_Logo_2_Typo_weiss.png
+      uploadUrl: ''
+      name: ''
+      active: url
+    fit: scale-down
+  xs:
+    gridItem:
+      id: '17473901972370.5850391081218065'
+      x: 0
+      y: 0
+      w: 6
+      h: 30
+    flex:
+      size:
+        widthValue: 100
+        widthUnit: px
+        heightValue: 120
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: image
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+actions: {}
+slots: []

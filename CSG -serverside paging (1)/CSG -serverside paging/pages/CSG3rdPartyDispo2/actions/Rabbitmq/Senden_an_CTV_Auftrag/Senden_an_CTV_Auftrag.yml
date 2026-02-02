@@ -1,0 +1,185 @@
+id: '17604244259130.6491852911358549'
+kind: workflow
+name: Senden_an_CTV_Auftrag
+nameConfigured: true
+steps:
+  - id: '17604244259130.5392326592990352'
+    type: customAsyncCode
+    name: Jsoncode
+    params:
+      - type: asyncCode
+        value: ./Jsoncode.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+  - id: '17604244259130.9535515122729705'
+    type: httpRequest
+    name: request
+    params:
+      - type: datasourceId
+        value: httpApi
+        valueType: string
+        mustSelectFirst: true
+      - type: method
+        value: POST
+        valueType: string
+      - type: url
+        value: https://lobster.dev.csg-helm.com/dw/Request/triggerCTV
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: Content-Type
+                value: text/html
+              - name: Authorization
+                value: Basic dGVzdDp0ZXN0
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value:
+          - name: '{}'
+            value: ''
+            type: text
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: formData
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: true
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17604244259130.3567186767486419'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17604244259130.26625274652074615'
+    type: httpRequest
+    name: request2
+    params:
+      - type: datasourceId
+        value: httpApi
+        valueType: string
+        mustSelectFirst: true
+      - type: method
+        value: PUT
+        valueType: string
+      - type: url
+        value: https://api-dev.csg-helm.com/api/v2/ui/send-to-ctv
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: accept
+                value: application/json
+              - name: Content-Type
+                value: application/json
+              - name: Authorization
+                value: Basic dWk6dDBwczNjcjN0
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: '{{ steps.Jsoncode.data }}'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value: []
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: object
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: true
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.Senden_an_CTV_Auftrag.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.Senden_an_CTV_Auftrag.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.Senden_an_CTV_Auftrag.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+parentId: '17604244259130.2908591988855206'
+parentPageId: '17604244259020.8463581709343864'

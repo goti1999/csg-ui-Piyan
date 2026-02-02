@@ -1,0 +1,2149 @@
+id: '17603530292330.43772291014798537'
+definitionId: smartTable
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 214
+    flex:
+      size:
+        widthValue: 500
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 80
+    flex:
+      size:
+        widthValue: 500
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicColumns:
+    value: []
+    dataValue: '{{state.showColumns}}'
+    withData: true
+  data:
+    value: '{{state.DispoHistoryContent}}'
+    dataValue: ''
+    withData: false
+  name: transportDispoHistoryTable2
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: ''
+  showLoading:
+    withData: true
+    dataValue: '{{actions.get_All_AND_Clone_History.loading}}'
+    value: false
+  heightMode: auto
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: none
+      border: none
+  margin:
+    value: false
+    dataValue: 4px
+    withData: false
+  limit: '[20 ,50 ,100, 200]'
+  showFilter:
+    value: true
+    dataValue: 'false'
+    withData: false
+  showReloadAction:
+    value: true
+    dataValue: 'false'
+    withData: false
+  resetActivePageOnNewData: true
+  enableUserColumnResize:
+    value: true
+    dataValue: 'false'
+    withData: false
+  triggerRowSelectOnInit:
+    value: true
+    dataValue: 'false'
+    withData: false
+  sortColumn:
+    value: Timestamp
+    dataValue: ''
+    withData: false
+  rowBackgroundColor: ''
+  sortDirection:
+    value: desc
+    dataValue: asc
+    withData: false
+  multiplyRowSelection:
+    value: true
+    dataValue: 'false'
+    withData: false
+  rowSelectionType:
+    value: checkbox
+    dataValue: row
+    withData: false
+  selectedRowIndex: '-1'
+  cssClasses:
+    value: []
+    dataValue: |
+      .ub-table-cell {
+        font-weight: bold !important;
+      }
+    withData: false
+parentSlotId: '17603530292330.04029304752148699'
+index: 0
+actions:
+  smartTableReload:
+    - action: '17582088507030.025298652947236433'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  init: []
+  smartTableCreate: []
+  smartTableEdit: []
+  smartTableBulkEdit: []
+  smartTableDelete: []
+  smartTableRowSelect: []
+  smartTableRowClick: []
+  uiOnRowDoubleClick: []
+  smartTablePageSelect: []
+  uiOnPageSizeChange: []
+  smartTableFilterChange: []
+  smartTableSortChange: []
+  uiOnCellChangeTrigger: []
+slots:
+  - id: '17603530292330.5032628162399376'
+    name: columns
+    children:
+      - id: '17603530292330.913976409212137'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime10
+          prop: Timestamp
+          primaryKey: true
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 147
+          widthMode: fixed
+          filter: true
+          alignment: left
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          pinColumn: left
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 0
+        actions: {}
+        slots: []
+      - id: '17603530292330.6736807856026853'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString72
+          prop: Interface
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: true
+          filter: true
+          widthMode: fixed
+          width: 123
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 1
+        actions: {}
+        slots: []
+      - id: '17603530292330.8691549715460809'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString73
+          prop: direction
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 101
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 2
+        actions: {}
+        slots: []
+      - id: '17603530292330.17830941994037386'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber17
+          prop: transport_Dispo_ID
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 107
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 3
+        actions: {}
+        slots: []
+      - id: '17603530292330.5187967431207293'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString74
+          prop: Relation
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 93
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 4
+        actions: {}
+        slots: []
+      - id: '17603530292330.6462233112675216'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber21
+          prop: CustomerID
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 60
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 5
+        actions: {}
+        slots: []
+      - id: '17603530292330.8338232932102078'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicNumber26
+          prop: MBL_ID
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 99
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 6
+        actions: {}
+        slots: []
+      - id: '17603530292330.360673878469699'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicNumber27
+          prop: ContainerID
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 143
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 7
+        actions: {}
+        slots: []
+      - id: '17603530292330.8408695137752061'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString75
+          prop: MBL_Number
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 149
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 8
+        actions: {}
+        slots: []
+      - id: '17603530292330.6396275143372661'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString76
+          prop: Container_Number
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 9
+        actions: {}
+        slots: []
+      - id: '17603530292330.26028647985169084'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean18
+          prop: Direct_Truck
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 10
+        actions: {}
+        slots: []
+      - id: '17603530292330.040227648694967644'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString77
+          prop: Status
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+          filter: true
+          widthMode: fixed
+          width: 181
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 11
+        actions: {}
+        slots: []
+      - id: '17603530292330.8644535172504103'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime48
+          prop: TransmissionTimestamp
+          primaryKey: false
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 142
+          widthMode: fixed
+          filter: true
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 12
+        actions: {}
+        slots: []
+      - id: '17603530292330.3536933363444513'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString78
+          prop: Voyage
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 13
+        actions: {}
+        slots: []
+      - id: '17603530292330.8056063324405282'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString79
+          prop: ContainerSize
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 14
+        actions: {}
+        slots: []
+      - id: '17603530292330.9798133333172402'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString80
+          prop: Broker
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 15
+        actions: {}
+        slots: []
+      - id: '17603530292330.9915982302080064'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString81
+          prop: Carrier
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 16
+        actions: {}
+        slots: []
+      - id: '17603530292330.7618462419068341'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString136
+          prop: Vessel
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 17
+        actions: {}
+        slots: []
+      - id: '17603530292330.42000568689812967'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString137
+          prop: PortOfDischarge_Lima
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 134
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 18
+        actions: {}
+        slots: []
+      - id: '17603530292330.9028773152798681'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime49
+          prop: ETA_PortOfDischarge
+          primaryKey: false
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 19
+        actions: {}
+        slots: []
+      - id: '17603530292330.5324177767492169'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString217
+          prop: PackingMethod
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 20
+        actions: {}
+        slots: []
+      - id: '17603530292330.4253875190936961'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber28
+          prop: TotalWeight
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 21
+        actions: {}
+        slots: []
+      - id: '17603530292330.5761312492825331'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean19
+          prop: AdvertFlag
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          display: icon
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 22
+        actions: {}
+        slots: []
+      - id: '17603530292330.7480535898728201'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean20
+          prop: RealAdvertFlag
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          display: icon
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 23
+        actions: {}
+        slots: []
+      - id: '17603530292330.7252583401972063'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime50
+          prop: EarliestAdvertDate
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 24
+        actions: {}
+        slots: []
+      - id: '17603530292330.9095194951725595'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime51
+          prop: EarliestRealAdvertDate
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 25
+        actions: {}
+        slots: []
+      - id: '17603530292330.3608879812192145'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean33
+          prop: todo
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 26
+        actions: {}
+        slots: []
+      - id: '17603530292330.843480292701804'
+        definitionId: atomicString
+        styles:
+          xl: {}
+        properties:
+          name: atomicString218
+          prop: last_eventID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 286
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 27
+        actions: {}
+        slots: []
+      - id: '17603530292330.5666539178127845'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString219
+          prop: PortOfLoading_Lima
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 28
+        actions: {}
+        slots: []
+      - id: '17603530292330.0843589401899294'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime52
+          prop: ETD_PortOfLoading
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 140
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 29
+        actions: {}
+        slots: []
+      - id: '17603530292330.9991998912380701'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString220
+          prop: Terminal_Inland_Vorgabe_NTL
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 30
+        actions: {}
+        slots: []
+      - id: '17603530292330.112735569418563'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime53
+          prop: ETA_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 126
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 31
+        actions: {}
+        slots: []
+      - id: '17603530292330.7668883631671244'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber29
+          prop: DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 32
+        actions: {}
+        slots: []
+      - id: '17603530292330.45125185516437616'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime54
+          prop: ETA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 155
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 33
+        actions: {}
+        slots: []
+      - id: '17603530292330.2574456880107302'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString221
+          prop: Transport_Mode_Terminal_Vorgabe_NTL
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 34
+        actions: {}
+        slots: []
+      - id: '17603530292330.9588410073391114'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber67
+          prop: Transport_Mode_final_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 35
+        actions: {}
+        slots: []
+      - id: '17603530292330.7748549509829824'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime55
+          prop: ATA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 140
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 36
+        actions: {}
+        slots: []
+      - id: '17603530292330.1829896769915592'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString222
+          prop: Condition
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 37
+        actions: {}
+        slots: []
+      - id: '17603530292330.6047927157115401'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicBoolean42
+          prop: into_CW1
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 38
+        actions: {}
+        slots: []
+      - id: '17603530292330.9015801551308139'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean43
+          prop: to_Customer
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          display: icon
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 39
+        actions: {}
+        slots: []
+      - id: '17603530292330.9875084565180582'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean44
+          prop: to_Transporter
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 40
+        actions: {}
+        slots: []
+      - id: '17603530292330.1050287995045065'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString223
+          prop: DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 41
+        actions: {}
+        slots: []
+      - id: '17603530292330.026034750914408322'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString224
+          prop: Terminal_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 42
+        actions: {}
+        slots: []
+      - id: '17603530292330.1365928697844805'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber68
+          prop: Pincode
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 43
+        actions: {}
+        slots: []
+      - id: '17603530292330.5523625713911225'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString225
+          prop: DropOff_Terminal_TIR
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 44
+        actions: {}
+        slots: []
+      - id: '17603530292330.7693540869119325'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean45
+          prop: Delivered
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 45
+        actions: {}
+        slots: []
+      - id: '17603530292330.973243908097322'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString226
+          prop: Remarks
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 46
+        actions: {}
+        slots: []
+      - id: '17603530292330.6428462867161587'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString227
+          prop: HouseBill
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 47
+        actions: {}
+        slots: []
+      - id: '17603530292330.1392545144871583'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime84
+          prop: Containerverfuegbarkeit
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 48
+        actions: {}
+        slots: []
+      - id: '17603530292330.23577800826879447'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime85
+          prop: ETA_Service_Provider
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 49
+        actions: {}
+        slots: []
+      - id: '17603530292330.5187666962306691'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime99
+          prop: ATA_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 50
+        actions: {}
+        slots: []
+      - id: '17603530292330.1872830870713882'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime100
+          prop: ATD_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 51
+        actions: {}
+        slots: []
+      - id: '17603530292330.9840619225880473'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime101
+          prop: Return_Date_to_Depot
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 52
+        actions: {}
+        slots: []
+      - id: '17603530292330.39765017434365446'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime102
+          prop: ATD_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 53
+        actions: {}
+        slots: []
+      - id: '17603530292330.741887588500013'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime103
+          prop: ETD_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 144
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 54
+        actions: {}
+        slots: []
+      - id: '17603530292330.9319308920092684'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime104
+          prop: ETA_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 150
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 55
+        actions: {}
+        slots: []
+      - id: '17603530292330.6929198601928729'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime105
+          prop: ATA_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 56
+        actions: {}
+        slots: []
+      - id: '17603530292330.4023626684623087'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime106
+          prop: final_date_delivery_address
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 57
+        actions: {}
+        slots: []
+      - id: '17603530292330.5520237869151087'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicNumber69
+          prop: ctv_booking_id
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 58
+        actions: {}
+        slots: []
+      - id: '17603530292330.2591768769790468'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime107
+          prop: CTV_ETA_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 165
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 59
+        actions: {}
+        slots: []
+      - id: '17603530292330.6906704869406962'
+        definitionId: atomicString
+        styles:
+          xl: {}
+        properties:
+          name: atomicString228
+          prop: PortOfDischarge_UNLOCO
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 127
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 60
+        actions: {}
+        slots: []
+      - id: '17603530292330.5868174040291484'
+        definitionId: atomicString
+        styles:
+          xl: {}
+        properties:
+          name: atomicString241
+          prop: PortOfLoading_UNLOCO
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 144
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 61
+        actions: {}
+        slots: []
+      - id: '17603530292330.44668264736963514'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime108
+          prop: ATA_DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 62
+        actions: {}
+        slots: []
+      - id: '17603530292330.8405144743886344'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString242
+          prop: DeliveryAddress_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 63
+        actions: {}
+        slots: []
+      - id: '17603530292330.2184293552092571'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString243
+          prop: PortOfDischarge_UNLOCO_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 64
+        actions: {}
+        slots: []
+      - id: '17603530292330.08949527907370636'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString244
+          prop: Transport_Mode_Terminal_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 65
+        actions: {}
+        slots: []
+      - id: '17603530292330.5229245482873195'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString245
+          prop: Carrier_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 66
+        actions: {}
+        slots: []
+      - id: '17603530292330.6430652860946906'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString246
+          prop: customs_document_number
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 67
+        actions: {}
+        slots: []
+      - id: '17603530292330.12239691587393786'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString247
+          prop: customs_document_type
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 68
+        actions: {}
+        slots: []
+      - id: '17603530292330.9591272251150422'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString248
+          prop: Terminal_Inland_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 69
+        actions: {}
+        slots: []
+      - id: '17603530292330.3209955671874648'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime115
+          prop: ETD_Pickup_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 125
+          widthMode: fixed
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 70
+        actions: {}
+        slots: []
+      - id: '17603530292330.62493664457312'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime121
+          prop: ATD_Pickup_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 71
+        actions: {}
+        slots: []
+      - id: '17603530292330.2503437935427868'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime122
+          prop: pinRequested
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 72
+        actions: {}
+        slots: []
+      - id: '17603530292330.5878455576275092'
+        definitionId: atomicSelect
+        styles: {}
+        properties:
+          name: atomicSelect8
+          prop: pinState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          options:
+            value: []
+            dataValue: '[]'
+            withData: false
+          alignment: center
+          appearance:
+            value: outline
+            dataValue: ''
+            withData: true
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 73
+        actions: {}
+        slots: []
+      - id: '17603530292330.6389697317927716'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString249
+          prop: nationalTransportState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 74
+        actions: {}
+        slots: []
+      - id: '17603530292330.6727153825261699'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString250
+          prop: finalDeliveryState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 75
+        actions: {}
+        slots: []
+      - id: '17603530292330.13397788291266888'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString251
+          prop: emptyReturnState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 76
+        actions: {}
+        slots: []
+      - id: '17603530292330.5321008365542417'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime123
+          prop: ETA_Terminal_Inland_Vorgabe_NTL
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 77
+        actions: {}
+        slots: []
+      - id: '17603530292330.10481846164421516'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime124
+          prop: DeliveryInfo_send_to_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 78
+        actions: {}
+        slots: []
+      - id: '17603530292330.7470769875881355'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean50
+          prop: new
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 79
+        actions: {}
+        slots: []
+      - id: '17603530292330.28526987370545887'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString252
+          prop: Transport_Mode_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 80
+        actions: {}
+        slots: []
+      - id: '17603530292330.5221538457087045'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString253
+          prop: CSG_Event_ID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 81
+        actions: {}
+        slots: []
+      - id: '17603530292330.26859989056108546'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString254
+          prop: Terminal_Inland_CundA
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 82
+        actions: {}
+        slots: []
+      - id: '17603530292330.1430546775215752'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime125
+          prop: ETA_DeliveryAddress_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 83
+        actions: {}
+        slots: []
+      - id: '17603530292330.3380740783558204'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString255
+          prop: EventType
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 84
+        actions: {}
+        slots: []
+      - id: '17603530292330.12707459657249742'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString256
+          prop: Transport_to_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 85
+        actions: {}
+        slots: []
+      - id: '17603530292330.384848963725142'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString257
+          prop: Seal_Number
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 86
+        actions: {}
+        slots: []
+      - id: '17603530292330.32623952596734085'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString258
+          prop: Transport_Document_Number
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 87
+        actions: {}
+        slots: []
+      - id: '17603530292330.7403709668303659'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString259
+          prop: User
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 88
+        actions: {}
+        slots: []
+      - id: '17603530292330.3619475301327789'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean51
+          prop: Cancelation_Send_To_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 89
+        actions: {}
+        slots: []
+      - id: '17603530292330.11229192805106125'
+        definitionId: atomicBoolean
+        styles: {}
+        properties:
+          name: atomicBoolean52
+          prop: TAC
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 90
+        actions: {}
+        slots: []
+      - id: '17603530292330.9388479888957113'
+        definitionId: atomicDateTime
+        styles: {}
+        properties:
+          name: atomicDateTime126
+          prop: ETA_Delivery_Address_Update_TimeStamp
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 91
+        actions: {}
+        slots: []
+      - id: '17603530292330.1675463278091872'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber70
+          prop: JobID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 92
+        actions: {}
+        slots: []
+      - id: '17603530292330.37986193826874415'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString260
+          prop: Tabelle
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17603530292330.5032628162399376'
+        index: 93
+        actions: {}
+        slots: []

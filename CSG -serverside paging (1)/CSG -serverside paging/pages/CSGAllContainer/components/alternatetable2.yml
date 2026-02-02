@@ -1,0 +1,244 @@
+id: '17609602414680.09533591882253079'
+definitionId: moduleV2
+parentSlotId: '17442767595930.9429373009567392'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 2104
+      w: 24
+      h: 40
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 80
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 1002
+      w: 24
+      h: 40
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 80
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  data: |
+    {
+      "containers": state.getValue("TableContent"),
+      "columns": [
+        { "key": "Container_No", "label": "Container", "width": "1.5fr" },
+        { "key": "MBL_No", "label": "MBL", "width": "1.5fr" },
+        { "key": "Status_Dispo", "label": "Dispo Status", "width": "1fr" },
+        { "key": "ETA_PortOfDischarge", "label": "ETA", "width": "1fr" },
+        { "key": "statusOverAll", "label": "Status", "width": "0.8fr" }
+      ],
+      "headerFields": [
+        { 
+          "key": "Container_No",
+          "width": "1.5fr",
+          "className":
+          "font-medium",
+          "link": { 
+            "target": "editContainer",
+            "params": [
+              "CustomerID",
+              "ContainerID",
+              "MBL_ID"
+            ] 
+          }
+        },
+        { "key": "MBL_No", "width": "1.5fr", "className": "text-muted-foreground" },
+        { "key": "Status_Dispo", "width": "1fr" },
+        {
+          "key": "ETA_PortOfDischarge",
+          "width": "1fr",
+          "type": "date",
+          "dateFormat": "DD.MM.YYYY"
+        },
+        {
+          "key": "statusOverAll",
+          "width": "0.8fr",
+          "type": "label",
+          "labelColors": {
+            "green": "#22c55e",
+            "yellow": "#eab308",
+            "red": "#ef4444"
+          }
+        }
+      ],
+      "detailFields": [
+        {
+          "group": "Status",
+          "fields": [
+            { "key": "Status_Dispo", "label": "Disposition Status" },
+            { "key": "Status_Transport", "label": "Transport Status" },
+            { "key": "Condition", "label": "Condition" },
+            { "key": "AdvertFlag", "label": "Advert Flag" },
+            { "key": "RealAdvertFlag", "label": "Real Advert Flag" },
+            {
+            "key": "statusOverAll",
+            "label": "Overall Status",
+            "type": "label",
+              "labelColors": {
+                "green": "#22c55e",
+                "yellow": "#eab308",
+                "red": "#ef4444"
+              }
+            }
+          ]
+        },
+        {
+          "group": "Allgemein",
+          "fields": [
+            { 
+              "key": "Container_No", "label": "Container Number",
+                "link": { 
+                  "target": "detailsComponent",
+                  "params": [
+                    "CustomerID",
+                    "ContainerID",
+                    "MBL_ID"
+                  ] 
+              }
+            },
+            { "key": "MBL_No", "label": "MBL Number" },
+            { "key": "Carrier", "label": "Carrier" },
+            { "key": "Vessel", "label": "Vessel" },
+            { "key": "ContainerSize", "label": "Container Size" },
+            { "key": "CustomerID", "label": "Customer ID" },
+            { "key": "DeliveryAddress", "label": "Delivery Address" }
+          ]
+        },
+        {
+          "group": "Termine",
+          "fields": [
+            { "key": "TransmissionTimestamp", "label": "Transmission Timestamp", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "EarliestAdvertDate", "label": "Earliest Advert Date", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "ETA_PortOfDischarge", "label": "ETA Port of Discharge", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "ATA_Seaport", "label": "ATA Seaport", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "ATD_Pickup_PortOfDischarge", "label": "ATD Pickup Port of Discharge", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "ETA_Terminal_Inland", "label": "ETA Terminal Inland", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "ATA_Terminal_Inland", "label": "ATA Terminal Inland", "type": "date", "dateFormat": "DD.MM.YYYY" },
+            { "key": "ETA_DeliveryAddress", "label": "ETA Delivery Address", "type": "date", "dateFormat": "DD.MM.YYYY HH:mm" },
+            { "key": "ATA_DeliveryAddress", "label": "ATA Delivery Address", "type": "date", "dateFormat": "DD.MM.YYYY HH:mm" },
+            { "key": "FirstTimestamp", "label": "First Timestamp", "type": "date", "dateFormat": "DD.MM.YYYY" }
+          ]
+        }
+      ],
+      "filters": [],
+      "filterFields": [
+        {
+          "group": "Standard Filter",
+          "expanded": true,
+          "fields": [
+            { "key": "Status_Dispo", "label": "Disposition Status" },
+            { "key": "Status_Transport", "label": "Transport Status" },
+            { "key": "Condition", "label": "Condition" },
+            {
+              "key": "AdvertFlag",
+              "label": "Advert Flag",
+              "type": "select",
+              "options": [
+                { "value": true, "label": "Ja" },
+                { "value": false, "label": "Nein" }
+              ]
+            },
+            {
+              "key": "RealAdvertFlag",
+              "label": "Real Advert Flag",
+              "type": "select",
+              "options": [
+                { "value": true, "label": "Ja" },
+                { "value": false, "label": "Nein" }
+              ]
+            },
+          ]
+        },
+        {
+          "group": "Status",
+          "expanded": false,
+          "fields": [
+            { "key": "Status_Dispo", "label": "Disposition Status" },
+            { "key": "Status_Transport", "label": "Transport Status" },
+            { "key": "Condition", "label": "Condition" },
+            {
+              "key": "AdvertFlag",
+              "label": "Advert Flag",
+              "type": "select",
+              "options": [
+                { "value": true, "label": "Ja" },
+                { "value": false, "label": "Nein" }
+              ]
+            },
+            {
+              "key": "RealAdvertFlag",
+              "label": "Real Advert Flag",
+              "type": "select",
+              "options": [
+                { "value": true, "label": "Ja" },
+                { "value": false, "label": "Nein" }
+              ]
+            },
+            { 
+              "key": "statusOverAll", 
+              "label": "Overall Status", 
+              "type": "select", 
+              "options": [
+                { "value": "green", "label": "Grün" },
+                { "value": "yellow", "label": "Gelb" },
+                { "value": "red", "label": "Rot" }
+              ]
+            }
+          ]
+        },
+        {
+          "group": "Allgemein",
+          "expanded": false,
+          "fields": [
+            { "key": "Container_No", "label": "Container Number", "type": "text" },
+            { "key": "MBL_No", "label": "MBL Number", "type": "text" },
+            { "key": "Carrier", "label": "Carrier", "type": "text" },
+            { "key": "Vessel", "label": "Vessel", "type": "text" },
+            { "key": "ContainerSize", "label": "Container Size", "type": "text" },
+            { "key": "CustomerID", "label": "Customer ID", "type": "text" },
+            { "key": "DeliveryAddress", "label": "Delivery Address", "type": "text" }
+          ]
+        },
+        {
+          "group": "Termine",
+          "expanded": false,
+          "fields": [
+            { "key": "TransmissionTimestamp", "label": "Transmission Timestamp", "type": "date" },
+            { "key": "EarliestAdvertDate", "label": "Earliest Advert Date", "type": "date" },
+            { "key": "ETA_PortOfDischarge", "label": "ETA Port of Discharge", "type": "date" },
+            { "key": "ATA_Seaport", "label": "ATA Seaport", "type": "date" },
+            { "key": "ATD_Pickup_PortOfDischarge", "label": "ATD Pickup Port of Discharge", "type": "date" },
+            { "key": "ETA_Terminal_Inland", "label": "ETA Terminal Inland", "type": "date" },
+            { "key": "ATA_Terminal_Inland", "label": "ATA Terminal Inland", "type": "date" },
+            { "key": "ETA_DeliveryAddress", "label": "ETA Delivery Address", "type": "date" },
+            { "key": "ATA_DeliveryAddress", "label": "ATA Delivery Address", "type": "date" },
+            { "key": "FirstTimestamp", "label": "First Timestamp", "type": "date" }
+          ]
+        }
+      ]
+    }
+  name: alternatetable2
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  moduleId: ReFw23Fbo7
+  moduleNotFound: false
+actions:
+  init: []
+  triggerEvent: []
+slots:
+  - id: '17609602414680.04810423736169056'
+    name: content
+    children: []

@@ -1,0 +1,108 @@
+id: '17582088408180.4480452655556977'
+kind: workflow
+name: get_All_AND_Clone_History
+nameConfigured: true
+steps:
+  - id: '17582088408180.07051164410943522'
+    type: LOAD_COLLECTION
+    name: load
+    params:
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: string
+      - type: resourceId
+        value: dbo.Transport_Dispo_History
+        valueType: string
+      - type: filters
+        value:
+          - column: CustomerID
+            operation: '='
+            value:
+              value: '{{state.RowCustomerID}}'
+          - column: MBL_ID
+            operation: '='
+            value:
+              value: '{{state.RowMBL_ID}}'
+          - column: ContainerID
+            operation: '='
+            value:
+              value: '{{state.RowContainerID}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: Timestamp
+          orderDirection:
+            value: desc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17582088408180.7395526012068442'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17582088408180.7941995132980814'
+    type: customAsyncCode
+    name: code2
+    params:
+      - type: asyncCode
+        value: ./code2.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+mode: manual
+modeConfigured: false
+defaultParams: ''
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.get_All_AND_Clone_History.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.get_All_AND_Clone_History.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.get_All_AND_Clone_History.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+parentId: '17582088214300.5073661164041429'

@@ -1,0 +1,32 @@
+id: '17610449306550.9585190778091468'
+name: CSG 3rd Party Dispo
+url: CSG3rdPartyDispoServerside
+roleIds:
+  - admin
+  - editor
+  - user
+disableInMenu: false
+hideFromMenu: false
+parentPageId: ''
+icon: grid_on_material_filled
+slots:
+  - id: '17610449306550.5821611846845088'
+    name: content
+    children:
+      - id: '17610449306580.25617434177108733'
+        definitionId: grid
+        parentSlotId: '17610449306550.5821611846845088'
+        styles: {}
+        properties:
+          name: hermannsui4
+          pageTitle: '{{app.name}} - {{activeRoute.name}}'
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        index: 0
+        slots:
+          - id: '17610449306580.9119344045916874'
+            name: content
+            children:
+              - components/card14/card14.yml
+              - components/card15/card15.yml

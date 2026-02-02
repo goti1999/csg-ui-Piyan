@@ -1,0 +1,122 @@
+id: '17597484281050.8920706157732115'
+kind: workflow
+name: OnFormData
+nameConfigured: true
+steps:
+  - id: '17597485470420.9729431776387061'
+    type: executeAction
+    name: execute
+    params:
+      - type: action
+        value: '17582085653110.4104973814338636'
+        valueType: custom
+      - type: isActionsLibraryCall
+        value: false
+        valueType: custom
+      - type: customParams
+        value: ./execute-customParams.js
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17599114393320.37815425839798344'
+    type: customAsyncCode
+    name: code2
+    params:
+      - type: asyncCode
+        value: ./code2.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+  - id: '17597484281050.5887859156492613'
+    type: customSQLQuery
+    name: Formquery
+    params:
+      - type: query
+        value: ./Formquery-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./Formquery-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(state.RowCustomerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(state.RowMBL_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(state.RowContainerID)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17597484281050.2297034599649863'
+    type: customAsyncCode
+    name: Backupcode
+    params:
+      - type: asyncCode
+        value: ./Backupcode.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OnFormData.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OnFormData.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OnFormData.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+parentId: '17598486311190.8167328756840337'
+defaultParams: ''
+parentPageId: '17442767595900.5825776314192999'

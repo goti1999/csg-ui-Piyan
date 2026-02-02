@@ -1,4 +1,4 @@
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, Fragment } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,9 +14,11 @@ import { toast } from "sonner";
 import { Download, Edit2, Filter, Plus, RefreshCw, Search, X, Edit3, Trash2, ChevronDown, ChevronRight, FileText, Send, Eye, Save, XCircle, Settings } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { ExpandableRowDetails } from "@/components/tables/ExpandableRowDetails";
-import { useApp } from "@/contexts/AppContext.jsx";
+import { RowEditFormModal } from "@/components/tables/RowEditFormModal.jsx";
+import { useApp } from "@/contexts/useApp.js";
 import { EditableWrapper } from "@/components/builder/EditableWrapper";
 import { ComponentEditor } from "@/components/builder/ComponentEditor";
+import { getData } from "@/data/index.js";
 
 export default function TablePage({ title, subtitle, rows }) {
   const { globalSearch, editMode } = useOutletContext();
@@ -37,7 +39,8 @@ export default function TablePage({ title, subtitle, rows }) {
   const [multiEditFields, setMultiEditFields] = useState({});
   const [expandedRows, setExpandedRows] = useState(new Set());
   const [isComponentEditorOpen, setIsComponentEditorOpen] = useState(false);
-  
+  const [headerFilters, setHeaderFilters] = useState({});
+
   // Component ID for this table
   const componentId = `table-${title.toLowerCase().replace(/\s+/g, '-')}`;
   
@@ -54,7 +57,9 @@ export default function TablePage({ title, subtitle, rows }) {
   
   // Get saved column config or use defaults
   const columnConfig = componentConfigs[componentId]?.columns || defaultColumns;
-  
+  const triggers = componentConfigs[componentId]?.triggers;
+  const dataSourceConfig = componentConfigs[componentId]?.dataSource || {};
+
   // Initialize component config if not exists
   useEffect(() => {
     if (!componentConfigs[componentId]) {
@@ -68,14 +73,44 @@ export default function TablePage({ title, subtitle, rows }) {
     }
   }, [componentId]);
 
+  // Run On Init trigger actions. Supports legacy (actionType) and step-based (steps) actions.
+  useEffect(() => {
+    const onInitActions = triggers?.onInit || [];
+    let key = null;
+    const legacy = onInitActions.find((a) => a.actionType === 'loadData');
+    if (legacy?.config?.dataSourceKey) key = legacy.config.dataSourceKey;
+    if (!key && onInitActions.some((a) => a.steps?.length)) {
+      for (const a of onInitActions) {
+        const loadStep = a.steps?.find((s) => s.type === 'loadData');
+        if (loadStep?.config?.dataSourceKey) { key = loadStep.config.dataSourceKey; break; }
+      }
+    }
+    if (!key) return;
+    getData(key)
+      .then((fetched) => setData(fetched))
+      .catch((err) => {
+        console.error('[TablePage] Load data failed:', err);
+        toast.error('Failed to load data from source');
+      });
+  }, [componentId, triggers?.onInit]);
+
   const searchTerm = (localSearch || globalSearch || "").toLowerCase();
+  const displayColumns = columnConfig.filter((c) => c.visible !== false);
 
   const filtered = useMemo(() => {
     return data
       .filter((row) => {
         if (statusFilter !== "all" && row.status !== statusFilter) return false;
-        if (!searchTerm) return true;
-        return Object.values(row).some((v) => String(v).toLowerCase().includes(searchTerm));
+        if (searchTerm) {
+          if (!Object.values(row).some((v) => String(v).toLowerCase().includes(searchTerm))) return false;
+        }
+        for (const col of displayColumns) {
+          const q = (headerFilters[col.key] ?? "").trim().toLowerCase();
+          if (!q) continue;
+          const v = row[col.key];
+          if (v == null || !String(v).toLowerCase().includes(q)) return false;
+        }
+        return true;
       })
       .sort((a, b) => {
         const aVal = a[sortField];
@@ -84,7 +119,7 @@ export default function TablePage({ title, subtitle, rows }) {
         if (aVal > bVal) return sortDir === "asc" ? 1 : -1;
         return 0;
       });
-  }, [data, statusFilter, sortField, sortDir, searchTerm]);
+  }, [data, statusFilter, sortField, sortDir, searchTerm, headerFilters, displayColumns]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const currentPage = Math.min(page, totalPages);
@@ -362,8 +397,8 @@ export default function TablePage({ title, subtitle, rows }) {
                   <SelectItem value="completed">Completed</SelectItem>
                 </SelectContent>
               </Select>
-              {statusFilter !== "all" || localSearch ? (
-                <Button variant="ghost" size="sm" className="gap-2" onClick={() => { setStatusFilter("all"); setLocalSearch(""); }}>
+              {(statusFilter !== "all" || localSearch || Object.values(headerFilters).some(Boolean)) ? (
+                <Button variant="ghost" size="sm" className="gap-2" onClick={() => { setStatusFilter("all"); setLocalSearch(""); setHeaderFilters({}); }}>
                   <X className="h-4 w-4" />
                   {t('clear')}
                 </Button>
@@ -398,7 +433,7 @@ export default function TablePage({ title, subtitle, rows }) {
                       onCheckedChange={(v) => toggleSelectAll(Boolean(v))}
                     />
                   </TableHead>
-                  <TableHead className="w-10 py-2"></TableHead>
+                  <TableHead className="w-10 py-2" />
                   {header("name", t('name'), sortField, sortDir, toggleSort)}
                   {header("status", t('status'), sortField, sortDir, toggleSort)}
                   {header("priority", t('priority'), sortField, sortDir, toggleSort)}
@@ -407,6 +442,21 @@ export default function TablePage({ title, subtitle, rows }) {
                   {header("amount", t('amount'), sortField, sortDir, toggleSort, "text-right")}
                   {header("location", t('location'), sortField, sortDir, toggleSort)}
                   <TableHead className="text-center w-36 py-2 font-bold">{t('actions')}</TableHead>
+                </TableRow>
+                <TableRow className="bg-slate-50/80">
+                  <TableCell className="w-10 py-1" />
+                  <TableCell className="w-10 py-1" />
+                  {["name", "status", "priority", "eta", "progress", "amount", "location"].map((key) => (
+                    <TableCell key={key} className="py-1">
+                      <Input
+                        placeholder={`${key}...`}
+                        value={headerFilters[key] ?? ""}
+                        onChange={(e) => setHeaderFilters((prev) => ({ ...prev, [key]: e.target.value }))}
+                        className="h-8 text-xs font-mono"
+                      />
+                    </TableCell>
+                  ))}
+                  <TableCell className="py-1 w-36" />
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -420,8 +470,8 @@ export default function TablePage({ title, subtitle, rows }) {
                   pageData.map((row) => {
                     const isExpanded = expandedRows.has(row.id);
                     return (
-                      <>
-                        <TableRow key={row.id} className={`h-10 ${isExpanded ? "bg-sky-50/50" : "hover:bg-muted/30"}`}>
+                      <Fragment key={row.id}>
+                        <TableRow className={`h-10 ${isExpanded ? "bg-sky-50/50" : "hover:bg-muted/30"}`}>
                           <TableCell className="py-1.5">
                             <Checkbox
                               checked={selected.has(row.id)}
@@ -477,13 +527,13 @@ export default function TablePage({ title, subtitle, rows }) {
                           </TableCell>
                         </TableRow>
                         {isExpanded && (
-                          <TableRow key={`${row.id}-details`}>
+                          <TableRow>
                             <TableCell colSpan={10} className="p-0">
                               <ExpandableRowDetails row={row} />
                             </TableCell>
                           </TableRow>
                         )}
-                      </>
+                      </Fragment>
                     );
                   })
                 )}
@@ -526,30 +576,19 @@ export default function TablePage({ title, subtitle, rows }) {
         componentName={title}
         componentType="table"
         initialColumns={columnConfig}
+        initialTriggers={triggers}
+        initialDataSource={dataSourceConfig}
         onSave={handleSaveColumnConfig}
       />
 
-      {/* Edit Dialog */}
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-lg">
-          <DialogHeader>
-            <DialogTitle className="text-xl font-bold flex items-center gap-2">
-              <Edit2 className="h-5 w-5 text-emerald-600" />
-              {t('editDetails')}
-            </DialogTitle>
-            <DialogDescription>Update the details for this record</DialogDescription>
-          </DialogHeader>
-          <Separator />
-          {editing && (
-            <EditForm
-              row={editing}
-              onSave={updateRow}
-              onCancel={() => { setEditing(null); setIsEditDialogOpen(false); }}
-              t={t}
-            />
-          )}
-        </DialogContent>
-      </Dialog>
+      <RowEditFormModal
+        open={isEditDialogOpen}
+        onOpenChange={(open) => { if (!open) setEditing(null); setIsEditDialogOpen(open); }}
+        row={editing}
+        detailFields={[{ group: 'Details', fields: columnConfig.map((c) => ({ key: c.key, label: c.label })) }]}
+        onSave={(updated) => { updateRow(updated); setEditing(null); }}
+        title={t('editDetails')}
+      />
 
       {/* Action Dialog */}
       <Dialog open={isActionDialogOpen} onOpenChange={setIsActionDialogOpen}>
@@ -653,136 +692,3 @@ function StatusPill({ value }) {
   return <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${tone}`}>{value}</span>;
 }
 
-function EditForm({ 
-  row, 
-  onSave, 
-  onCancel,
-  t 
-}) {
-  const [draft, setDraft] = useState(row);
-  
-  return (
-    <>
-      <div className="space-y-4 py-4">
-        <div className="bg-slate-50 rounded-lg p-4">
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <Label className="text-xs text-muted-foreground">Record ID</Label>
-              <p className="font-bold text-slate-800">{draft.id}</p>
-            </div>
-            <div>
-              <Label className="text-xs text-muted-foreground">Last Updated</Label>
-              <p className="font-bold text-slate-800">{new Date(draft.updated).toLocaleString()}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <Label className="font-bold">{t('name')}</Label>
-          <Input
-            value={draft.name}
-            onChange={(e) => setDraft({ ...draft, name: e.target.value })}
-            placeholder="Name"
-            className="font-semibold"
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label className="font-bold">{t('status')}</Label>
-            <Select
-              value={draft.status}
-              onValueChange={(v) => setDraft({ ...draft, status: v })}
-            >
-              <SelectTrigger className="font-semibold"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="on-time">On-time</SelectItem>
-                <SelectItem value="delayed">Delayed</SelectItem>
-                <SelectItem value="at-risk">At risk</SelectItem>
-                <SelectItem value="completed">Completed</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="space-y-2">
-            <Label className="font-bold">{t('priority')}</Label>
-            <Select
-              value={draft.priority}
-              onValueChange={(v) => setDraft({ ...draft, priority: v })}
-            >
-              <SelectTrigger className="font-semibold"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                <SelectItem value="low">Low</SelectItem>
-                <SelectItem value="medium">Medium</SelectItem>
-                <SelectItem value="high">High</SelectItem>
-                <SelectItem value="critical">Critical</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label className="font-bold">ETA</Label>
-            <Input
-              type="date"
-              value={draft.eta.slice(0, 10)}
-              onChange={(e) => setDraft({ ...draft, eta: new Date(e.target.value).toISOString() })}
-              className="font-semibold"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label className="font-bold">{t('progress')} (%)</Label>
-            <Input
-              type="number"
-              value={draft.progress}
-              onChange={(e) => setDraft({ ...draft, progress: Number(e.target.value) })}
-              min={0}
-              max={100}
-              className="font-semibold"
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label className="font-bold">{t('amount')}</Label>
-            <Input
-              type="number"
-              value={draft.amount}
-              onChange={(e) => setDraft({ ...draft, amount: Number(e.target.value) })}
-              className="font-semibold"
-            />
-          </div>
-          <div className="space-y-2">
-            <Label className="font-bold">{t('location')}</Label>
-            <Input
-              value={draft.location}
-              onChange={(e) => setDraft({ ...draft, location: e.target.value })}
-              className="font-semibold"
-            />
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <Label className="font-bold">Category</Label>
-          <Input
-            value={draft.category}
-            onChange={(e) => setDraft({ ...draft, category: e.target.value })}
-            className="font-semibold"
-          />
-        </div>
-      </div>
-      <Separator />
-      <DialogFooter className="gap-2 pt-4">
-        <Button variant="outline" onClick={onCancel} className="gap-2">
-          <XCircle className="h-4 w-4" />
-          {t('cancel')}
-        </Button>
-        <Button onClick={() => onSave({ ...draft, updated: new Date().toISOString() })} className="gap-2 bg-emerald-600 hover:bg-emerald-700">
-          <Save className="h-4 w-4" />
-          {t('save')}
-        </Button>
-      </DialogFooter>
-    </>
-  );
-}

@@ -1,0 +1,39 @@
+id: '17613010826580.9530013779210398'
+kind: workflow
+name: OpenStatePopUp
+nameConfigured: true
+steps:
+  - id: '17613010826590.3046131924546731'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+parentPageId: '17613010826490.35148916202902836'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OpenStatePopUp.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OpenStatePopUp.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OpenStatePopUp.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+parentId: '17613010826570.5419250983423111'
+defaultParams: ''

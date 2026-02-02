@@ -1,0 +1,12 @@
+
+
+// 2. Clear selected row (for single row selection)
+ui.ontable9.selectedRow = null;
+ui.ontable9.selectedRowIndex = -1;
+
+// 3. Clear selected rows (for multi-row selection)
+ui.ontable9.selectedRows = [];
+
+// 4. OPTIONAL: Clear related form fields if bound
+ui.form9.reset(); // <-- Replace 'yourFormName' with actual form name
+

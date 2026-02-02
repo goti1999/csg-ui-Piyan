@@ -1,0 +1,133 @@
+id: '17613010826580.7845394108089563'
+kind: workflow
+name: getContainerErrors
+nameConfigured: true
+steps:
+  - id: '17613010826580.8176091154764771'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable13.clickedRow.data.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable13.clickedRow.data.MBL_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable13.clickedRow.data.ContainerID )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+  - id: '17613010826580.5839338958721391'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17613010826580.19731574817171404'
+    type: customSQLQuery
+    name: ErrorsQuery
+    params:
+      - type: query
+        value: ./ErrorsQuery-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./ErrorsQuery-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.ContainerID )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.getContainerErrors.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.getContainerErrors.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.getContainerErrors.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+actions:
+  success: []
+  error: []
+parentId: '17613010826570.5419250983423111'
+parentPageId: '17613010826490.35148916202902836'

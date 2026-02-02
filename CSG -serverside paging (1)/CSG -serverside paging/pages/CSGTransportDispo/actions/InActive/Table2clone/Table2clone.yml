@@ -1,0 +1,2176 @@
+id: '17613009040430.1846651707006185'
+kind: workflow
+name: Table2clone
+nameConfigured: true
+steps:
+  - id: '17613009040430.8436179995237006'
+    type: customSQLQuery
+    name: TableloadQuery
+    params:
+      - type: query
+        value: ./TableloadQuery-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./TableloadQuery-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag ?? ""
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag
+            ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestAdvertDate )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter
+            ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CundA ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CundA )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DropOff_Terminal
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DropOff_Terminal
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Pincode ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Pincode )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition ?? ""
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.terminal_portofdischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.terminal_portofdischarge )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID ?? ""
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.transport_Dispo_ID ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.transport_Dispo_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_Vorgabe_NTL )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DropOff_Terminal_TIR ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DropOff_Terminal_TIR )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.FirstTimestamp
+            ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.FirstTimestamp )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17613009040430.13143692588491118'
+    type: customAsyncCode
+    name: Statuscode
+    params:
+      - type: asyncCode
+        value: ./Statuscode.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17613009040430.16105280788947796'
+    type: LOAD_COLLECTION
+    name: load
+    params:
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: string
+      - type: resourceId
+        value: dbo.Transport_Dispo
+        valueType: string
+      - type: filters
+        value: []
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: TransmissionTimestamp
+          orderDirection:
+            value: asc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17613009040430.827990038044362'
+    type: customSQLQuery
+    name: query1
+    params:
+      - type: query
+        value: ./query1-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query1-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value: []
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17613009040430.689772163680486'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17613009040430.353023794123564'
+    type: customSQLQuery
+    name: where
+    params:
+      - type: query
+        value: ./where-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./where-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag ?? ""
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag ?? ""
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestRealAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestRealAdvertDate ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.transport_Dispo_ID ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.transport_Dispo_ID ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition ?? ""
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition ?? ""
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DropOff_Terminal
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DropOff_Terminal
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ctv_booking_id
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ctv_booking_id
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_UNLOCO ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_UNLOCO ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_UNLOCO ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_UNLOCO ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryAddress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryAddress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_UNLOCO_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_UNLOCO_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier_CTV ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier_CTV ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.customs_document_type ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.customs_document_type ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.pinState ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.pinState ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.nationalTransportState ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.nationalTransportState ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.finalDeliveryState ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.finalDeliveryState ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.emptyReturnState
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.emptyReturnState
+            ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.new ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.new ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CundA ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CundA ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.EventType ?? ""
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.EventType ?? ""
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_To_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_To_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Document_Number ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Document_Number ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Seal_Number ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Seal_Number ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No  ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No ??
+            "" )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17613009040430.34570392328047417'
+    type: customSQLQuery
+    name: Backup
+    params:
+      - type: query
+        value: ./Backup-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./Backup-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17613009040430.09395195302741643'
+    type: customSQLQuery
+    name: Empty
+    params:
+      - type: query
+        value: ./Empty-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./Empty-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Delivered )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Delivered )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17613009040430.4138156368331014'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17613009040430.06281237395647776'
+    type: customSQLQuery
+    name: CundA
+    params:
+      - type: query
+        value: ./CundA-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./CundA-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17613009040430.355841533695583'
+    type: customSQLQuery
+    name: Wihoutserverside
+    params:
+      - type: query
+        value: ./Wihoutserverside-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./Wihoutserverside-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value: []
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17613009040430.7961910371070507'
+    type: customSQLQuery
+    name: AllFilter
+    params:
+      - type: query
+        value: ./AllFilter-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./AllFilter-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable10.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Dispo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Condition )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Voyage )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerSize )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ContainerID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Status_Transport
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Broker )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Vessel )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_Lima )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.PackingMethod )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TotalWeight )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.last_eventID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_Lima )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_final_DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CundA )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CundA )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DeliveryAddress
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.MBL_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Container_No )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DropOff_Terminal
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.DropOff_Terminal
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Pincode )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Pincode )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DropOff_Terminal_TIR )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DropOff_Terminal_TIR )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Remarks )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Remarks )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.HouseBill )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.HouseBill )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_UNLOCO )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfLoading_UNLOCO )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryAddress_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryAddress_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_UNLOCO_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.PortOfDischarge_UNLOCO_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Transport_Mode_Terminal_CTV )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier_CTV )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Carrier_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.customs_document_number )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.customs_document_number )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.customs_document_type )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.customs_document_type )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Terminal_Inland_CTV )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.pinState )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.pinState )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.nationalTransportState )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.nationalTransportState )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.finalDeliveryState )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.finalDeliveryState )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.emptyReturnState
+            )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.emptyReturnState
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.eventType )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.eventType )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.AdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.RealAdvertFlag )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.todo )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.into_CW1 )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Customer )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.to_Transporter )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.new )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.new )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Cancelation_Send_To_CTV )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Cancelation_Send_To_CTV )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ctv_booking_id )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ctv_booking_id )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.TransmissionTimestamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_DropOff_Terminal ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ATD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ATD_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Containerverfuegbarkeit ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETA_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Service_Provider ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Terminal_Inland_Vorgabe_NTL ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_Pickup_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETD_PortOfLoading ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.ETD_Seaport ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.DeliveryInfo_send_to_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Deliveryadress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.TAC_sent ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Delivery_Address_Update_TimeStamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_Delivery_Address_Update_TimeStamp ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.Return_Date_to_Depot ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.final_date_delivery_address ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestRealAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.EarliestRealAdvertDate ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.CTV_ETA_PortOfDischarge ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable10.filters.ETA_DeliveryAddress_CTV ?? "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.pinRequested ??
+            "" )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.filters.pinRequested ??
+            "" )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.sortDirection )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.sortColumn )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.sortDirection )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable10.sortColumn )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.Table2clone.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.Table2clone.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.Table2clone.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+parentPageId: '17613009040270.19561444091213742'
+parentId: '17613009040400.007472048711627766'

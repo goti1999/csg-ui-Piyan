@@ -1,0 +1,1 @@
+ui.frameDrawer3.open(ui.ontable4.clickedRow.data.Edit);

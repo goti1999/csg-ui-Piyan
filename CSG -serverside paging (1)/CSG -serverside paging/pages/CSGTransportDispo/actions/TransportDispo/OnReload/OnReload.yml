@@ -1,0 +1,48 @@
+id: '17613009040360.01720218218719094'
+kind: workflow
+name: OnReload
+nameConfigured: true
+steps:
+  - id: '17613009040370.18456377268781354'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OnReload.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OnReload.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OnReload.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+actions:
+  success:
+    - action: '17613009040350.9748430886116519'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  error: []
+defaultParams: ''
+parentId: '17613009040350.5909581195480245'
+parentPageId: '17613009040270.19561444091213742'

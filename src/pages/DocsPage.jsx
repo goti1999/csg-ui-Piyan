@@ -26,7 +26,7 @@ export default function DocsPage() {
               <div>
                 <h4 className="font-semibold mb-2">Login</h4>
                 <p className="text-sm text-muted-foreground">Username: <code className="bg-muted px-2 py-1 rounded">Admin</code></p>
-                <p className="text-sm text-muted-foreground">Password: <code className="bg-muted px-2 py-1 rounded">Admin@1881</code></p>
+                <p className="text-sm text-muted-foreground">Password: <code className="bg-muted px-2 py-1 rounded">Admin@1881!</code> <span className="text-xs text-amber-600">(with exclamation mark)</span></p>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Navigation</h4>

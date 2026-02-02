@@ -1,0 +1,172 @@
+id: '17613007845970.09051311096720949'
+definitionId: tree
+parentSlotId: '17613007845970.21947981710850106'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 60
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 240
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 60
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 240
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: tree5
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  data: |
+    (() => {
+      const data = actions.get_All_AND_Clone_History.data || [];
+
+      // helper to check if a field looks like a datetime
+      const isDateField = (key, value) => 
+        key.toLowerCase().includes('date') ||
+        key.toLowerCase().includes('time') ||
+        (typeof value === 'string' && /\d{4}-\d{2}-\d{2}t/i.test(value));
+
+      // helper to check if field is boolean / bit-like
+      const isBoolField = (val) => val === true || val === false || val === 0 || val === 1 || val === '0' || val === '1';
+
+      return data.map((row, idx) => {
+        // --- Header group ---
+        const headerFields = [
+          'Timestamp','Interface','direction','CustomerID','MBL_ID','ContainerID',
+          'MBL_Number','Container_Number','Carrier','Vessel','ContainerSize','Status'
+        ];
+        const header = headerFields
+          .filter(k => row[k] !== undefined)
+          .map(k => ({
+            data: { name: k, kind: 'field', value: String(row[k] ?? '') },
+            icon: 'file_text'
+          }));
+
+        // --- Termine (Datetime) group ---
+        const termine = Object.entries(row)
+          .filter(([k, v]) => isDateField(k, v))
+          .map(([k, v]) => ({
+            data: { name: k, kind: 'datetime', value: String(v ?? '') },
+            icon: 'calendar'
+          }));
+
+        // --- Status (boolean) group ---
+        const status = Object.entries(row)
+          .filter(([k, v]) => isBoolField(v))
+          .map(([k, v]) => ({
+            data: { name: k, kind: 'boolean', value: String(v) },
+            icon: v ? 'check_circle' : 'x_circle'
+          }));
+
+        // --- Details group ---
+        const detailsKeys = [
+          'Transport_Mode_Terminal_Vorgabe_NTL','Transport_Mode_final_DeliveryAddress',
+          'DeliveryAddress','DropOff_Terminal','Broker','PortOfDischarge_Lima',
+          'PortOfLoading_Lima','Relation','User','Tabelle'
+        ];
+        const details = detailsKeys
+          .filter(k => row[k] !== undefined)
+          .map(k => ({
+            data: { name: k, kind: 'text', value: String(row[k] ?? '') },
+            icon: 'align_left'
+          }));
+
+        // --- Additional info group (everything else) ---
+        const allUsedKeys = new Set([
+          ...headerFields,
+          ...detailsKeys,
+          ...termine.map(t => t.data.name),
+          ...status.map(t => t.data.name)
+        ]);
+        const additional = Object.entries(row)
+          .filter(([k]) => !allUsedKeys.has(k))
+          .map(([k, v]) => ({
+            data: { name: k, kind: 'text', value: String(v ?? '') },
+            icon: 'info'
+          }));
+
+        // --- Build node structure ---
+        return {
+          data: {
+            name: `${row.Container_Number || row.MBL_Number || 'Entry ' + (idx + 1)}`,
+            kind: 'record',
+            size: 'auto'
+          },
+          children: [
+            {
+              data: { name: 'Header', kind: 'group' },
+              children: header,
+              icon: 'folder_material'
+            },
+            {
+              data: { name: 'Details', kind: 'group' },
+              children: details,
+              icon: 'folder_material'
+            },
+            {
+              data: { name: 'Termine', kind: 'group' },
+              children: termine,
+              icon: 'calendar'
+            },
+            {
+              data: { name: 'Status', kind: 'group' },
+              children: status,
+              icon: 'check_circle'
+            },
+            {
+              data: { name: 'Additional Info', kind: 'group' },
+              children: additional,
+              icon: 'folder_material'
+            }
+          ],
+          icon: 'folder_material'
+        };
+      });
+    })();
+  columns:
+    value:
+      - name: Name
+        id: name
+        primaryKey: true
+        hidden: false
+        width: 50
+        __UIBAKERY__SYSTEM_ID__: '1'
+      - name: Size
+        id: size
+        primaryKey: false
+        hidden: false
+        width: 50
+        __UIBAKERY__SYSTEM_ID__: '2'
+      - name: Kind
+        id: kind
+        primaryKey: false
+        hidden: false
+        width: 50
+        __UIBAKERY__SYSTEM_ID__: '3'
+      - name: Items
+        id: items
+        primaryKey: false
+        hidden: false
+        width: 50
+        __UIBAKERY__SYSTEM_ID__: '4'
+    dataValue: '{{actions.OpenTree.data}}'
+    withData: true
+actions: {}
+slots: []

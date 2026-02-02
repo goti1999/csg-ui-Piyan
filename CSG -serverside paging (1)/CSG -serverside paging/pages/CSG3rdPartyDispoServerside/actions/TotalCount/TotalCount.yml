@@ -1,0 +1,17 @@
+id: '17611406417770.8713531289505112'
+kind: store_item
+name: TotalCount
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: 0
+  valueType: number
+  initialValue: 0
+  version: 1
+selected: false
+configured: true
+config:
+  preserveStateOnPageChange: false
+parentPageId: '17610449306550.9585190778091468'

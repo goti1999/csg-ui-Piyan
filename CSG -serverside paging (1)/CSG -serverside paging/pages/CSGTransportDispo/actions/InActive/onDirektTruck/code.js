@@ -1,0 +1,1 @@
+{{ui.ShowResultCTV9.open(ui.ShowResultCTV9.value)}}

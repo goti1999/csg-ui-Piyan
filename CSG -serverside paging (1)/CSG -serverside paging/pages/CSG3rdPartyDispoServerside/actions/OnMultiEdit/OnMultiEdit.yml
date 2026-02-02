@@ -1,0 +1,626 @@
+id: '17610449306610.7703368488009865'
+kind: workflow
+name: OnMultiEdit
+nameConfigured: true
+steps:
+  - id: '17610449306610.8933841918159443'
+    type: customAsyncCode
+    name: buildPayload
+    params:
+      - type: asyncCode
+        value: ./buildPayload.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17610449306610.12610721671189218'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.44784399417726617'
+    type: customSQLQuery
+    name: updateInsertRow
+    params:
+      - type: query
+        value: ./updateInsertRow-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./updateInsertRow-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(state.RowCustomerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(state.RowMBL_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(state.RowContainerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(transport_Dispo_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(Pincode)
+          - __UI_BAKERY__FORMAT_IF_DATE__(DropOff_Terminal)
+          - __UI_BAKERY__FORMAT_IF_DATE__(DropOff_Terminal_TIR)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ETA_DeliveryAddress).toISOString())
+          - __UI_BAKERY__FORMAT_IF_DATE__(DeliveryAddress)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ATA_Terminal_Inland).toISOString())
+          - __UI_BAKERY__FORMAT_IF_DATE__(Direct_Truck)
+          - __UI_BAKERY__FORMAT_IF_DATE__(Remarks)
+          - __UI_BAKERY__FORMAT_IF_DATE__(Containerverfuegbarkeit)
+          - __UI_BAKERY__FORMAT_IF_DATE__(CustomerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(MBL_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ContainerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(CustomerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(MBL_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ContainerID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(transport_Dispo_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__(Pincode)
+          - __UI_BAKERY__FORMAT_IF_DATE__(DropOff_Terminal)
+          - __UI_BAKERY__FORMAT_IF_DATE__(DropOff_Terminal_TIR)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ETA_DeliveryAddress).toISOString())
+          - __UI_BAKERY__FORMAT_IF_DATE__(DeliveryAddress)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ATA_Terminal_Inland).toISOString())
+          - __UI_BAKERY__FORMAT_IF_DATE__(Direct_Truck)
+          - __UI_BAKERY__FORMAT_IF_DATE__(Remarks)
+          - __UI_BAKERY__FORMAT_IF_DATE__(Containerverfuegbarkeit)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17610449306610.6626051642472528'
+    type: customSQLQuery
+    name: query4
+    params:
+      - type: query
+        value: ./query4-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query4-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(PayloadJSON)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.2714685681567386'
+    type: customAsyncCode
+    name: CombinedArray
+    params:
+      - type: asyncCode
+        value: ./CombinedArray.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17610449306610.4355819100271321'
+    type: customAsyncCode
+    name: code5
+    params:
+      - type: asyncCode
+        value: ./code5.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.3200249052925882'
+    type: customAsyncCode
+    name: code8Array
+    params:
+      - type: asyncCode
+        value: ./code8Array.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17610449306610.3918612423557779'
+    type: httpRequest
+    name: request2
+    params:
+      - type: datasourceId
+        value: send_to_customer
+        valueType: custom
+        mustSelectFirst: true
+      - type: method
+        value: PUT
+        valueType: string
+      - type: url
+        value: /api/v2/ui/send-to-sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: headers
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: queryParams
+        value:
+          mode: structured
+          value:
+            custom: ''
+            structured:
+              - name: ''
+                value: ''
+        valueType: custom
+        interpolationType: string
+      - type: body
+        value: '{{ steps.CombinedArray.data }}'
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: structuredBody
+        value: []
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: bodyType
+        value: object
+        valueType: string
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.5341072962755361'
+    type: customAsyncCode
+    name: code3
+    params:
+      - type: asyncCode
+        value: ./code3.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.7072707833240284'
+    type: customAsyncCode
+    name: BuildUpsertSQL
+    params:
+      - type: asyncCode
+        value: ./BuildUpsertSQL.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17610449306610.23846316372329024'
+    type: customSQLQuery
+    name: updateData
+    params:
+      - type: query
+        value: ./updateData-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./updateData-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value: []
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+  - id: '17610449306610.8837018507735082'
+    type: customSQLQuery
+    name: query6
+    params:
+      - type: query
+        value: ./query6-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query6-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(steps.code8Array.data)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Pincode)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal_TIR)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ui.MultiEditform.value.ETA_DeliveryAddress).toISOString())
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DeliveryAddress)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ui.MultiEditform.value.ATA_Terminal_Inland).toISOString())
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Transport_Mode_final_DeliveryAddress)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Direct_Truck)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Direct_Truck)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.9373672235643019'
+    type: customAsyncCode
+    name: PrepareDatabase64json
+    params:
+      - type: asyncCode
+        value: ./PrepareDatabase64json.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17610449306610.31853703981078363'
+    type: customAsyncCode
+    name: code4
+    params:
+      - type: asyncCode
+        value: ./code4.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.5359019298565045'
+    type: customSQLQuery
+    name: query3
+    params:
+      - type: query
+        value: ./query3-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query3-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(steps.PrepareDatabase64json.base64Json)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Pincode)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal_TIR)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ui.MultiEditform.value.ETA_DeliveryAddress).toISOString())
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(moment(ui.MultiEditform.value.ATA_Terminal_Inland).toISOString())
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DeliveryAddress)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Transport_Mode_final_DeliveryAddress)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Direct_Truck)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Direct_Truck)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.9617409922934638'
+    type: customSQLQuery
+    name: History
+    params:
+      - type: query
+        value: ./History-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./History-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(steps.code2.data)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( moment().utcOffset(0,
+            true).toISOString() )
+          - __UI_BAKERY__FORMAT_IF_DATE__(steps.BuildUpsertSQL.data.user)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Pincode)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+  - id: '17610449306610.053663784042565554'
+    type: customSQLQuery
+    name: query2
+    params:
+      - type: query
+        value: ./query2-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query2-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.transport_Dispo_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.Pincode )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.DropOff_Terminal )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.DropOff_Terminal_TIR )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            moment(ui.form.value.ETA_DeliveryAddress).toISOString() )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            moment(ui.form.value.ATA_Terminal_Inland).toISOString() )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.transport_Dispo_ID)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.Pincode )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.DropOff_Terminal )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.DropOff_Terminal_TIR )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            moment(ui.form.value.ETA_DeliveryAddress).toISOString() )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.DeliveryAddress )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            moment(ui.form.value.ATA_Terminal_Inland).toISOString() )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.Direct_Truck )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.form.value.ContainerID )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17610449306610.9040355816957605'
+    type: customSQLQuery
+    name: Finalquery
+    params:
+      - type: query
+        value: ./Finalquery-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./Finalquery-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(steps.code2.data)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Pincode)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DropOff_Terminal_TIR)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            moment(ui.MultiEditform.value.ETA_DeliveryAddress).toISOString() )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.DeliveryAddress)
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            moment(ui.MultiEditform.value.ATA_Terminal_Inland).toISOString() )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Transport_Mode_final_DeliveryAddress)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.MultiEditform.value.Direct_Truck)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 2
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OnMultiEdit.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OnMultiEdit.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OnMultiEdit.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+parentPageId: '17610449306550.9585190778091468'

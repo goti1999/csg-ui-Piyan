@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { toast } from 'sonner';
 import { datasets } from '@/data/logistics.js';
 
@@ -17,6 +17,7 @@ const translations = {
     operations: 'Operations',
     fleet: 'Fleet',
     warehouses: 'Warehouses',
+    containers: 'Containers',
     analytics: 'Analytics',
     reports: 'Reports',
     
@@ -48,6 +49,7 @@ const translations = {
     enterUsername: 'Enter username',
     enterPassword: 'Enter password',
     signIn: 'Sign In',
+    signingIn: 'Signing in...',
     welcomeBack: 'Welcome back',
     invalidCredentials: 'Invalid username or password',
     adminLogin: 'Admin Login',
@@ -165,6 +167,7 @@ const translations = {
     operations: 'Betrieb',
     fleet: 'Flotte',
     warehouses: 'Lager',
+    containers: 'Container',
     analytics: 'Analytik',
     reports: 'Berichte',
     
@@ -196,6 +199,7 @@ const translations = {
     enterUsername: 'Benutzername eingeben',
     enterPassword: 'Passwort eingeben',
     signIn: 'Anmelden',
+    signingIn: 'Anmeldung...',
     welcomeBack: 'Willkommen zurück',
     invalidCredentials: 'Ungültiger Benutzername oder Passwort',
     adminLogin: 'Administrator-Anmeldung',
@@ -307,12 +311,12 @@ const translations = {
   },
 };
 
-const AppContext = createContext(undefined);
+import { AppContext } from './appContext.js';
 
 const STORAGE_KEY = 'app_settings';
 const LOGS_KEY = 'system_logs';
 const AUDIT_KEY = 'audit_trail';
-const USERS_KEY = 'app_users';
+// USERS_KEY defined below
 
 // Generate initial mock data
 const generateInitialLogs = () => [
@@ -331,11 +335,10 @@ const generateInitialAudit = () => [
   { id: '5', timestamp: new Date(Date.now() - 1200000).toISOString(), user: 'Admin', action: 'VIEW', resource: 'Fleet Management', details: 'Accessed fleet data', ipAddress: '192.168.1.100' },
 ];
 
+const USERS_KEY = 'csg_users';
+
 const generateInitialUsers = () => [
   { id: '1', username: 'Admin', password: 'Admin@1881!', email: 'admin@csg-logistics.com', role: 'admin', status: 'active', lastLogin: new Date().toISOString(), createdAt: new Date(Date.now() - 86400000 * 30).toISOString() },
-  { id: '2', username: 'JohnDoe', password: 'John@123', email: 'john.doe@csg-logistics.com', role: 'user', status: 'active', lastLogin: new Date(Date.now() - 3600000).toISOString(), createdAt: new Date(Date.now() - 86400000 * 20).toISOString() },
-  { id: '3', username: 'JaneSmith', password: 'Jane@123', email: 'jane.smith@csg-logistics.com', role: 'user', status: 'active', lastLogin: new Date(Date.now() - 7200000).toISOString(), createdAt: new Date(Date.now() - 86400000 * 15).toISOString() },
-  { id: '4', username: 'Viewer01', password: 'View@123', email: 'viewer@csg-logistics.com', role: 'viewer', status: 'inactive', lastLogin: new Date(Date.now() - 86400000 * 5).toISOString(), createdAt: new Date(Date.now() - 86400000 * 10).toISOString() },
 ];
 
 export function AppProvider({ children }) {
@@ -379,12 +382,27 @@ export function AppProvider({ children }) {
     const stored = localStorage.getItem(USERS_KEY);
     if (stored) {
       try {
-        return JSON.parse(stored);
+        const parsed = JSON.parse(stored);
+        // Ensure Admin user exists with correct credentials
+        const adminExists = parsed.find((u) => u.username.toLowerCase() === 'admin');
+        if (!adminExists || adminExists.password !== 'Admin@1881!' || adminExists.status !== 'active') {
+          // Reset Admin user
+          const filtered = parsed.filter((u) => u.username.toLowerCase() !== 'admin');
+          const defaultAdmin = generateInitialUsers()[0];
+          const updated = [...filtered, defaultAdmin];
+          localStorage.setItem(USERS_KEY, JSON.stringify(updated));
+          return updated;
+        }
+        return parsed;
       } catch {
-        return generateInitialUsers();
+        const initial = generateInitialUsers();
+        localStorage.setItem(USERS_KEY, JSON.stringify(initial));
+        return initial;
       }
     }
-    return generateInitialUsers();
+    const initial = generateInitialUsers();
+    localStorage.setItem(USERS_KEY, JSON.stringify(initial));
+    return initial;
   });
 
   const [isSyncing, setIsSyncing] = useState(false);
@@ -723,19 +741,48 @@ export function AppProvider({ children }) {
   const validateUser = useCallback((username, password) => {
     // Get fresh users from localStorage to avoid stale state
     const storedUsers = localStorage.getItem(USERS_KEY);
-    const currentUsers = storedUsers ? JSON.parse(storedUsers) : users;
+    let currentUsers = storedUsers ? JSON.parse(storedUsers) : users;
+    
+    // Ensure Admin user exists with correct credentials
+    const adminUser = currentUsers.find((u) => u.username.toLowerCase() === 'admin');
+    if (!adminUser || adminUser.password !== 'Admin@1881!' || adminUser.status !== 'active') {
+      // Reset Admin user if missing or incorrect
+      currentUsers = currentUsers.filter((u) => u.username.toLowerCase() !== 'admin');
+      currentUsers.push({
+        id: '1',
+        username: 'Admin',
+        password: 'Admin@1881!',
+        email: 'admin@csg-logistics.com',
+        role: 'admin',
+        status: 'active',
+        lastLogin: new Date().toISOString(),
+        createdAt: new Date(Date.now() - 86400000 * 30).toISOString(),
+      });
+      localStorage.setItem(USERS_KEY, JSON.stringify(currentUsers));
+      setUsers(currentUsers);
+    }
+    
+    // Trim inputs to handle whitespace
+    const trimmedUsername = username.trim();
+    const trimmedPassword = password.trim();
     
     const user = currentUsers.find((u) => 
-      u.username.toLowerCase() === username.toLowerCase() && 
-      u.password === password &&
+      u.username.toLowerCase() === trimmedUsername.toLowerCase() && 
+      u.password === trimmedPassword &&
       u.status === 'active'
     );
     
     if (user) {
-      console.log('User validated successfully:', user.username);
+      console.log('✅ User validated successfully:', user.username);
     } else {
-      console.log('Validation failed for:', username);
-      console.log('Available users:', currentUsers.map((u) => ({ username: u.username, status: u.status })));
+      console.error('❌ Validation failed for:', trimmedUsername);
+      console.error('Available users:', currentUsers.map((u) => ({ 
+        username: u.username, 
+        status: u.status,
+        passwordMatch: u.password === trimmedPassword ? '✅' : '❌'
+      })));
+      console.error('Expected password for Admin: Admin@1881!');
+      console.error('Received password:', trimmedPassword, '(length:', trimmedPassword.length + ')');
     }
     
     return user || null;
@@ -787,12 +834,4 @@ export function AppProvider({ children }) {
       {children}
     </AppContext.Provider>
   );
-}
-
-export function useApp() {
-  const context = useContext(AppContext);
-  if (!context) {
-    throw new Error('useApp must be used within AppProvider');
-  }
-  return context;
 }

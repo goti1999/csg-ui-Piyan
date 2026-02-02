@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table.jsx";
 import { Separator } from "@/components/ui/separator.jsx";
 import { Users, Plus, Search, Pencil, Trash2, UserCheck, UserX, Shield, Eye, EyeOff, Send, Save, XCircle, Mail, Key } from "lucide-react";
-import { useApp } from "@/contexts/AppContext.jsx";
+import { useApp } from "@/contexts/useApp.js";
 import { useState } from "react";
 import { toast } from "sonner";
 

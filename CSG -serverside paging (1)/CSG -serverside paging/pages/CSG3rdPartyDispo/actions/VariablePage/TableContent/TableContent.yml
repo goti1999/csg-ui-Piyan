@@ -1,0 +1,18 @@
+id: '17613007845980.7409459095971112'
+kind: store_item
+name: TableContent
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: '{}'
+  valueType: object
+  initialValue: '{}'
+  version: 1
+selected: false
+configured: true
+parentPageId: '17613007845890.1494303586036353'
+config:
+  preserveStateOnPageChange: false
+parentId: '17613007845970.380402834791862'

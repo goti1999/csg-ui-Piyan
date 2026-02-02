@@ -1,0 +1,17 @@
+id: '17597397375950.6815055401719001'
+kind: store_item
+name: RowCustomerID
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: '0'
+  valueType: string
+  initialValue: '0'
+  version: 1
+selected: false
+configured: true
+config:
+  preserveStateOnPageChange: true
+parentId: '17603437805180.30971559546049277'

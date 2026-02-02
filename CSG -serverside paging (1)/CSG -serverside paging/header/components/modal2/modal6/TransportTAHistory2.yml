@@ -1,0 +1,515 @@
+id: '17603530292330.6068368265396182'
+definitionId: smartTable
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 84
+    flex:
+      size:
+        widthValue: 500
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 80
+    flex:
+      size:
+        widthValue: 500
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicColumns:
+    value: []
+    dataValue: '{{state.showColumns}}'
+    withData: true
+  data:
+    value: '{{state.TAHistoryContent}}'
+    dataValue: ''
+    withData: false
+  name: TransportTAHistory2
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: ''
+  showLoading:
+    withData: true
+    dataValue: 'false'
+    value: false
+  showFilter:
+    value: true
+    dataValue: 'false'
+    withData: false
+  showReloadAction:
+    value: true
+    dataValue: 'false'
+    withData: false
+  sortColumn:
+    value: Timestamp
+    dataValue: ''
+    withData: false
+  sortDirection:
+    value: desc
+    dataValue: asc
+    withData: false
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: none
+      border: none
+  limit: '[20 ,50 ,100, 200]'
+  resetActivePageOnNewData: true
+  triggerRowSelectOnInit:
+    value: true
+    dataValue: 'false'
+    withData: false
+  selectedRowIndex: '-1'
+parentSlotId: '17603530292330.2907679966781824'
+index: 0
+actions:
+  smartTableReload:
+    - action: '17582088747460.9248727675935334'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  init: []
+  smartTableCreate: []
+  smartTableEdit: []
+  smartTableBulkEdit: []
+  smartTableDelete: []
+  smartTableRowSelect: []
+  smartTableRowClick: []
+  uiOnRowDoubleClick: []
+  smartTablePageSelect: []
+  uiOnPageSizeChange: []
+  smartTableFilterChange: []
+  smartTableSortChange: []
+  uiOnCellChangeTrigger: []
+slots:
+  - id: '17603530292330.20225992848123342'
+    name: columns
+    children:
+      - id: '17613022258670.5575014666313158'
+        definitionId: atomicNumber
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicNumber77
+          prop: MBL_ID
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 60
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 0
+        slots: []
+      - id: '17613022258680.2689064225096608'
+        definitionId: atomicNumber
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicNumber78
+          prop: transport_Dispo_ID
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 60
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 1
+        slots: []
+      - id: '17613022258680.8762785017827617'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString261
+          prop: ctv_booking_id
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 2
+        slots: []
+      - id: '17613022258680.060938291518690124'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString262
+          prop: CSG_Event_ID
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 3
+        slots: []
+      - id: '17613022258670.9237515009780771'
+        definitionId: atomicDateTime
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime127
+          prop: Timestamp
+          primaryKey: false
+          timeFormat:
+            value: ''
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 4
+        slots: []
+      - id: '17613022258670.5618099435897894'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString263
+          prop: Interface
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 5
+        slots: []
+      - id: '17613022258670.6204205739703407'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString264
+          prop: direction
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 6
+        slots: []
+      - id: '17613022258670.32507768376925916'
+        definitionId: atomicNumber
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicNumber79
+          prop: CustomerID
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 60
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 7
+        slots: []
+      - id: '17613022258670.17839776732437684'
+        definitionId: atomicNumber
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber80
+          prop: ContainerID
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 60
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 8
+        slots: []
+      - id: '17613022258670.767010021622853'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString265
+          prop: MBL_Number
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 9
+        slots: []
+      - id: '17613022258670.14732131933681447'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString266
+          prop: Container_Number
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 10
+        slots: []
+      - id: '17613022258680.41441045755047023'
+        definitionId: atomicSelect
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicSelect202
+          prop: Status
+          primaryKey: false
+          options:
+            value:
+              - value: transportAssignment
+                color: primary
+                __UIBAKERY__SYSTEM_ID__: '17613022258670.6817328107616106'
+            dataValue: |-
+              [
+                {
+                  value: 'transportAssignment',
+                  color: 'primary'
+                }
+              ]
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 11
+        slots: []
+      - id: '17613022258680.4621164439557106'
+        definitionId: atomicDateTime
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicDateTime128
+          prop: TransmissionTimestamp
+          primaryKey: false
+          timeFormat:
+            value: ''
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 12
+        slots: []
+      - id: '17613022258680.106844905301277'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString267
+          prop: Voyage
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 13
+        slots: []
+      - id: '17613022258680.242716589574977'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString268
+          prop: ContainerSize
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 14
+        slots: []
+      - id: '17613022258680.4792330711344067'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString269
+          prop: Broker
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 15
+        slots: []
+      - id: '17613022258680.908952316379463'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString270
+          prop: Carrier
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 16
+        slots: []
+      - id: '17613022258680.9145485721556819'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString271
+          prop: Vessel
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 17
+        slots: []
+      - id: '17613022258680.8806966412150175'
+        definitionId: atomicString
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString272
+          prop: PortOfDischarge_Lima
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 18
+        slots: []
+      - id: '17613022258680.8114752493972701'
+        definitionId: atomicDateTime
+        parentSlotId: '17603530292330.20225992848123342'
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicDateTime129
+          prop: ETA_PortOfDischarge
+          primaryKey: false
+          timeFormat:
+            value: ''
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+        actions: {}
+        index: 19
+        slots: []

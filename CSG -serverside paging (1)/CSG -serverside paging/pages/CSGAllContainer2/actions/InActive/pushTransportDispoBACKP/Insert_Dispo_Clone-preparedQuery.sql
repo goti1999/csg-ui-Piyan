@@ -1,0 +1,39 @@
+INSERT INTO dbo.Transport_Dispo_clone (
+        Transport_Dispo_ID,
+        ContainerSize,
+        Carrier,
+        Vessel,
+        Pincode,
+        DropOff_Terminal,
+        DropOff_Terminal_TIR,
+        ETA_DeliveryAddress,
+        Remarks,
+        DeliveryAddress,
+        ATA_Terminal_Inland,
+        Containerverfuegbarkeit,
+        Transport_Mode_final_DeliveryAddress,
+        Direct_Truck,
+        CustomerID,
+        MBL_ID,
+        ContainerID
+    )
+    VALUES (
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?
+    );
+

@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { LogOut, RefreshCw, Download, Search, Edit, X, Settings } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext.jsx";
-import { useApp } from "@/contexts/AppContext.jsx";
+import { useApp } from "@/contexts/useApp.js";
 import clsx from "clsx";
 import { useState } from "react";
 import { AdvancedMenu } from './AdvancedMenu';
@@ -28,18 +28,25 @@ const Logo = () => {
   );
 };
 
-const Header = ({ search, onSearch, onSignOut, username, isAdmin }) => {
+const Header = ({ search, onSearch, onSignOut, isAdmin }) => {
   const location = useLocation();
   const { t, editMode, toggleEditMode } = useApp();
 
   // Navigation items with translation keys
   const navItems = [
-    { path: "/", labelKey: "dashboard" },
-    { path: "/operations", labelKey: "operations" },
-    { path: "/fleet", labelKey: "fleet" },
-    { path: "/warehouses", labelKey: "warehouses" },
-    { path: "/analytics", labelKey: "analytics" },
-    { path: "/reports", labelKey: "reports" },
+    { path: "/", label: "Default", labelKey: "dashboard" },
+    { path: "/analytics", label: "Analytics", labelKey: "analytics" },
+    { path: "/crm", label: "CRM", labelKey: "crm" },
+    { path: "/ecommerce", label: "E-commerce", labelKey: "ecommerce" },
+    { path: "/lms", label: "LMS", labelKey: "lms" },
+    { path: "/management", label: "Management", labelKey: "management" },
+    { path: "/saas", label: "SaaS", labelKey: "saas" },
+    { path: "/support-desk", label: "Support", labelKey: "support" },
+    { path: "/operations", label: "Operations", labelKey: "operations" },
+    { path: "/fleet", label: "Fleet", labelKey: "fleet" },
+    { path: "/warehouses", label: "Warehouses", labelKey: "warehouses" },
+    { path: "/containers", label: "Containers", labelKey: "containers" },
+    { path: "/reports", label: "Reports", labelKey: "reports" },
   ];
 
   return (
@@ -59,13 +66,14 @@ const Header = ({ search, onSearch, onSignOut, username, isAdmin }) => {
                   key={item.path}
                   to={item.path}
                   className={clsx(
-                    "px-4 py-2 rounded-md text-sm font-medium transition-all duration-200",
+                    "px-3 py-2 rounded-md text-xs font-medium transition-all duration-200",
                     active 
                       ? "bg-white text-indigo-700 shadow-md" 
                       : "text-white/90 hover:bg-white/20"
                   )}
+                  title={item.label || t(item.labelKey)}
                 >
-                  {t(item.labelKey)}
+                  {item.label || t(item.labelKey)}
                 </NavLink>
               );
             })}
@@ -150,8 +158,8 @@ const Header = ({ search, onSearch, onSignOut, username, isAdmin }) => {
               <RefreshCw className="h-4 w-4" />
             </Button>
             
-            {/* Advanced Menu - icon only */}
-            <AdvancedMenu username={username} onSignOut={onSignOut} />
+            {/* Advanced Menu - icon only (no profile/username in header) */}
+            <AdvancedMenu onSignOut={onSignOut} />
           </div>
         </div>
         
@@ -233,7 +241,6 @@ const AppLayout = () => {
         search={search} 
         onSearch={setSearch}
         onSignOut={signOut}
-        username={user?.username ?? "User"}
         isAdmin={isAdmin}
       />
       

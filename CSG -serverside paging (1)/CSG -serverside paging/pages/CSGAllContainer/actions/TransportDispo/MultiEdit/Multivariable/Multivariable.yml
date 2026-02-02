@@ -1,0 +1,40 @@
+id: '17603660472370.7829168555625436'
+kind: workflow
+name: Multivariable
+nameConfigured: true
+steps:
+  - id: '17603660485120.7347887081334219'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+parentPageId: '17442767595900.5825776314192999'
+parentId: '17603660807690.9567230473351293'
+defaultParams: ''
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.Multivariable.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.Multivariable.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.Multivariable.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true

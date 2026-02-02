@@ -1,0 +1,204 @@
+id: '17612911131400.5689290393099746'
+name: CSG Alle Container-Serverside aging
+url: CSGAllContainer2
+roleIds:
+  - admin
+disableInMenu: true
+hideFromMenu: true
+icon: person_material_filled
+slots:
+  - id: '17612911131410.6103573081355441'
+    name: content
+    children:
+      - id: '17612911131440.7086124087266841'
+        definitionId: grid
+        parentSlotId: '17612911131410.6103573081355441'
+        styles: {}
+        properties:
+          name: tranportlist6
+          pageTitle: '{{app.name}} - {{activeRoute.name}}'
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          cssClasses:
+            value: []
+            dataValue: >-
+              /* Simple UI Bakery Compatible Styles */
+
+
+              .onTableloadTable2 nb-card {
+                background-color: #667eea;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                border: none;
+              }
+
+
+              .onTableloadTable2 nb-card-header {
+                background-color: rgba(255,255,255,0.1);
+                padding: 20px;
+                color: white;
+              }
+
+
+              .onTableloadTable2 ub-smart-table-header-cell,
+
+              .onTableloadTable2 ub-smart-table-header-data-cell {
+                background-color: #f8f9fa;
+                color: #2c3e50;
+                font-weight: bold;
+                padding: 15px;
+              }
+
+
+              .onTableloadTable2 ub-smart-table-body-cell {
+                background-color: white;
+                padding: 12px;
+                border-bottom: 1px solid #dee2e6;
+              }
+
+
+              .onTableloadTable2 .datatable-body-row:hover
+              ub-smart-table-body-cell {
+                background-color: #74b9ff;
+                color: white;
+              }
+
+
+              .onTableloadTable2 .datatable-body-row.active
+              ub-smart-table-body-cell {
+                background-color: #00b894;
+                color: white;
+              }
+
+
+              .containerErrorsTable nb-card {
+                background-color: #ff6b6b;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                border: none;
+              }
+
+
+              .containerErrorsTable nb-card-header {
+                background-color: rgba(255,255,255,0.1);
+                padding: 20px;
+                color: white;
+              }
+
+
+              .containerErrorsTable ub-smart-table-header-cell,
+
+              .containerErrorsTable ub-smart-table-header-data-cell {
+                background-color: #f8f9fa;
+                color: #c0392b;
+                font-weight: bold;
+                padding: 15px;
+              }
+
+
+              .containerErrorsTable ub-smart-table-body-cell {
+                background-color: white;
+                padding: 12px;
+                border-bottom: 1px solid #fadbd8;
+              }
+
+
+              .containerErrorsTable .datatable-body-row:hover
+              ub-smart-table-body-cell {
+                background-color: #fd79a8;
+                color: white;
+              }
+
+
+              .containerErrorsTable .datatable-body-row.active
+              ub-smart-table-body-cell {
+                background-color: #a29bfe;
+                color: white;
+              }
+
+
+              .form nb-card {
+                background-color: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                border: 1px solid #e9ecef;
+              }
+
+
+              .form nb-card-header {
+                background-color: #667eea;
+                color: white;
+                padding: 25px;
+              }
+
+
+              .form nb-card-body {
+                padding: 30px;
+                background-color: white;
+              }
+
+
+              .form input {
+                border: 2px solid #e9ecef;
+                border-radius: 8px;
+                padding: 12px;
+                width: 100%;
+              }
+
+
+              .form input:focus {
+                border-color: #667eea;
+                outline: none;
+              }
+
+
+              .form button {
+                background-color: #667eea;
+                border: none;
+                border-radius: 8px;
+                padding: 12px 24px;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+              }
+
+
+              .form button:hover {
+                background-color: #764ba2;
+              }
+
+
+              .success-row ub-smart-table-body-cell {
+                background-color: #00b894;
+                color: white;
+              }
+
+
+              .warning-row ub-smart-table-body-cell {
+                background-color: #fdcb6e;
+                color: white;
+              }
+
+
+              .error-row ub-smart-table-body-cell {
+                background-color: #ff6b6b;
+                color: white;
+              }
+
+
+              .highlight {
+                background-color: #ffeaa7;
+                font-weight: bold;
+              }
+            withData: false
+        index: 0
+        actions:
+          pageLoad: []
+        slots:
+          - id: '17612911131450.7291310520663398'
+            name: content
+            children:
+              - components/card17/card17.yml
+              - components/card18/card18.yml
+              - components/alternatetable3.yml

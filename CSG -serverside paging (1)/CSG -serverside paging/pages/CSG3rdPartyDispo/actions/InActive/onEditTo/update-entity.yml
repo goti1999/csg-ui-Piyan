@@ -1,0 +1,4 @@
+mode: custom
+valueByMode:
+  structured: {}
+  custom: '{{ui.todopopup10.value}}'

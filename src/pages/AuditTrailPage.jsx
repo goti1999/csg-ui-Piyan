@@ -29,7 +29,7 @@ import {
   Copy,
   ExternalLink
 } from "lucide-react";
-import { useApp } from "@/contexts/AppContext.jsx";
+import { useApp } from "@/contexts/useApp.js";
 import { useState, useMemo } from "react";
 import { toast } from "sonner";
 

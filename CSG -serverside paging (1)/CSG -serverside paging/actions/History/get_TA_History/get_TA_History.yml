@@ -1,0 +1,107 @@
+id: '17582088659520.8238412408506166'
+kind: workflow
+name: get_TA_History
+nameConfigured: true
+steps:
+  - id: '17582088659520.4266505497647335'
+    type: LOAD_COLLECTION
+    name: loadTA
+    params:
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: string
+      - type: resourceId
+        value: dbo.Transport_Dispo_History
+        valueType: string
+      - type: filters
+        value:
+          - column: CustomerID
+            operation: '='
+            value:
+              value: '{{state.RowCustomerID}}'
+          - column: MBL_ID
+            operation: '='
+            value:
+              value: '{{state.RowMBL_ID}}'
+          - column: ContainerID
+            operation: '='
+            value:
+              value: '{{state.RowContainerID}}'
+        valueType: custom
+      - type: ordering
+        value:
+          limit:
+            value: 1000
+          offset:
+            value: ''
+          orderBy:
+            value: Timestamp
+          orderDirection:
+            value: desc
+        valueType: custom
+      - type: additionalParams
+        value:
+          - name: ''
+            value: ''
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    nameConfigured: true
+    paused: false
+  - id: '17582088659520.6485476614195551'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+  - id: '17613021621200.03421949449789219'
+    type: customAsyncCode
+    name: code2
+    params:
+      - type: asyncCode
+        value: ./code2.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+defaultParams: ''
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.get_TA_History.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.get_TA_History.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.get_TA_History.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+parentId: '17582088214300.5073661164041429'

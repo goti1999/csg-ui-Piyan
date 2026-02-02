@@ -1,0 +1,625 @@
+id: '17612911131450.4089292419007625'
+definitionId: form
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 175
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 175
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicFields:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  entity: '{{actions.OnFormData.data}}'
+  name: form9
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: ''
+  resetOnSubmit: false
+  showSuccessMessage: true
+  showErrorMessage: true
+  showCustomButton:
+    value: false
+    dataValue: 'false'
+    withData: false
+  customButtonText: Direck Truck
+  customButtonStatus:
+    value: success
+    dataValue: basic
+    withData: false
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: none
+      border: none
+  showSubmitBtn:
+    value: true
+    dataValue: 'true'
+    withData: false
+  submitOnEnter:
+    value: true
+    dataValue: 'true'
+    withData: false
+  disableSubmitButtonWhenInvalid:
+    value: false
+    dataValue: 'true'
+    withData: false
+  columns: '1'
+  heightMode: fixed
+parentSlotId: '17612911131450.17776883549407918'
+index: 0
+actions:
+  submitEvent:
+    - action: '17612911131510.6960247668163518'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  init: []
+  validate: []
+  changeEvent: []
+  formClick: []
+  customButtonClick: []
+slots:
+  - id: '17612911131450.060331226697125984'
+    name: structure
+    children:
+      - id: '17612911131450.7642724025084483'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+            iconPlacement: none
+        properties:
+          name: atomicString576
+          prop: Container_No
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          labelConfig:
+            position: horizontal
+            align: left
+          icon:
+            value: bookmark
+            dataValue: star-outline
+            withData: false
+          showCopyButton: true
+          labelWidth: 45
+          title: Container No
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 0
+        slots: []
+      - id: '17612911131450.6509812181087729'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+            iconPlacement: none
+        properties:
+          name: atomicString577
+          prop: MBL_No
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: true
+          inlineEditable:
+            value: false
+            dataValue: 'false'
+            withData: false
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          alignment: center
+          width: 128
+          widthMode: fixed
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: bookmark
+            dataValue: star-outline
+            withData: false
+          labelConfig:
+            position: horizontal
+            align: left
+          labelWidth: 45
+          showCopyButton: true
+          title: MBL No
+          markdownSupport: false
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 1
+        slots: []
+      - id: '17612911131450.9655657495287366'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString578
+          prop: Pincode
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 2
+        actions: {}
+        slots: []
+      - id: '17612911131450.2673614127416034'
+        definitionId: atomicSelect
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString579
+          prop: DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: ''
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.DropOff_Terminal_concat.replace(/\\n/g, ''\n'')}}'
+          options:
+            value:
+              - value: not_active
+                color: danger
+                __UIBAKERY__SYSTEM_ID__: '2'
+            dataValue: '{{actions.getHilfsTabelle.data}}'
+            withData: true
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 3
+        actions: {}
+        slots: []
+      - id: '17612911131450.7251336625715271'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString580
+          prop: DropOff_Terminal_TIR
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          width: 127
+          widthMode: fixed
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 4
+        slots: []
+      - id: '17612911131450.6045228722831283'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString581
+          prop: Remarks
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 5
+        slots: []
+      - id: '17612911131450.28642134843294964'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+            iconPlacement: left
+        properties:
+          name: atomicDateTime209
+          prop: ATA_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          timezone: '+0000'
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 6
+        actions: {}
+        slots: []
+      - id: '17612911131450.38977655039507386'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+            iconPlacement: left
+        properties:
+          name: atomicDateTime210
+          prop: ETA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          required:
+            value: false
+            dataValue: 'false'
+            withData: false
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          withSeconds: true
+          timeStep:
+            active: false
+            step: '60'
+          timezone: '+0000'
+          labelConfig:
+            position: vertical
+            align: left
+          forceView: false
+          firstDayOfWeek:
+            value: monday
+            dataValue: sunday
+            withData: false
+          icon:
+            value: calendar
+            dataValue: star-outline
+            withData: false
+          iconColor:
+            value: info
+            dataValue: text-color
+            withData: false
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 7
+        actions: {}
+        slots: []
+      - id: '17612911131450.7406757581165223'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString582
+          prop: Containerverfuegbarkeit
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 8
+        slots: []
+      - id: '17612911131450.42025729536746415'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString583
+          prop: DeliveryAddress
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          title: DeliveryAddress
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 9
+        slots: []
+      - id: '17612911131450.2514227136639452'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicBoolean95
+          prop: Direct_Truck
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: Direkt Truck
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 10
+        actions: {}
+        slots: []
+      - id: '17612911131450.38095883014892096'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString584
+          prop: CustomerID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 11
+        actions: {}
+        slots: []
+      - id: '17612911131450.8366316519510848'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString585
+          prop: MBL_ID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 12
+        actions: {}
+        slots: []
+      - id: '17612911131450.5134339578722442'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString586
+          prop: ContainerID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 13
+        actions: {}
+        slots: []
+      - id: '17612911131450.4864338831317905'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber192
+          prop: transport_Dispo_ID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 14
+        slots: []
+      - id: '17612911131450.9173283675353471'
+        definitionId: atomicSelect
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicSelect149
+          prop: Status_Dispo
+          primaryKey: false
+          options:
+            value: []
+            dataValue: '[]'
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 15
+        slots: []
+      - id: '17612911131450.5782712708919137'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber193
+          prop: Transport_Mode_Terminal
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 16
+        slots: []
+      - id: '17612911131450.39626313544818936'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber194
+          prop: Transport_Mode_final_DeliveryAddress
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 17
+        slots: []
+      - id: '17612911131450.46682554808205334'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString587
+          prop: Carrier
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 18
+        actions: {}
+        slots: []
+      - id: '17612911131450.6521938685441825'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString588
+          prop: Vessel
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 19
+        actions: {}
+        slots: []
+      - id: '17612911131450.8445295138602865'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicBoolean96
+          prop: to_Transporter
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 20
+        slots: []
+      - id: '17612911131450.12782065500117712'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString589
+          prop: DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 21
+        actions: {}
+        slots: []
+      - id: '17612911131450.4135970554394799'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString590
+          prop: DropOff_Terminal_TIR
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 22
+        actions: {}
+        slots: []
+      - id: '17612911131450.578894956699433'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString591
+          prop: ContainerSize
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        parentSlotId: '17612911131450.060331226697125984'
+        index: 23
+        actions: {}
+        slots: []

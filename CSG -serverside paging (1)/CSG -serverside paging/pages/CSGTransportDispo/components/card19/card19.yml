@@ -1,0 +1,90 @@
+id: '17613009040340.3932084197622031'
+definitionId: cardNew
+parentSlotId: '17613009040340.2830070574719794'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 1954
+      w: 22
+      h: 150
+    flex:
+      size:
+        widthValue: 300
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    status:
+      value: primary
+      dataValue: default
+      withData: false
+    accent:
+      value: primary
+      dataValue: default
+      withData: false
+    backgroundColor:
+      value: transparent
+      dataValue: default
+      withData: false
+  xs:
+    gridItem:
+      x: 0
+      y: 797
+      w: 24
+      h: 80
+    flex:
+      size:
+        widthValue: 300
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: card19
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  enableViews: false
+  showHeader: false
+  cssClasses:
+    value:
+      - ''
+    dataValue: |-
+      <style>
+        .blue nb-card {
+          background: lightblue!important;
+        }
+        
+        .green nb-card {
+          background: lightgreen!important;
+        }
+      </style>
+    withData: true
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: none
+      shadow: none
+      border: none
+actions: {}
+slots:
+  - id: '17613009040340.2572703869191648'
+    name: header
+    children:
+      - heading53.yml
+  - id: '17613009040340.5478162361697209'
+    name: footer
+    children: []
+  - id: '17613009040340.4930171611921298'
+    name: views
+    children:
+      - view_19/view_19.yml

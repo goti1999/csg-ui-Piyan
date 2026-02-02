@@ -1,0 +1,15 @@
+id: '17604244259230.7760659029455219'
+kind: store_item
+name: SortOrderSQL
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+parentPageId: '17604244259020.8463581709343864'
+storeItem:
+  value: 'd.TransmissionTimestamp DESC '
+  valueType: string
+  initialValue: 'd.TransmissionTimestamp DESC '
+  version: 1
+selected: true
+configured: true

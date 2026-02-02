@@ -1,0 +1,10 @@
+id: '17582088214300.5073661164041429'
+kind: folder
+name: History
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+config:
+  preserveStateOnPageChange: true
+selected: false

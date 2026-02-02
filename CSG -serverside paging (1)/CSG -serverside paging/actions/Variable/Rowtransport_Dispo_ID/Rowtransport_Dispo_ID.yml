@@ -1,0 +1,17 @@
+id: '17598510845920.9310418700668797'
+kind: store_item
+name: Rowtransport_Dispo_ID
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: 0
+  valueType: number
+  initialValue: 0
+  version: 1
+selected: false
+configured: true
+config:
+  preserveStateOnPageChange: true
+parentId: '17603437805180.30971559546049277'

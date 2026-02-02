@@ -1,0 +1,38 @@
+id: '17610447759840.6311254641305287'
+kind: workflow
+name: OpenHistory
+nameConfigured: true
+steps:
+  - id: '17610447759840.4568410507554902'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.OpenHistory.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.OpenHistory.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.OpenHistory.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+parentPageId: '17610447759800.41727548259855596'
+defaultParams: ''

@@ -1,0 +1,224 @@
+id: '17603669685360.9114919344731611'
+kind: workflow
+name: Sortchange
+nameConfigured: true
+steps:
+  - id: '17603669685370.770652454209779'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable4.paginationOffset)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable4.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__(ui.ontable4.pageSize)
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortColumn ?? '' )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable4.sortDirection ?? 'DESC' )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: false
+parentPageId: '17603669685180.5988480192526263'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.Sortchange.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.Sortchange.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.Sortchange.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false
+selected: false
+configured: true

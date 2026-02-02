@@ -1,0 +1,26 @@
+id: '17613009040340.1305257596090874'
+definitionId: view
+styles: {}
+properties:
+  name: view_19
+  viewName: view_1
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+parentSlotId: '17613009040340.4930171611921298'
+index: 0
+actions: {}
+slots:
+  - id: '17613009040340.3305625951792136'
+    name: content
+    children:
+      - popupForm26.yml
+      - popupForm27.yml
+      - ShowResultCTV9.yml
+      - ShowResultCundA9.yml
+      - todopopup9.yml
+      - modal16/modal16.yml
+      - frameDrawer20/frameDrawer20.yml
+      - frameDrawer21/frameDrawer21.yml
+      - popupForm28.yml
+      - modal19/modal19.yml

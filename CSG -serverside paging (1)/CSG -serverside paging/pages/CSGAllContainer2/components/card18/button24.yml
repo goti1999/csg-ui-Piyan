@@ -1,0 +1,60 @@
+id: '17612911131450.00017833918765297607'
+definitionId: button
+parentSlotId: '17612911131450.08620972213523315'
+styles:
+  xl:
+    gridItem:
+      x: 15
+      y: 0
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    iconPlacement: right
+  xs:
+    gridItem:
+      id: '17473901633750.7412960994204693'
+      x: 16
+      y: 9
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: button24
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  text: CTV Auftrag
+  status:
+    value: warning-dark
+    dataValue: primary
+    withData: false
+  icon:
+    value: clipboard
+    dataValue: star-outline
+    withData: false
+actions:
+  buttonClick:
+    - action: '17612911131490.9803464527135408'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+    - action: '17612911131490.854907159528499'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 2
+  init: []
+slots: []

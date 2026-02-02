@@ -1,0 +1,67 @@
+id: '17612911131450.5463183409233402'
+definitionId: modal
+parentSlotId: '17612911131450.9702055779814026'
+styles:
+  xl:
+    gridItem:
+      id: '17597385471620.7479111606946365'
+      x: 20
+      y: 30
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    modalSize:
+      widthValue: 40
+      widthUnit: '%'
+      heightValue: 25
+      heightUnit: '%'
+      minWidthValue: 0
+      minWidthUnit: px
+      minHeightValue: 0
+      minHeightUnit: px
+      maxWidthValue: none
+      maxWidthUnit: null
+      maxHeightValue: none
+      maxHeightUnit: null
+  xs:
+    gridItem:
+      id: '17597385471620.7479111606946365'
+      x: 20
+      y: 45
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: modal14
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+actions: {}
+slots:
+  - id: '17612911131450.62882012413971'
+    name: header
+    children:
+      - heading49.yml
+  - id: '17612911131450.634686176365004'
+    name: body
+    children:
+      - containerErrorsTable9.yml
+  - id: '17612911131450.35261158308334306'
+    name: footer
+    children: []

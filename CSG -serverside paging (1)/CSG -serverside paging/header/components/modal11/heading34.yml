@@ -1,0 +1,41 @@
+id: '17609567416030.5223655096839447'
+definitionId: heading
+styles:
+  xl:
+    fontSize:
+      customValue: 20
+      customUnit: px
+      themeDefaultOverridePropertyKey: baseTextFontSize
+    gridItem:
+      h: 9
+      w: 24
+    iconPlacement: left
+    color:
+      value: info
+      dataValue: basic
+      withData: false
+properties:
+  name: heading34
+  text: Termine - {{state.RowContainer_No}}
+  verticalAlignment: middle
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  alignment: center
+  textStyle:
+    transform: none
+    styles:
+      - bold
+  icon:
+    value: calendar
+    dataValue: star-outline
+    withData: false
+    themeDefaultOverridePropertyKey: starIcon
+  iconColor:
+    value: text-color
+    dataValue: text-color
+    withData: false
+parentSlotId: '17609567416030.7418041777202881'
+index: 0
+actions: {}
+slots: []

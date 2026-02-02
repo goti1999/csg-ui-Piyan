@@ -1,0 +1,39 @@
+id: '17613007846090.8183608721470222'
+kind: workflow
+name: TableContant
+nameConfigured: true
+steps:
+  - id: '17613007846090.7494987101349936'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+mode: manual
+modeConfigured: false
+parentPageId: '17613007845890.1494303586036353'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.TableContant.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.TableContant.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.TableContant.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: false
+configured: true
+parentId: '17613007846060.9314983326043799'
+defaultParams: ''

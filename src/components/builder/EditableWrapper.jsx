@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button.jsx';
 import { Badge } from '@/components/ui/badge.jsx';
-import { useApp } from '@/contexts/AppContext.jsx';
+import { useApp } from '@/contexts/useApp.js';
 import { Settings, Move, Trash2, Copy, Eye, EyeOff } from 'lucide-react';
 import { cn } from '@/lib/utils.js';
 

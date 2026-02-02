@@ -1,0 +1,443 @@
+id: '17613009040340.12851602808034346'
+definitionId: popupForm
+parentSlotId: '17613009040340.3305625951792136'
+styles:
+  xl:
+    gridItem:
+      x: 14
+      y: 61
+      w: 9
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    buttonIconPlacement: left
+    modalSize:
+      widthValue: 35
+      widthUnit: '%'
+      heightValue: 30
+      heightUnit: '%'
+      minWidthValue: 0
+      minWidthUnit: px
+      minHeightValue: 0
+      minHeightUnit: px
+      maxWidthValue: none
+      maxWidthUnit: null
+      maxHeightValue: none
+      maxHeightUnit: null
+  xs:
+    gridItem:
+      id: '17471186464980.6093302105653534'
+      x: 14
+      y: 18
+      w: 5
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicFields:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  entity: '{{ui.ontable10.selectedRow.data}}'
+  name: popupForm26
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: Status Popup
+  buttonStatus:
+    value: primary
+    dataValue: primary
+    withData: false
+  buttonIcon:
+    value: archive
+    dataValue: star-outline
+    withData: false
+  closeOnEsc: true
+  closeOnBackdrop: true
+  closeOnSuccess: true
+  showSuccessMessage: false
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+  showSubmitBtn:
+    value: false
+    dataValue: 'true'
+    withData: false
+  buttonText: Status Popup
+actions:
+  popupOpen: []
+  init: []
+  submitEvent: []
+  changeEvent: []
+  validate: []
+  customButtonClick: []
+  popupClose: []
+  popupClick:
+    - action: '17613009040440.6739118557876885'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+slots:
+  - id: '17613009040340.8278705583949207'
+    name: structure
+    children:
+      - id: '17613009040340.24018256966884355'
+        definitionId: atomicString
+        parentSlotId: '17613009040340.8278705583949207'
+        styles:
+          xl:
+            visible: true
+            color:
+              value: basic
+              dataValue: basic
+              withData: false
+            iconPlacement: left
+        properties:
+          name: atomicString608
+          prop: Container_No
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 120
+          widthMode: auto
+          filter: true
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: bookmark
+            dataValue: star-outline
+            withData: false
+          iconColor:
+            value: text-color
+            dataValue: text-color
+            withData: false
+          showCopyButton: true
+        index: 0
+        slots: []
+      - id: '17613009040340.5267696770984707'
+        definitionId: atomicString
+        parentSlotId: '17613009040340.8278705583949207'
+        styles:
+          xl:
+            visible: true
+            color:
+              value: basic
+              dataValue: basic
+              withData: false
+            iconPlacement: left
+        properties:
+          name: atomicString609
+          prop: MBL_No
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: true
+          inlineEditable:
+            value: false
+            dataValue: 'false'
+            withData: false
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: bookmark
+            dataValue: star-outline
+            withData: false
+          showCopyButton: true
+          iconColor:
+            value: text-color
+            dataValue: text-color
+            withData: false
+        index: 1
+        slots: []
+      - id: '17613009040340.7654686534431753'
+        definitionId: atomicSelect
+        parentSlotId: '17613009040340.8278705583949207'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect5
+          prop: pinState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          inlineEditable:
+            value: false
+            dataValue: 'false'
+            withData: false
+          title: Pin
+          primaryKey: false
+          widthMode: fixed
+          width: 68
+          pinColumn: ''
+          alignment: center
+          options:
+            value:
+              - value: new
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17470437994130.4737600267881853'
+                title: new
+              - value: requested
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17470438311940.7913786827750358'
+                title: requested
+              - value: new_delay
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17470438394920.49701925012220227'
+                title: new_delay
+              - value: requested_delay
+                color: warning
+                __UIBAKERY__SYSTEM_ID__: '17470438405760.6382509249609408'
+                title: requested_delay
+              - value: new_urgent
+                color: danger
+                __UIBAKERY__SYSTEM_ID__: '17470438414210.35883729384391916'
+                title: new_urgent
+              - value: requested_urgent
+                color: danger
+                __UIBAKERY__SYSTEM_ID__: '17470438424630.44861551990722626'
+                title: requested_urgent
+              - value: finished
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17470438433190.7076551253962772'
+                title: finished
+            dataValue: |-
+              [
+                {
+                  value: 'new',
+                  color: 'primary'
+                }
+              ]
+            withData: false
+          forceView: true
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+        index: 2
+        slots: []
+      - id: '17613009040340.4995026862905726'
+        definitionId: atomicSelect
+        parentSlotId: '17613009040340.8278705583949207'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect6
+          prop: nationalTransportState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          options:
+            value:
+              - value: new
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17465333078630.4876844125124927'
+              - value: new_delay
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465333321230.18049365863237354'
+              - value: new_urgent
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465333581780.6588849910976293'
+              - value: booked
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465333893160.6857284786175741'
+              - value: booked_delay
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465334119460.5108469984655142'
+              - value: booked_urgent
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465334628300.6316347370251233'
+              - value: transferred
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465334840410.7409713337754051'
+              - value: transferred_delay
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465335241590.017303256458405247'
+              - value: transferred_urgent
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465335501150.6477479250639017'
+              - value: 'confirmed '
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465335699980.7786669432072291'
+              - value: rejected
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465337445950.3459293227077753'
+              - value: departed
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465337633180.290999964629312'
+            dataValue: '[]'
+            withData: false
+          forceView: true
+          primaryKey: false
+          widthMode: fixed
+          width: 123
+          alignment: center
+          title: Natian Transport
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+        index: 3
+        slots: []
+      - id: '17613009040340.4730790579656273'
+        definitionId: atomicSelect
+        parentSlotId: '17613009040340.8278705583949207'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect10
+          prop: finalDeliveryState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          options:
+            value:
+              - value: new
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465338080120.3959540774515462'
+              - value: requested
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465338149570.7700632690439547'
+              - value: transfered
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465338363940.8139734662493937'
+              - value: new_delay
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465338528480.5833519775516455'
+              - value: requested_delay
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465338691340.7799097105009766'
+              - value: transfered_delay
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465338888450.47918773013115035'
+              - value: new_urgent
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465339064440.7383808172020087'
+              - value: requested_urgent
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465339198380.9769915403898464'
+              - value: transfered_urgent
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465339404640.5977238591087295'
+              - value: rejected
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465339566100.0901603738553114'
+              - value: confirmed
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465339687950.9631792146321253'
+              - value: delivered
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465339861920.3476659063871703'
+            dataValue: '[]'
+            withData: false
+          primaryKey: false
+          filter: true
+          widthMode: fixed
+          width: 93
+          alignment: center
+          title: Final Delivery
+          forceView: true
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+        index: 4
+        slots: []
+      - id: '17613009040340.6673222389390492'
+        definitionId: atomicSelect
+        parentSlotId: '17613009040340.8278705583949207'
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect17
+          prop: emptyReturnState
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          options:
+            value:
+              - value: out_of_focus
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465340758300.88114737664017'
+              - value: caution
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465341001950.3122484098892305'
+              - value: urgend
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465341180800.5816805132922271'
+              - value: in_transit
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465341319870.029962528879437178'
+              - value: closed
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465341459610.8771502529802548'
+            dataValue: |-
+              [
+                {
+                  value: false,
+                  color: 'primary'
+                }
+              ]
+            withData: false
+          primaryKey: false
+          width: 116
+          widthMode: fixed
+          title: Empty Return
+          alignment: center
+          forceView: true
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+        index: 5
+        slots: []

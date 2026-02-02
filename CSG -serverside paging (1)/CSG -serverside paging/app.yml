@@ -1,0 +1,19 @@
+metadata:
+  favicon: ''
+  title: 'Consignee Aggregiert '
+  description: ''
+  breakpoints: []
+  rendererCachingEnabled: true
+  skipDepsComparisonInCompilerCache: false
+appSettings:
+  properties:
+    defaultData: ''
+  actions:
+    appData: []
+    pageLoad: []
+    appLoad: []
+  gridVersion: 2
+  density: compact
+  hideRenderCachingSettings: false
+internalType: project
+id: Lgk2au3miR

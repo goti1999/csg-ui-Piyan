@@ -19,9 +19,6 @@ const Index = () => {
               <h1 className="text-2xl font-bold text-foreground">Daily Tasks</h1>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-sm text-muted-foreground hidden sm:inline">
-                {user?.username}
-              </span>
               <Button variant="outline" size="sm" onClick={signOut} className="gap-2">
                 <LogOut className="h-4 w-4" />
                 Sign Out

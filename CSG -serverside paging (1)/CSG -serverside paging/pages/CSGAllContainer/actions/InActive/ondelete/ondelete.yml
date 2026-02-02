@@ -1,0 +1,61 @@
+id: '17442767595950.22423573092633342'
+kind: workflow
+name: ondelete
+nameConfigured: true
+steps:
+  - id: '17442767595950.45559547630836095'
+    type: DELETE_ENTITY
+    name: delete
+    params:
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: string
+      - type: resourceId
+        value: dbo.Transport_Dispo
+        valueType: string
+      - type: filter
+        value:
+          - column: transport_Dispo_ID
+            operation: '='
+            value:
+              value: '{{ui.form.reset(ui.form.value.transport_Dispo_ID)}}'
+        valueType: custom
+      - type: bulk
+        value: false
+        valueType: string
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+mode: manual
+modeConfigured: true
+parentPageId: '17442767595900.5825776314192999'
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.ondelete.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.ondelete.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.ondelete.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: false
+selected: true
+configured: true
+parentId: '17582093237610.23400680595443868'

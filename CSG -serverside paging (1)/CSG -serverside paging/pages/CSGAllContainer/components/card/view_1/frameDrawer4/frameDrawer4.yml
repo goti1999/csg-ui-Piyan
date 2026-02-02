@@ -1,0 +1,93 @@
+id: '17598421750760.25242919207924985'
+definitionId: frameDrawer
+parentSlotId: '17472344514140.7482282207402783'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 79
+      w: 5
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    buttonIconPlacement: left
+    modalSize:
+      widthValue: 400
+      widthUnit: px
+      heightValue: '100'
+      heightUnit: '%'
+      minWidthValue: 0
+      minWidthUnit: px
+      minHeightValue: 0
+      minHeightUnit: px
+      maxWidthValue: none
+      maxWidthUnit: null
+      maxHeightValue: none
+      maxHeightUnit: null
+  xs:
+    gridItem:
+      x: 0
+      y: 63
+      w: 24
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: frameDrawer4
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  buttonText: OnMulitEdit Form
+  buttonStatus:
+    value: primary
+    dataValue: primary
+    withData: false
+  buttonIcon:
+    value: edit-2
+    dataValue: star-outline
+    withData: false
+    themeDefaultOverridePropertyKey: starIcon
+  drawerAlignment: right
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: none
+      border: none
+  buttonAppearance:
+    value: filled
+    dataValue: filled
+    withData: false
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+actions: {}
+slots:
+  - id: '17598421750760.8769556798596563'
+    name: header
+    children:
+      - heading8.yml
+  - id: '17598421750760.8516659403210922'
+    name: body
+    children:
+      - MultiEditform.yml
+  - id: '17598421750760.15164014343845655'
+    name: footer
+    children: []

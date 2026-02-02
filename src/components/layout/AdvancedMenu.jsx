@@ -19,26 +19,21 @@ import {
   Upload,
   RefreshCw,
   Bell,
-  Moon,
-  Sun,
   Database,
   Zap,
   FileText,
-  History,
-  Users,
-  Lock,
   Eye,
-  Globe,
   LayoutGrid,
   BookOpen,
   User,
   Loader2,
+  LogOut,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '@/contexts/AppContext.jsx';
+import { useApp } from '@/contexts/useApp.js';
 import { useRef, useState } from 'react';
 
-export function AdvancedMenu({ username, onSignOut }) {
+export function AdvancedMenu({ onSignOut }) {
   const navigate = useNavigate();
   const { 
     settings, 
@@ -98,16 +93,13 @@ export function AdvancedMenu({ username, onSignOut }) {
         </SheetHeader>
 
         <div className="mt-6 space-y-6">
-          {/* User & Environment */}
+          {/* User & Environment (single admin only; no profile pic) */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <User className="h-4 w-4 text-muted-foreground" />
               <h3 className="font-semibold">{t('userEnvironment')}</h3>
             </div>
             <div className="space-y-2 pl-6">
-              <div className="text-sm text-muted-foreground">
-                {t('loggedInAs')}: <span className="font-medium text-foreground">{username}</span>
-              </div>
               <div className="text-sm text-muted-foreground">
                 {t('environment')}: <Badge variant="outline" className="ml-2">Production</Badge>
               </div>
@@ -240,7 +232,7 @@ export function AdvancedMenu({ username, onSignOut }) {
 
           <Separator />
 
-          {/* Quick Access */}
+          {/* Quick Access (frontend only; backend pages like System Logs, Users, Security, Audit, Profile are not linked here) */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <LayoutGrid className="h-4 w-4 text-muted-foreground" />
@@ -266,14 +258,6 @@ export function AdvancedMenu({ username, onSignOut }) {
               <Button 
                 variant="ghost" 
                 className="w-full justify-start gap-2"
-                onClick={() => navigate('/profile')}
-              >
-                <User className="h-4 w-4" />
-                {t('profile')}
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start gap-2"
                 onClick={() => navigate('/settings')}
               >
                 <Settings className="h-4 w-4" />
@@ -292,58 +276,6 @@ export function AdvancedMenu({ username, onSignOut }) {
 
           <Separator />
 
-          {/* System Tools */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Settings className="h-4 w-4 text-muted-foreground" />
-              <h3 className="font-semibold">{t('systemTools')}</h3>
-            </div>
-            <div className="space-y-2 pl-6">
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start gap-2"
-                onClick={() => navigate('/system-logs')}
-              >
-                <FileText className="h-4 w-4" />
-                {t('viewSystemLogs')}
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start gap-2"
-                onClick={clearCache}
-              >
-                <Zap className="h-4 w-4" />
-                {t('clearCache')}
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start gap-2"
-                onClick={() => navigate('/users')}
-              >
-                <Users className="h-4 w-4" />
-                {t('manageUsers')}
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start gap-2"
-                onClick={() => navigate('/security')}
-              >
-                <Lock className="h-4 w-4" />
-                {t('securitySettings')}
-              </Button>
-              <Button 
-                variant="ghost" 
-                className="w-full justify-start gap-2"
-                onClick={() => navigate('/audit')}
-              >
-                <History className="h-4 w-4" />
-                {t('auditTrail')}
-              </Button>
-            </div>
-          </div>
-
-          <Separator />
-
           {/* Sign Out */}
           <div className="space-y-2">
             <Button 
@@ -351,7 +283,7 @@ export function AdvancedMenu({ username, onSignOut }) {
               className="w-full gap-2"
               onClick={onSignOut}
             >
-              <User className="h-4 w-4" />
+              <LogOut className="h-4 w-4" />
               {t('signOut')}
             </Button>
           </div>

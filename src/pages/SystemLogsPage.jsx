@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input.jsx";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select.jsx";
 import { ScrollArea } from "@/components/ui/scroll-area.jsx";
 import { History, Search, Download, Trash2, RefreshCw, AlertCircle, CheckCircle2, Info, AlertTriangle } from "lucide-react";
-import { useApp } from "@/contexts/AppContext.jsx";
+import { useApp } from "@/contexts/useApp.js";
 import { useState, useMemo } from "react";
 
 export default function SystemLogsPage() {

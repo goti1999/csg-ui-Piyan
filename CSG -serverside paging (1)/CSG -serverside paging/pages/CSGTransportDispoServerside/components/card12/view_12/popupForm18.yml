@@ -1,0 +1,209 @@
+id: '17610447759830.9059848806115159'
+definitionId: popupForm
+styles:
+  xl:
+    gridItem:
+      x: 2
+      y: 61
+      w: 9
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    buttonIconPlacement: left
+  xs:
+    gridItem:
+      id: '17471309091090.7347857582762601'
+      x: 8
+      y: 9
+      w: 6
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicFields:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  entity: '{{ui.ontable.selectedRow.data}}'
+  name: popupForm18
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: Error Popup
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+  closeOnEsc: true
+  showSubmitBtn:
+    value: false
+    dataValue: 'true'
+    withData: false
+  buttonStatus:
+    value: primary
+    dataValue: primary
+    withData: false
+  buttonIcon:
+    value: archive
+    dataValue: star-outline
+    withData: false
+  __UIBAKERY__SHOW__CONDITION__CODE__: >
+    {{ ui.ontable.clickedRow.data.Condition === "error" ||
+    ui.ontable.clickedRow.data.Condition === "pending" }}
+  buttonText: Error Popup
+parentSlotId: '17610447759830.06746279255490062'
+index: 0
+actions:
+  popupClick: []
+  init: []
+  submitEvent: []
+  changeEvent: []
+  validate: []
+  customButtonClick: []
+  popupOpen: []
+  popupClose: []
+slots:
+  - id: '17610447759830.1340425250356515'
+    name: structure
+    children:
+      - id: '17610447759830.9701493492027617'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            color:
+              value: basic
+              dataValue: basic
+              withData: false
+            iconPlacement: left
+            labelColor:
+              value: basic
+              dataValue: basic
+              withData: false
+        properties:
+          name: atomicNumber132
+          prop: ContainerID
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          showCopyButton: true
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          icon:
+            value: archive
+            dataValue: star-outline
+            withData: false
+          labelConfig:
+            position: horizontal
+            align: left
+          labelWidth: 38
+          forceView: true
+        parentSlotId: '17610447759830.1340425250356515'
+        index: 0
+        slots: []
+      - id: '17610447759830.16600345138122863'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+            labelColor:
+              value: basic
+              dataValue: basic
+              withData: false
+            color:
+              value: danger-dark
+              dataValue: basic
+              withData: false
+            iconPlacement: left
+        properties:
+          name: atomicString419
+          prop: Type
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          labelConfig:
+            position: horizontal
+            align: left
+          labelWidth: 24
+          icon:
+            value: alert-triangle
+            dataValue: star-outline
+            withData: false
+          iconColor:
+            value: danger-dark
+            dataValue: text-color
+            withData: false
+          markdownSupport: false
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17610447759830.1340425250356515'
+        index: 1
+        actions: {}
+        slots: []
+      - id: '17610447759830.08476028199622809'
+        definitionId: atomicText
+        styles:
+          xl:
+            visible: true
+            labelColor:
+              value: basic
+              dataValue: basic
+              withData: false
+            color:
+              value: danger-dark
+              dataValue: basic
+              withData: false
+        properties:
+          name: atomicText14
+          prop: Text
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          labelConfig:
+            position: vertical
+            align: left
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          showCopyButton: true
+        parentSlotId: '17610447759830.1340425250356515'
+        index: 2
+        slots: []

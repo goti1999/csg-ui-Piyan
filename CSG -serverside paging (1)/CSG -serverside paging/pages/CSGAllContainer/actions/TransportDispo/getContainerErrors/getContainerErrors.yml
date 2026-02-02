@@ -1,0 +1,133 @@
+id: '17446356198750.4264813545130456'
+kind: workflow
+name: getContainerErrors
+nameConfigured: true
+steps:
+  - id: '17597541606150.23261065349906473'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable.clickedRow.data.CustomerID
+            )
+          - __UI_BAKERY__FORMAT_IF_DATE__( ui.ontable.clickedRow.data.MBL_ID )
+          - >-
+            __UI_BAKERY__FORMAT_IF_DATE__(
+            ui.ontable.clickedRow.data.ContainerID )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: false
+  - id: '17597537878500.6421960392665964'
+    type: customAsyncCode
+    name: code
+    params:
+      - type: asyncCode
+        value: ./code.js
+        valueType: interpolatedValue
+        interpolationType: code
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+  - id: '17446356217690.17643238146087503'
+    type: customSQLQuery
+    name: ErrorsQuery
+    params:
+      - type: query
+        value: ./ErrorsQuery-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: datasourceId
+        value: CW_Data_Test_DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: preparedQuery
+        value: ./ErrorsQuery-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.ContainerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.CustomerID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.MBL_ID )
+          - __UI_BAKERY__FORMAT_IF_DATE__( steps.code.data.ContainerID )
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: true
+    paused: true
+    nameConfigured: true
+mode: manual
+modeConfigured: false
+config:
+  shouldConfirm: false
+  confirmMessage: >-
+    Are you sure you'd like to proceed with
+    "{{actions.getContainerErrors.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.getContainerErrors.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: true
+  errorToast: Action "{{actions.getContainerErrors.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: false
+  preserveStateOnPageChange: false
+  autoTrigger: false
+  defaultParams: ''
+selected: true
+configured: true
+defaultParams: ''
+actions:
+  success: []
+  error: []
+parentId: '17598507778330.8496948286781465'
+parentPageId: '17442767595900.5825776314192999'

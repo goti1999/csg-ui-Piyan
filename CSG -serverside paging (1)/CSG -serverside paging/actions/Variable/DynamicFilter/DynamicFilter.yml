@@ -1,0 +1,17 @@
+id: '17598288939180.27498118477775113'
+kind: store_item
+name: DynamicFilter
+nameConfigured: true
+steps: []
+mode: manual
+modeConfigured: false
+storeItem:
+  value: 1=1
+  valueType: string
+  initialValue: 1=1
+  version: 1
+selected: false
+configured: true
+config:
+  preserveStateOnPageChange: true
+parentId: '17603437805180.30971559546049277'

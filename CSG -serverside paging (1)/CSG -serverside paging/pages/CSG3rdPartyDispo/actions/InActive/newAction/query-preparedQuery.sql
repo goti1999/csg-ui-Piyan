@@ -1,0 +1,1 @@
+SELECT  CA_Wert from dbo.C_A_Hilfstabelle WHERE Satzart = 'CTV'

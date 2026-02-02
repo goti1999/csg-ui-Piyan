@@ -1,0 +1,155 @@
+id: '17610447759830.12708992044384104'
+definitionId: popupForm
+styles:
+  xl:
+    gridItem:
+      x: 14
+      y: 110
+      w: 9
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+  xs:
+    gridItem:
+      x: 0
+      y: 27
+      w: 24
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicFields:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  entity: '{{actions.Senden_an_CundA_Auftrag.data}}'
+  name: ShowResultCundA6
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: C&A Auftrag
+  showSubmitBtn:
+    value: false
+    dataValue: 'true'
+    withData: false
+  submitOnEnter:
+    value: false
+    dataValue: 'true'
+    withData: false
+  showErrorMessage: true
+  showSuccessMessage: true
+  showCustomButton:
+    value: false
+    dataValue: 'false'
+    withData: false
+  customButtonText: OK
+  customButtonStatus:
+    value: success-dark
+    dataValue: basic
+    withData: false
+  buttonText: C&A Auftrag Popup
+  buttonHidden:
+    value: true
+    dataValue: 'false'
+    withData: false
+parentSlotId: '17610447759830.06746279255490062'
+index: 0
+actions: {}
+slots:
+  - id: '17610447759830.7362407427437588'
+    name: structure
+    children:
+      - id: '17610447759830.6812693467130863'
+        definitionId: atomicString
+        styles:
+          xl:
+            labelColor:
+              value: success
+              dataValue: basic
+              withData: false
+            visible: true
+        properties:
+          name: atomicString422
+          prop: Status
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17610447759830.7362407427437588'
+        index: 0
+        actions: {}
+        slots: []
+      - id: '17610447759830.9275890302027807'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+            labelColor:
+              value: success
+              dataValue: basic
+              withData: false
+        properties:
+          name: atomicDateTime164
+          prop: Timestamp
+          primaryKey: false
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+          textStyle:
+            transform: none
+            styles:
+              - bold
+        parentSlotId: '17610447759830.7362407427437588'
+        index: 1
+        slots: []
+      - id: '17610447759830.6935506996769274'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString423
+          prop: Status
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          forceView: true
+        parentSlotId: '17610447759830.7362407427437588'
+        index: 2
+        actions: {}
+        slots: []

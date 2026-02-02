@@ -1,0 +1,61 @@
+id: '17613007845960.5626377275156527'
+definitionId: button
+parentSlotId: '17613007845960.9103804804401971'
+styles:
+  xl:
+    gridItem:
+      id: '17473904265070.010687296908888921'
+      x: 18
+      y: 0
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    iconPlacement: right
+  xs:
+    gridItem:
+      id: '17473904265070.010687296908888921'
+      x: 18
+      y: 18
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: button31
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  text: C&A Auftrag
+  status:
+    value: info-dark
+    dataValue: primary
+    withData: false
+  icon:
+    value: clipboard
+    dataValue: star-outline
+    withData: false
+actions:
+  buttonClick:
+    - action: '17613007846040.1441002952406274'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+    - action: '17613007846040.21536300403719089'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 2
+  init: []
+slots: []

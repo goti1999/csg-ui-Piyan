@@ -1,0 +1,32 @@
+id: '17610447759800.41727548259855596'
+name: CSG Transport Dispo
+url: CSGTransportDispoServerside
+roleIds:
+  - admin
+  - editor
+  - user
+disableInMenu: false
+hideFromMenu: false
+parentPageId: ''
+icon: display_settings_material_filled
+slots:
+  - id: '17610447759800.4860491592007733'
+    name: content
+    children:
+      - id: '17610447759830.014985571341101456'
+        definitionId: grid
+        parentSlotId: '17610447759800.4860491592007733'
+        styles: {}
+        properties:
+          name: hermannsui3
+          pageTitle: '{{app.name}} - {{activeRoute.name}}'
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+        index: 0
+        slots:
+          - id: '17610447759830.7289511883411405'
+            name: content
+            children:
+              - components/card12/card12.yml
+              - components/card13/card13.yml

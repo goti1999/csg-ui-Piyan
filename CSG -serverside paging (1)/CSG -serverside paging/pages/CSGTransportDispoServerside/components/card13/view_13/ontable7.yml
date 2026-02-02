@@ -1,0 +1,1673 @@
+id: '17610447759830.3958007501584426'
+definitionId: smartTable
+parentSlotId: '17610447759830.09129328742254417'
+styles:
+  xl:
+    gridItem:
+      x: 0
+      y: 0
+      w: 24
+      h: 346
+    flex:
+      size:
+        widthValue: 500
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    addRowButtonIconPlacement: left
+  xs:
+    gridItem:
+      id: '17603422893230.30546816461657944'
+      x: 0
+      y: 0
+      w: 24
+      h: 141
+    flex:
+      size:
+        widthValue: 500
+        widthUnit: px
+        heightValue: 320
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  dynamicColumns:
+    value: []
+    dataValue: |-
+      [
+        {
+          "prop": "id",
+          "type": "number",
+          "primaryKey": true
+        },
+        "name",
+        {
+          "prop": "avatar",
+          "type": "image"
+        },
+        {
+          "prop": "email",
+          "type": "link"
+        }
+      ]
+    withData: false
+  data:
+    value: '{{state.TableContent}}'
+    dataValue: ''
+    withData: false
+  name: ontable7
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  title: ''
+  showLoading:
+    value: true
+    dataValue: '{{actions.Table2.loading}}'
+    withData: true
+  rowHeight: dynamic
+  showFilter:
+    value: true
+    dataValue: 'true'
+    withData: false
+  disableRowSelection:
+    value: false
+    dataValue: 'false'
+    withData: false
+  multiplyRowSelection:
+    value: true
+    dataValue: 'false'
+    withData: false
+  rowSelectionType:
+    value: checkbox
+    dataValue: |+
+      {{ row.isSelected ? '#D6ECFF' : 'white' }}
+
+    withData: false
+  triggerRowSelectOnInit:
+    value: false
+    dataValue: 'false'
+    withData: false
+  showAddAction:
+    value: false
+    dataValue: 'false'
+    withData: false
+  showEditAction:
+    value: false
+    dataValue: 'false'
+    withData: false
+  showDeleteAction:
+    value: false
+    dataValue: 'false'
+    withData: false
+  showBulkEditAction:
+    value: false
+    dataValue: 'false'
+    withData: false
+  showReloadAction:
+    value: true
+    dataValue: 'false'
+    withData: false
+  limit: '[30, 60, 90, 120, 200,300,500,1000]'
+  serverSidePagination: true
+  showAddButtonSettings:
+    value: false
+    dataValue: 'false'
+    withData: false
+  addRowButtonStatus:
+    value: warning
+    dataValue: primary
+    withData: false
+  addRowButtonText: Error
+  rowBackgroundColor: |
+    {{
+      (() => {
+        const selected = ui.ontable7.selectedRows;
+
+        // If nothing selected → apply normal logic
+        if (!Array.isArray(selected) || selected.length === 0) {
+          return (
+            row.statusOverAll === 'Check' ? 'white' :
+            row.statusOverAll === '!!!' ? '#e45841' :
+            row.Condition === 'error' || row.Condition === 'pending' ? '#ff8888' :
+            row.statusOverAll === '???' ? '#e8c465' :
+            'white'
+          );
+        }
+
+        // If current row is in selectedRows → return blue
+        for (let i = 0; i < selected.length; i++) {
+          if (selected[i].transport_Dispo_ID === row.transport_Dispo_ID) {
+            return '#04b1d7';
+          }
+        }
+
+        // Not selected → apply normal logic
+        return (
+          row.statusOverAll === 'Check' ? 'white' :
+          row.statusOverAll === '!!!' ? '#e45841' :
+          row.Condition === 'error' || row.Condition === 'pending' ? '#ff8888' :
+          row.statusOverAll === '???' ? '#e8c465' :
+          'white'
+        );
+      })()
+    }}
+  resetActivePageOnNewData: true
+  heightMode: fixed
+  newRowData: ''
+  containerStyles:
+    withData: false
+    dataValue: |-
+      {
+        padding: 'default',
+        shadow: 'default',
+        border: 'default'
+      }
+    value:
+      padding: default
+      shadow: none
+      border: none
+  enableUserColumnResize:
+    value: true
+    dataValue: 'false'
+    withData: false
+  totalRowConfig:
+    show: false
+    position: bottom
+    rowColor: primary-dark
+    textStyle:
+      - bold
+    textColor: success-light
+    updateWhenFiltering: true
+    themeDefaultOverridePropertyKey: smartTableTotalRowConfig
+  sortable:
+    value: true
+    dataValue: 'true'
+    withData: false
+  showFooter:
+    value: true
+    dataValue: 'true'
+    withData: false
+  margin:
+    value: false
+    dataValue: 4px
+    withData: false
+  totalRowCount: '{{state.TotalCount}}'
+  sortColumn:
+    value: TransmissionTimestamp
+    dataValue: '{{ ui.ontable7.sortColumn }}'
+    withData: true
+  resetPageOnFilterOrSortChange:
+    value: true
+    dataValue: 'true'
+    withData: false
+  addRowButtonIcon:
+    value: alert-triangle
+    dataValue: plus-outline
+    withData: false
+  __UIBAKERY__SHOW__CONDITION__CODE__: ''
+  sortDirection:
+    value: desc
+    dataValue: '{{ ui.ontable7.sortDirection }}'
+    withData: true
+  __UIBAKERY__SHOW__CONDITION__PRESERVE__:
+    value: false
+    dataValue: 'false'
+    withData: false
+  showExportAction:
+    value: true
+    dataValue: 'true'
+    withData: false
+  showClearSelection:
+    value: true
+    dataValue: |
+      true
+    withData: false
+  putEmptyValuesAtTheEnd: true
+  cssClasses:
+    value:
+      - ''
+    dataValue: "<style>\n  ub-smart-table nb-card,\n  ub-smart-table datatable-selection,\n  ub-smart-table .datatable-footer,\n  ub-smart-table ub-bulk-edit-buttons {\n    /* background colors of card, title and etc. */\n    background-color: beige;\n  }\n\n  ub-smart-table ub-smart-table-header-cell,\n  ub-smart-table ub-smart-table-header-data-cell,\n  ub-smart-table ub-smart-table-header-action-cell {\n    /* table header background-color (columns names, filters, row-add and etc) */\n    background-color: beige;\n  }\n  \n  ub-smart-table .datatable-body-row.active ub-smart-table-body-cell p,\n  ub-smart-table .datatable-body-row.active ub-smart-table-body-action-cell * {\n    /* table texts colors */\n    color: white !important;\n  }\n  \n  ub-smart-table nb-card,\n  ub-smart-table nb-card-header,\n  ub-smart-table .datatable-footer,\n  ub-smart-table ub-smart-table-header-data-cell,\n  ub-smart-table ub-smart-table-header-action-cell,\n  ub-smart-table ub-smart-table-body-cell,\n  ub-smart-table .datatable-body-cell.action-cell {\n    /* main border color */\n  \tborder-color: black !important; \n  }\n\n  ub-smart-table ub-smart-table-body-cell,\n  ub-smart-table ub-smart-table-body-action-cell {\n    /* default row background-color */\n    background-color: pink !important;\n  }\n\n  ub-smart-table .datatable-body-row.active ub-smart-table-body-cell,\n  ub-smart-table .datatable-body-row.active ub-smart-table-body-action-cell {\n    /* selected row background-color */\n    background-color: aquamarine !important;\n  }\n\n  ub-smart-table .datatable-body-row.active:hover ub-smart-table-body-cell,\n  ub-smart-table .datatable-body-row.active:hover ub-smart-table-body-action-cell {\n    /* selected-hovered row background-color */\n    background-color: skyblue !important; \n  }\n\n  ub-smart-table .datatable-body-row:hover ub-smart-table-body-cell,\n  ub-smart-table .datatable-body-row:hover ub-smart-table-body-action-cell {\n    /* hovered row background-color */\n    background-color: aqua !important;\n  }\n</style>"
+    withData: false
+  selectedRowIndex: '-1'
+  nextCursor: ''
+  hasNextPage: ''
+  multiColumnSort:
+    value: false
+    dataValue: 'false'
+    withData: false
+  multiColumnSortType:
+    value: always
+    dataValue: always
+    withData: false
+actions:
+  smartTableEdit: []
+  init:
+    - action: '17610447759850.3910125138948847'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 4
+  smartTableCreate: []
+  smartTableBulkEdit: []
+  smartTableDelete: []
+  smartTableRowSelect:
+    - action: '17610447759840.014720301446059736'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 5
+  smartTableRowClick: []
+  uiOnRowDoubleClick: []
+  smartTablePageSelect:
+    - action: '17610447759850.3910125138948847'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 3
+  uiOnPageSizeChange: []
+  smartTableFilterChange:
+    - action: '17610447759850.3910125138948847'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 1
+  smartTableSortChange:
+    - action: '17610447759850.3910125138948847'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 2
+  smartTableReload:
+    - action: '17610447759850.6624491273974804'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  uiOnCellChangeTrigger: []
+slots:
+  - id: '17610447759830.3133377950525581'
+    name: columns
+    children:
+      - id: '17610447759830.5739202220262821'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            color:
+              value: success-dark
+              dataValue: basic
+              withData: false
+            visible: false
+        properties:
+          name: atomicBoolean70
+          prop: to_Customer
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          filterVariation:
+            value: logical_equal
+            dataValue: equal
+            withData: false
+          disabled:
+            value: false
+            dataValue: 'false'
+            withData: false
+          inlineEditable:
+            value: true
+            dataValue: 'false'
+            withData: false
+          primaryKey: false
+          viewTooltipMode: overflow
+          inlineEditMode: onclick
+          inlineEditSubmitTriggers:
+            - change
+            - blur
+          display: icon
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          alignment: center
+          controlType:
+            value: checkbox
+            dataValue: checkbox
+            withData: false
+          viewTooltip: '{{onTableload}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 0
+        actions: {}
+        slots: []
+      - id: '17610447759830.007393176219579911'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            color:
+              value: success-dark
+              dataValue: basic
+              withData: false
+            visible: false
+        properties:
+          name: atomicBoolean71
+          prop: to_Transporter
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          inlineEditable:
+            value: true
+            dataValue: 'false'
+            withData: false
+          inlineEditMode: onclick
+          display: icon
+          inlineEditSubmitTriggers:
+            - blur
+            - change
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          alignment: center
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 1
+        slots: []
+      - id: '17610447759830.9806602485553967'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString426
+          prop: Container_No
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: '135'
+          widthMode: fixed
+          filter: true
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          alignment: left
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ContainerID_concat.replace(/\\n/g, ''\n'')}}'
+          iconColor:
+            value: text-color
+            dataValue: text-color
+            withData: true
+          placeholder: ''
+          fieldTooltip: ''
+          pinColumn: left
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 2
+        actions: {}
+        slots: []
+      - id: '17610447759830.54675715466183'
+        definitionId: atomicSelect
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect105
+          prop: statusOverAll
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: |-
+            {{
+            Object.entries(row.status)
+                .map(([key, value]) => `${key}: ${value}`)
+                .join('\n');
+            }}
+          options:
+            value:
+              - value: red
+                color: danger
+                __UIBAKERY__SYSTEM_ID__: '17470548907480.8692692028338795'
+                title: '!!!'
+              - value: yellow
+                color: warning
+                __UIBAKERY__SYSTEM_ID__: '17470548943120.20200674940198393'
+                title: '???'
+              - value: green
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17470548957100.1514932178353675'
+                title: Check
+              - value: empty
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17592422672090.04447429226277022'
+            dataValue: |-
+              [
+                {
+                  value: 'green',
+                  color: 'primary'
+                }
+              ]
+            withData: false
+          title: State
+          primaryKey: false
+          widthMode: fixed
+          width: 81
+          alignment: center
+          viewTooltipMode: custom
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          filterVariation:
+            value: includes
+            dataValue: equal
+            withData: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 4
+        actions:
+          tagClick:
+            - action: '17610447759850.2385690919239386'
+              paramCode: ''
+              blockPageLoad: false
+              preventDefault: false
+              index: 0
+        slots: []
+      - id: '17610447759830.6721914843079717'
+        definitionId: atomicButton
+        styles:
+          xl:
+            status:
+              value: info-dark
+              dataValue: primary
+              withData: false
+        properties:
+          name: atomicButton13
+          text: Edit
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          prop: Edit
+          title: Edit
+          widthMode: fixed
+          width: '80'
+          pinColumn: left
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 5
+        actions:
+          buttonClick:
+            - action: '17610447759850.27629071994516663'
+              paramCode: ''
+              blockPageLoad: false
+              preventDefault: false
+              index: 0
+        slots: []
+      - id: '17610447759830.3041440742973287'
+        definitionId: atomicSelect
+        styles: {}
+        properties:
+          name: atomicSelect106
+          prop: Status_Dispo
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.Status_Dispo_concat.replace(/\\n/g, ''\n'')}}'
+          mappedValue: ''
+          inlineEditable:
+            value: false
+            dataValue: 'false'
+            withData: false
+          title: Status Dispo
+          primaryKey: false
+          enableAdding: false
+          widthMode: fixed
+          width: 126
+          pinColumn: ''
+          alignment: center
+          viewTooltipMode: custom
+          options:
+            value:
+              - value: disposed
+                color: primary
+                __UIBAKERY__SYSTEM_ID__: '17586210745090.783066531843752'
+              - value: transport
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17586210745090.7700449399221614'
+              - value: transported
+                color: warning
+                __UIBAKERY__SYSTEM_ID__: '17586210745090.19284429961520955'
+              - value: dispose
+                color: danger
+                __UIBAKERY__SYSTEM_ID__: '17586210745090.035481094111048384'
+              - value: empty
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17592422740110.8969647210017468'
+            dataValue: |-
+              [
+                {
+                  value: 'disposed',
+                  color: 'primary'
+                },
+                {
+                  value: 'transport',
+                  color: 'success'
+                },
+                {
+                  value: 'transported',
+                  color: 'warning'
+                },
+                {
+                  value: 'dispose',
+                  color: 'danger'
+                }
+              ]
+            withData: false
+          appearance:
+            value: outline
+            dataValue: ''
+            withData: true
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 6
+        actions: {}
+        slots: []
+      - id: '17610447759830.5670509864047479'
+        definitionId: atomicSelect
+        styles:
+          xl: {}
+        properties:
+          name: atomicSelect107
+          prop: Status_Transport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          options:
+            value:
+              - value: transportAssignment
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17491378489470.46957340324550123'
+              - value: transportAssignmentCancellation
+                color: danger
+                __UIBAKERY__SYSTEM_ID__: '17491378489470.11424918557699726'
+              - value: empty
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17592422784580.4687658781658104'
+            dataValue: |-
+              [
+                {
+                  value: 'transportAssignment',
+                  color: 'primary'
+                },
+                {
+                  value: 'transportAssignmentCancellation',
+                  color: 'success'
+                }
+              ]
+            withData: false
+          width: 193
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+          title: Status Transport
+          alignment: center
+          widthMode: fixed
+          viewTooltipMode: custom
+          viewTooltip: ''
+          mappedValue: ''
+          mappedColor: ''
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 7
+        actions: {}
+        slots: []
+      - id: '17610447759830.16543554826006013'
+        definitionId: atomicSelect
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect108
+          prop: Condition
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          options:
+            value:
+              - value: pending
+                color: warning-dark
+                __UIBAKERY__SYSTEM_ID__: '17465342915370.07418334075026434'
+              - value: ok
+                color: success-dark
+                __UIBAKERY__SYSTEM_ID__: '17465342947620.8995016944268364'
+              - value: error
+                color: danger-dark
+                __UIBAKERY__SYSTEM_ID__: '17465343032130.2523008220797487'
+              - value: empty
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17592400271130.3304272036766057'
+            dataValue: |-
+              [
+                {
+                  value: 'pending',
+                  color: 'primary'
+                }
+              ]
+            withData: false
+          appearance:
+            value: filled
+            dataValue: outline
+            withData: false
+          alignment: center
+          __UIBAKERY__SHOW__CONDITION__CODE__: ''
+          filterVariation:
+            value: equal
+            dataValue: equal
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Condition_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 8
+        actions:
+          tagClick:
+            - action: '17610447759850.3031499315214683'
+              paramCode: |-
+                {
+                  type: 'new'
+                }
+              blockPageLoad: false
+              preventDefault: false
+              index: 0
+        slots: []
+      - id: '17610447759830.8584317419186539'
+        definitionId: atomicString
+        styles:
+          xl: {}
+        properties:
+          name: atomicString427
+          prop: MBL_No
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: true
+          inlineEditable:
+            value: false
+            dataValue: 'false'
+            withData: false
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          forceView: true
+          alignment: center
+          width: 168
+          widthMode: fixed
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.MBL_ID_concat.replace(/\\n/g, ''\n'')}}'
+          fieldTooltip: ''
+          placeholder: ''
+          maskErrorMessage: ''
+          showCopyButton: false
+          title: MBL No
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 9
+        actions: {}
+        slots: []
+      - id: '17610447759830.9134312981278746'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime165
+          prop: TransmissionTimestamp
+          primaryKey: true
+          timeFormat:
+            value: HH:mm:ss
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 176
+          widthMode: fixed
+          viewTooltipMode: custom
+          viewTooltip: '{{ row.TransmissionTimestamp_concat.replace(/\\n/g, ''\n'') }}'
+          title: TransmissionTimestamp
+          timezone: '+0000'
+          filterVariation:
+            value: includes
+            dataValue: includes
+            withData: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 10
+        actions: {}
+        slots: []
+      - id: '17610447759830.022109415259163767'
+        definitionId: atomicSelect
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicSelect109
+          prop: ContainerSize
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          viewTooltip: '{{row.ContainerSize_concat.replace(/\\n/g, ''\n'')}}'
+          forceView: true
+          primaryKey: false
+          alignment: center
+          viewTooltipMode: custom
+          options:
+            value:
+              - value: '20'
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17588197405450.49494048964226134'
+              - value: '40'
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17588197429960.6524346979009441'
+              - value: 40hc
+                color: primary
+                __UIBAKERY__SYSTEM_ID__: '17588197405450.9321536009761325'
+              - value: empty
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17592422904430.6158931747176671'
+            dataValue: |-
+              [
+                {
+                  value: '40hc',
+                  color: 'primary'
+                },
+                {
+                  value: '20',
+                  color: 'success'
+                }
+              ]
+            withData: false
+          appearance:
+            value: outline
+            dataValue: ''
+            withData: true
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 11
+        actions: {}
+        slots: []
+      - id: '17610447759830.6792073555382876'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString428
+          prop: Carrier
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 92
+          widthMode: fixed
+          filter: true
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Carrier_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 12
+        actions: {}
+        slots: []
+      - id: '17610447759830.5741392647376001'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString429
+          prop: Vessel
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          width: 162
+          widthMode: fixed
+          filter: true
+          inlineEditable:
+            value: false
+            dataValue: 'false'
+            withData: false
+          filterVariation:
+            value: includes
+            dataValue: includes
+            withData: false
+          inlineEditMode: onclick
+          inlineEditSubmitTriggers:
+            - enter
+          pinColumn: ''
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Vessel_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 13
+        actions: {}
+        slots: []
+      - id: '17610447759830.9562622065855406'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 18
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+        properties:
+          name: atomicBoolean72
+          prop: AdvertFlag
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+          width: 101
+          widthMode: fixed
+          viewTooltipMode: custom
+          viewTooltip: '{{row.AdvertFlag_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 14
+        actions: {}
+        slots: []
+      - id: '17610447759830.23177377757911077'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            visible: true
+            fontSize:
+              customValue: 18
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+        properties:
+          name: atomicBoolean73
+          prop: RealAdvertFlag
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          display: icon
+          viewTooltipMode: custom
+          viewTooltip: '{{row.RealAdvertFlag_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 15
+        slots: []
+      - id: '17610447759830.4723215957390714'
+        definitionId: atomicDateTime
+        styles:
+          xl: {}
+        properties:
+          name: atomicDateTime166
+          prop: EarliestAdvertDate
+          primaryKey: false
+          timeFormat:
+            value: ''
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 115
+          widthMode: fixed
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.EarliestAdvertDate_concat.replace(/\\n/g, ''\n'')}}'
+          alignment: center
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 16
+        actions: {}
+        slots: []
+      - id: '17610447759830.09506599414732353'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime167
+          prop: ETA_PortOfDischarge
+          primaryKey: false
+          timeFormat:
+            value: ''
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          widthMode: fixed
+          width: 138
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_PortOfDischarge_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA PortOfDischarge
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 17
+        actions: {}
+        slots: []
+      - id: '17610447759830.9975028782505911'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString430
+          prop: Broker
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          forceView: true
+          required:
+            value: true
+            dataValue: 'false'
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Broker_concat.replace(/\\n/g, ''\n'')}}'
+          alignment: center
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 18
+        slots: []
+      - id: '17610447759830.22748361398096173'
+        definitionId: atomicBoolean
+        styles:
+          xl:
+            fontSize:
+              customValue: 18
+              customUnit: px
+              themeDefaultOverridePropertyKey: baseTextFontSize
+        properties:
+          name: atomicBoolean74
+          prop: Direct_Truck
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          title: Direkt Truck
+          display: icon
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Direct_Truck_concat.replace(/\\n/g, ''\n'')}}'
+          filterVariation:
+            value: logical_equal
+            dataValue: logical_equal
+            withData: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 19
+        slots: []
+      - id: '17610447759830.978205471786696'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime168
+          prop: ATA_Seaport
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ATA_Seaport_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 20
+        actions: {}
+        slots: []
+      - id: '17610447759830.17505001115115726'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString431
+          prop: PortOfDischarge_UNLOCO
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          title: PortOfDischarge
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.PortOfDischarge_UNLOCO_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 21
+        slots: []
+      - id: '17610447759830.5528127379929392'
+        definitionId: atomicString
+        styles:
+          xl: {}
+        properties:
+          name: atomicString432
+          prop: Terminal_PortOfDischarge
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          title: Terminal_PortOfDischarge
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 163
+          widthMode: fixed
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Terminal_PortOfDischarge_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 22
+        actions: {}
+        slots: []
+      - id: '17610447759830.5421109402426061'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString433
+          prop: Pincode
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Pincode_concat.replace(/\\n/g, ''\n'')}}'
+          width: 134
+          widthMode: fixed
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 23
+        actions: {}
+        slots: []
+      - id: '17610447759830.6088766588904828'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime169
+          prop: ATD_Pickup_PortOfDischarge
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          width: 171
+          widthMode: fixed
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          timezone: '+0000'
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ATD_Pickup_PortOfDischarge_concat.replace(/\\n/g, ''\n'')}}'
+          title: ATD Pickup PortOfDischarge
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 24
+        actions: {}
+        slots: []
+      - id: '17610447759830.8810021805435052'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime170
+          prop: ETA_Terminal_Inland
+          primaryKey: false
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          filter: true
+          widthMode: fixed
+          width: 145
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          timezone: '+0000'
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_Terminal_Inland_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA Terminal Inland
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 25
+        actions: {}
+        slots: []
+      - id: '17610447759830.4479423803175837'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime171
+          prop: ATA_Terminal_Inland
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+          filter: true
+          widthMode: fixed
+          width: 131
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          timezone: '+0000'
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ATA_Terminal_Inland_concat.replace(/\\n/g, ''\n'')}}'
+          title: ATA Terminal Inland
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 26
+        actions: {}
+        slots: []
+      - id: '17610447759830.16335269573792055'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime172
+          prop: ETA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          primaryKey: false
+          widthMode: fixed
+          width: 137
+          timeFormat:
+            value: HH:mm
+            dataValue: HH:mm
+            withData: false
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          firstDayOfWeek:
+            value: monday
+            dataValue: sunday
+            withData: false
+          alignment: center
+          timezone: '+0000'
+          viewTooltipMode: custom
+          viewTooltip: '{{row.ETA_DeliveryAddress_concat.replace(/\\n/g, ''\n'')}}'
+          title: ETA DeliveryAddress
+          filterVariation:
+            value: includes
+            dataValue: includes
+            withData: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 27
+        actions: {}
+        slots: []
+      - id: '17610447759830.9427384930500261'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime173
+          prop: ATA_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          title: ATA DeliveryAddress
+          primaryKey: false
+          widthMode: fixed
+          width: 154
+          alignment: center
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          timezone: '+0000'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 28
+        actions: {}
+        slots: []
+      - id: '17610447759830.6163190925750458'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString434
+          prop: Terminal_Inland_Vorgabe_NTL
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          filter: true
+          widthMode: fixed
+          width: 170
+          alignment: center
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Terminal_Inland_Vorgabe_NTL_concat.replace(/\\n/g, ''\n'')}}'
+          title: Terminal Inland Vorgabe NTL
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 29
+        actions: {}
+        slots: []
+      - id: '17610447759830.27561070496088214'
+        definitionId: atomicString
+        styles: {}
+        properties:
+          name: atomicString435
+          prop: DeliveryAddress
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.DeliveryAddress_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 30
+        slots: []
+      - id: '17610447759830.25736696770009615'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString436
+          prop: DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          viewTooltipMode: custom
+          viewTooltip: '{{row.DropOff_Terminal_concat.replace(/\\n/g, ''\n'')}}'
+          width: 284
+          widthMode: fixed
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 31
+        actions: {}
+        slots: []
+      - id: '17610447759830.5093089961714113'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicString437
+          prop: DropOff_Terminal_TIR
+          primaryKey: false
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.DropOff_Terminal_TIR_concat.replace(/\\n/g, ''\n'')}}'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          title: DropOff Terminal TIR
+          widthMode: fixed
+          width: 142
+          alignment: center
+          viewTooltipMode: overflow
+          filterVariation:
+            value: includes
+            dataValue: includes
+            withData: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 32
+        slots: []
+      - id: '17610447759830.14305316243483945'
+        definitionId: atomicDateTime
+        styles:
+          xl:
+            visible: true
+        properties:
+          name: atomicDateTime174
+          prop: ATA_DropOff_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.ATA_DropOff_Terminal_concat.replace(/\\n/g, ''\n'')}}'
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          widthMode: fixed
+          width: 126
+          alignment: center
+          viewTooltipMode: custom
+          dateFormat:
+            value: dd.MM.yyyy
+            dataValue: MMM dd, yyyy
+            withData: false
+          title: ATA DropOff Terminal
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 33
+        actions: {}
+        slots: []
+      - id: '17610447759830.9808811386581555'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber135
+          prop: Transport_Mode_final_DeliveryAddress
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          primaryKey: false
+          widthMode: fixed
+          width: 218
+          alignment: center
+          viewTooltipMode: custom
+          viewTooltip: >-
+            {{row.Transport_Mode_final_DeliveryAddress_concat.replace(/\\n/g,
+            '\n')}}
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 34
+        actions: {}
+        slots: []
+      - id: '17610447759830.36907118651876325'
+        definitionId: atomicNumber
+        styles: {}
+        properties:
+          name: atomicNumber136
+          prop: Transport_Mode_Terminal
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          primaryKey: false
+          widthMode: fixed
+          width: 144
+          alignment: center
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Transport_Mode_Terminal_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 35
+        actions: {}
+        slots: []
+      - id: '17610447759830.6512352363187037'
+        definitionId: atomicSelect
+        styles: {}
+        properties:
+          name: atomicSelect110
+          prop: Terminal_Inland_CundA
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          viewTooltip: '{{row.Terminal_Inland_CundA_concat.replace(/\\n/g, ''\n'')}}'
+          title: Terminal Inland CundA
+          widthMode: fixed
+          width: 153
+          alignment: center
+          viewTooltipMode: custom
+          options:
+            value:
+              - value: '441'
+                color: warning
+                __UIBAKERY__SYSTEM_ID__: '17588215864640.21167611811359222'
+              - value: '446'
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17588216133200.010378118114083401'
+              - value: '447'
+                color: primary
+                __UIBAKERY__SYSTEM_ID__: '17588215864640.33911219124831227'
+              - value: '452'
+                color: success
+                __UIBAKERY__SYSTEM_ID__: '17588215864640.6042823273636131'
+              - value: empty
+                color: basic
+                __UIBAKERY__SYSTEM_ID__: '17592423078490.2485676372847656'
+            dataValue: |-
+              [
+                {
+                  value: '447',
+                  color: 'primary'
+                },
+                {
+                  value: '452',
+                  color: 'success'
+                },
+                {
+                  value: '441',
+                  color: 'warning'
+                }
+              ]
+            withData: false
+          appearance:
+            value: outline
+            dataValue: ''
+            withData: true
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 36
+        actions: {}
+        slots: []
+      - id: '17610447759830.07347503578219283'
+        definitionId: atomicString
+        styles:
+          xl: {}
+        properties:
+          name: atomicString438
+          prop: Terminal_Inland_CTV
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+          alignment: center
+          textStyle:
+            transform: none
+            styles:
+              - bold
+          width: 121
+          widthMode: fixed
+          title: Terminal Inland CTV
+          viewTooltipMode: custom
+          viewTooltip: '{{row.Terminal_Inland_CTV_concat.replace(/\\n/g, ''\n'')}}'
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 37
+        actions: {}
+        slots: []
+      - id: '17610447759830.21240264274871057'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString439
+          prop: CustomerID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: false
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 38
+        actions: {}
+        slots: []
+      - id: '17610447759830.2161066625223067'
+        definitionId: atomicString
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicString440
+          prop: MBL_ID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: true
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 39
+        actions: {}
+        slots: []
+      - id: '17610447759830.28651634250834335'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber137
+          prop: transport_Dispo_ID
+          primaryKey: true
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          alignment: center
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 40
+        slots: []
+      - id: '17610447759830.9972290402542869'
+        definitionId: atomicNumber
+        styles:
+          xl:
+            visible: false
+        properties:
+          name: atomicNumber138
+          prop: ContainerID
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          primaryKey: true
+        parentSlotId: '17610447759830.3133377950525581'
+        index: 41
+        actions: {}
+        slots: []
+      - id: '17610447759830.8430046298821622'
+        definitionId: atomicButton
+        parentSlotId: '17610447759830.3133377950525581'
+        styles:
+          xl:
+            status:
+              value: basic
+              dataValue: primary
+              withData: false
+        properties:
+          name: atomicButton14
+          text: History
+          __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+            - xl
+            - xs
+          prop: History
+          title: 'History '
+          alignment: center
+        actions:
+          buttonClick:
+            - action: '17610447759840.6311254641305287'
+              paramCode: ''
+              blockPageLoad: false
+              preventDefault: false
+              index: 0
+        index: 3
+        slots: []

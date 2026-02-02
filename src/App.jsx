@@ -21,7 +21,16 @@ import SystemLogsPage from "./pages/SystemLogsPage.jsx";
 import UsersPage from "./pages/UsersPage.jsx";
 import SecuritySettingsPage from "./pages/SecuritySettingsPage.jsx";
 import AuditTrailPage from "./pages/AuditTrailPage.jsx";
-import { datasets } from "./data/logistics.js";
+import ContainersTablePage from "./pages/ContainersTablePage.jsx";
+import DefaultDashboard from "./pages/dashboard/DefaultDashboard.jsx";
+import AnalyticsDashboard from "./pages/dashboard/AnalyticsDashboard.jsx";
+import CRMDashboard from "./pages/dashboard/CRMDashboard.jsx";
+import EcommerceDashboard from "./pages/dashboard/EcommerceDashboard.jsx";
+import LMSDashboard from "./pages/dashboard/LMSDashboard.jsx";
+import ManagementDashboard from "./pages/dashboard/ManagementDashboard.jsx";
+import SaaSDashboard from "./pages/dashboard/SaaSDashboard.jsx";
+import SupportDeskDashboard from "./pages/dashboard/SupportDeskDashboard.jsx";
+import { datasets, containers } from "@/data/index.js";
 
 // Check if builder mode is enabled (dev only)
 const isBuilderEnabled = import.meta.env.VITE_BUILDER_MODE === 'true' && import.meta.env.DEV;
@@ -65,11 +74,18 @@ function AuthRoute({ children }) {
 }
 
 const dashboardPages = [
-  { path: "/", title: "Logistics Daily Dashboard", subtitle: "Real-time overview of your operations" },
+  { path: "/", title: "Default Dashboard", subtitle: "Main logistics overview", component: DefaultDashboard },
+  { path: "/analytics", title: "Analytics Dashboard", subtitle: "Data analytics and insights", component: AnalyticsDashboard },
+  { path: "/crm", title: "CRM Dashboard", subtitle: "Customer relationship management", component: CRMDashboard },
+  { path: "/ecommerce", title: "E-commerce Dashboard", subtitle: "Sales and products", component: EcommerceDashboard },
+  { path: "/lms", title: "LMS Dashboard", subtitle: "Learning management system", component: LMSDashboard },
+  { path: "/management", title: "Management Dashboard", subtitle: "Operations management", component: ManagementDashboard },
+  { path: "/saas", title: "SaaS Dashboard", subtitle: "Software-as-a-service metrics", component: SaaSDashboard },
+  { path: "/support-desk", title: "Support Desk Dashboard", subtitle: "Customer support tickets", component: SupportDeskDashboard },
   { path: "/operations", title: "Operations Command", subtitle: "Monitor lanes, loads, and SLAs", dataset: datasets.operations },
   { path: "/fleet", title: "Control", subtitle: "Vehicles, drivers, compliance, and uptime", dataset: datasets.fleet },
   { path: "/warehouses", title: "Warehousing", subtitle: "Inventory, receiving, put-away, and pick/pack", dataset: datasets.warehouses },
-  { path: "/analytics", title: "Analytics", subtitle: "KPIs, trends, and performance benchmarks", dataset: datasets.analytics },
+  { path: "/containers", title: "Containers", subtitle: "Container & shipment tracking (from @/data)", dataset: containers },
   { path: "/reports", title: "Executive Reports", subtitle: "Exports, summaries, and scheduled briefs", dataset: datasets.reports },
 ];
 
@@ -102,6 +118,10 @@ const AppRoutes = () => (
           element={
             page.path === "/reports" ? (
               <ReportsPage />
+            ) : page.path === "/containers" ? (
+              <ContainersTablePage />
+            ) : page.component ? (
+              <page.component />
             ) : page.dataset ? (
               <TablePage title={page.title} subtitle={page.subtitle} rows={page.dataset} />
             ) : (

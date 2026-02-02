@@ -1,0 +1,57 @@
+id: '17610449306580.005480653712852557'
+definitionId: button
+parentSlotId: '17610449306580.6701269149861495'
+styles:
+  xl:
+    gridItem:
+      id: '17603526189920.3207170446424419'
+      x: 22
+      y: 0
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+    iconPlacement: left
+  xs:
+    gridItem:
+      id: '17603526189920.3207170446424419'
+      x: 22
+      y: 9
+      w: 2
+      h: 9
+    flex:
+      size:
+        widthValue: auto
+        heightValue: 36
+        heightUnit: px
+      grow: '0'
+      shrink: '0'
+properties:
+  name: button19
+  __UIBAKERY__RESPONSIVE__SHOW__CONDITION__CODE__:
+    - xl
+    - xs
+  text: Excel
+  status:
+    value: danger
+    dataValue: primary
+    withData: false
+  icon:
+    value: download
+    dataValue: star-outline
+    withData: false
+    themeDefaultOverridePropertyKey: starIcon
+actions:
+  buttonClick:
+    - action: '17610449306600.20055595520893787'
+      paramCode: ''
+      blockPageLoad: false
+      preventDefault: false
+      index: 0
+  init: []
+slots: []
